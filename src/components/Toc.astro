@@ -1,0 +1,87 @@
+---
+interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<details class="toc-mobile group mb-12 rounded-lg border border-hairline bg-paper-raised lg:hidden">
+  <summary
+    class="cursor-pointer list-none px-5 py-4 text-xs uppercase tracking-wide text-ink-muted [&::-webkit-details-marker]:hidden"
+  >
+    On this page
+    <span class="float-right transition-transform group-open:rotate-180">&darr;</span>
+  </summary>
+  <ul class="space-y-1 px-5 pb-5">
+    {
+      items.map((item) => (
+        <li>
+          <a
+            href={`#${item.id}`}
+            class="block py-1 text-sm text-ink-muted no-underline hover:text-accent"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<nav aria-label="On this page" class="toc-desktop hidden lg:col-start-2 lg:row-start-1 lg:block">
+  <div class="sticky top-12">
+    <p class="text-xs uppercase tracking-wide text-ink-muted">On this page</p>
+    <ul class="mt-4 space-y-1">
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={`#${item.id}`}
+              data-toc-target={item.id}
+              class="toc-link block border-l-2 border-hairline py-1 pl-4 text-sm text-ink-muted no-underline transition-colors hover:border-ink-muted hover:text-ink"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const links = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>('.toc-desktop [data-toc-target]'),
+  );
+  const sections = links
+    .map((link) => document.getElementById(link.dataset.tocTarget ?? ''))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (sections.length && links.length) {
+    const setActive = (id: string) => {
+      for (const link of links) {
+        const isActive = link.dataset.tocTarget === id;
+        link.classList.toggle('text-accent', isActive);
+        link.classList.toggle('border-accent', isActive);
+        link.classList.toggle('text-ink-muted', !isActive);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: '-10% 0px -70% 0px', threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+</script>

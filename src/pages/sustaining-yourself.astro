@@ -1,20 +1,600 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Toc from '../components/Toc.astro';
 
 const entry = await getEntry('sustainability', 'sustainability');
 if (!entry) throw new Error('Missing sustainability entry');
-const { Content } = await render(entry);
+
+const tocItems = [
+  { id: 'four-fatigues', label: 'Four kinds of fatigue' },
+  { id: 'warning-signs', label: 'Warning signs' },
+  { id: 'taking-on-too-much', label: 'Taking on too much' },
+  { id: 'completion-problem', label: 'The completion problem' },
+  { id: 'loneliness', label: 'The loneliness chapter' },
+  { id: 'rituals', label: 'Rituals for a hard week' },
+  { id: 'permission-slips', label: 'Permission slips' },
+  { id: 'the-body', label: 'The body' },
+  { id: 'identity', label: 'Identity outside the role' },
+];
+
+const fatigues = [
+  {
+    title: 'Cognitive fatigue',
+    body: 'Context switching, decisions, holding many threads.',
+    recovers: 'Focus, single-tasking, sleep.',
+  },
+  {
+    title: 'Emotional fatigue',
+    body: "Holding others' feelings, hard conversations, absorbing team stress. This is my most likely form of fatigue and my least visible — it doesn't look like tiredness, it looks like reduced patience, dulled empathy, and a slow flattening of affect.",
+    recovers: "Real disconnection from other people's inner lives — not more meetings with different people.",
+  },
+  {
+    title: 'Social fatigue',
+    body: 'Being "on" with people, even people I like. Its own thing, distinct from emotional fatigue.',
+    recovers: 'Solitude, not entertainment.',
+  },
+  {
+    title: 'Physical fatigue',
+    body: 'Sleep, movement, food. The base layer. When this is broken, nothing else works.',
+    recovers: 'Rest, movement, food — the basics, actually done.',
+  },
+];
+
+interface Tier {
+  title: string;
+  subtitle: string;
+  items: string[];
+  style: 'observed' | 'self-aware' | 'structural';
+}
+
+const tiers: Tier[] = [
+  {
+    title: "Signs that don't require me to notice",
+    subtitle: 'Things others can see, or things I can measure without introspection',
+    style: 'observed',
+    items: [
+      'The person I trust most (partner, friend, mentor) tells me I seem off. This is the most reliable signal I have. It bypasses my self-deception.',
+      'My sleep drops noticeably below normal for more than a week.',
+      "I've canceled or rescheduled 1:1s more than once with the same person.",
+      'I\'ve said "I\'ll get to it" about the same personal thing (workout, doctor, that call) for more than two weeks.',
+      "My camera is off in meetings where it usually isn't.",
+      "I'm eating lunch at my desk every day.",
+    ],
+  },
+  {
+    title: 'Signs I might catch if I look for them',
+    subtitle: 'Softer, requiring some self-awareness, but worth checking',
+    style: 'self-aware',
+    items: [
+      'Dread before 1:1s I used to look forward to.',
+      'Cynicism in how I describe my team or the company — even to myself, especially in my head on the commute.',
+      'Reduced patience at home. Home is usually the earliest warning system.',
+      'The thought that someone\'s problem is "too much right now."',
+      "Losing warmth. If I'm going through the motions of care without the feeling, that's the alarm. The care is the whole point.",
+    ],
+  },
+  {
+    title: 'Structural checks I can build in',
+    subtitle: "Because I won't do this on my own reliably",
+    style: 'structural',
+    items: [
+      'One person outside work who has explicit permission to say "you\'re doing the thing." Renew that permission out loud once a year.',
+      'A quarterly calendar block called something honest ("How am I actually doing"). One hour. Re-read this document. Write one paragraph in field notes.',
+      'A trusted peer manager I check in with monthly, and who I\'ve told: "If you notice me drifting, tell me."',
+    ],
+  },
+];
+
+const yesReflex = [
+  '"Let me check my week and get back to you today" is a complete response to almost any ask.',
+  '24-hour rule for any non-urgent commitment. Sleep on it.',
+  'Ask: what would I have to say no to (implicitly) in order to say yes to this?',
+];
+
+const commitmentInventory = [
+  'What can I hand off?',
+  'What did I inherit that no one would notice if I dropped?',
+  'What am I doing that I should be coaching someone else through instead?',
+  'What am I saying yes to out of guilt, not value?',
+];
+
+const disappointingPeople = [
+  'I can disappoint someone and still respect them.',
+  'I can say no and still care.',
+  'The people who matter will respect a clear no more than a resentful yes.',
+  'A no now is often kinder than a yes that turns into a miss later.',
+];
+
+const completionCosts = [
+  "Unfinished commitments to people accumulate as invisible weight. The person waiting for the thing I said I'd do carries it even when I've forgotten.",
+  "The team learns whether I finish. If I don't, they stop trusting my starts. And starting things is one of my strengths — so this specifically undermines a strength.",
+  'I chase the discovery energy into more new things, which is a burnout accelerant. I never come to rest at completion.',
+  'I miss the particular satisfaction of finishing, which is different from the excitement of starting and which I need for the long haul.',
+];
+
+const completionBuild = [
+  "Distinguish work I should finish from work I should hand off. Not everything I start needs to end with me. But a transfer has to be deliberate — a real handoff, not a quiet abandonment.",
+  'Public commitments for the last 20%. If I\'ve told someone specific what "done" looks like and when, I finish more often. Accountability I chose, not accountability that shames me.',
+  'A "finish something" ritual. One thing per month I explicitly close out. Deleted, shipped, archived, handed off. Something.',
+  "Notice the itch to start something new. When it hits, ask: am I feeling this because there's a real opportunity, or because I'm avoiding the last 20% of something else?",
+];
+
+const lonelinessHelps = [
+  'A peer group of other managers, ideally outside my company. People who know the specific weirdness. A monthly call, a text thread, a beer — whatever fits.',
+  'A mentor or coach, formal or informal. Someone who has been where I\'m going.',
+  "A friend who knew me before this title. Someone who does not care what I'm shipping.",
+  "A therapist, if I can afford it. Or equivalent. Not because I'm broken — because talking to someone whose job is to listen is qualitatively different from any other conversation I have.",
+];
+
+const lonelinessDoesntHelp = [
+  "Making my direct reports my emotional support. They can't be. It's not fair to them and it corrodes the working relationship.",
+  'Making my partner absorb all of it. They are one person, not a network.',
+  'Broadcasting on social media. This looks like connection and isn\'t.',
+];
+
+const ritualFloor = [
+  'Sleep. Non-negotiable. Even if the work suffers. Especially if the work suffers.',
+  'One walk outside per day, no phone. Ten minutes counts.',
+  'One real meal with people I love. Even short.',
+  "One thing I do that isn't work and isn't recovery from work. Something I'd do for its own sake. Reading, playing, making something. A signal to myself that I still exist outside the role.",
+];
+
+const permissionSlips = [
+  'I have permission to not be okay.',
+  'I have permission to be unavailable. Phone off, status set, messages unread until tomorrow.',
+  'I have permission to disappoint someone. Even someone I care about. Even more than once.',
+  'I have permission to say no. Without a long explanation. Without earning it.',
+  "I have permission to leave a meeting that isn't a good use of my time.",
+  'I have permission to take a day when I need it.',
+  "I have permission to be mediocre at things that don't matter this week.",
+  'I have permission to leave this job. I chose it; I can un-choose it. Knowing this makes me a better version of myself in it.',
+];
+
+const bodyItems = [
+  { lead: 'Sleep', body: 'is the highest-leverage input. Nothing else works when this breaks. Protect it like a critical system.' },
+  { lead: 'Movement', body: 'every day, even small. The gym is nice; a walk is enough.' },
+  { lead: 'Food', body: "that isn't just fuel between meetings. Eat like the person eating actually matters." },
+  { lead: 'Time outside.', body: 'Real outside, not the commute.' },
+];
+
+const identityQuestions = [
+  'What did I love before this job?',
+  'What am I curious about that has nothing to do with work?',
+  'What would I do if this role ended tomorrow?',
+  "Who would I be having dinner with tonight if I hadn't been in meetings all day?",
+  "What do I want the story of my life to include that isn't happening because of this job?",
+];
 ---
 
 <BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.description}>
-  <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
-    <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
-      {entry.data.title}
-    </h1>
-    <p class="measure mt-4 text-lead text-ink-muted">{entry.data.description}</p>
-    <div class="prose mt-12 text-body">
-      <Content />
+  <div class="mx-auto max-w-6xl px-6 py-section sm:px-8">
+    <header class="max-w-3xl">
+      <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
+        {entry.data.title}
+      </h1>
+      <p class="measure mt-6 text-lead text-ink-muted">
+        I care about people. That is why I lead the way I lead. It is also
+        what makes this work hard to do for a long time. This document isn't
+        about productivity or work-life balance — it's about maintaining the
+        capacity to keep caring, which requires actually taking care of the
+        person doing the caring.
+      </p>
+      <p class="measure mt-4 text-body text-ink-muted">
+        The failure mode for people like me isn't burnout in the classic
+        sense — the collapse, the "I hate my job," the dramatic exit. It's
+        quieter than that: caring less than I used to, cynicism I catch in my
+        own voice and don't correct, being present in the room and gone
+        somewhere else in my head.
+      </p>
+    </header>
+
+    <div class="mt-10 max-w-3xl border-l-2 border-accent pl-6">
+      <h2 class="font-display text-h3 font-medium tracking-tight text-ink">How to use this</h2>
+      <p class="mt-3 text-body text-ink-muted">
+        I love starting things and lose interest around the 80% mark, so this
+        is built to survive me: read it whole once a quarter, add to field
+        notes when something happens rather than on a schedule, and trust the
+        structural checks over the personal ones — I am unreliable at
+        noticing my own state.
+      </p>
     </div>
-  </article>
+
+    <div class="mt-12 lg:grid lg:grid-cols-[1fr_240px] lg:gap-16">
+      <Toc items={tocItems} />
+
+      <article class="min-w-0 lg:col-start-1 lg:row-start-1">
+        <section id="four-fatigues" class="scroll-mt-8">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Four kinds of fatigue
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            Time management is a losing game for managers — my calendar isn't
+            fully mine. Energy management is the actual lever. And energy
+            isn't one thing; it's four, and they deplete and recover
+            differently.
+          </p>
+
+          <div class="mt-10 grid gap-6 sm:grid-cols-2">
+            {
+              fatigues.map((f) => (
+                <div class="rounded-lg border border-hairline bg-paper-raised p-6">
+                  <h3 class="font-display text-lg font-medium text-ink">{f.title}</h3>
+                  <p class="mt-3 text-sm text-ink-muted">{f.body}</p>
+                  <p class="mt-3 text-sm text-ink-muted">
+                    <strong class="text-ink">Recovers with:</strong> {f.recovers}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+
+          <p class="measure mt-8 text-body text-ink-muted italic">
+            The trap: I treat all fatigue as cognitive or physical (the
+            visible kinds) and miss that I'm emotionally or socially
+            depleted. The signs of emotional fatigue look like character
+            flaws — impatience, coldness, indifference — which is why I
+            misdiagnose it as "I'm just being difficult this week" instead of
+            "I've been holding too much for too long."
+          </p>
+        </section>
+
+        <section id="warning-signs" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Warning signs — and why I'll miss them
+          </h2>
+          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
+            This is one leader's honest account of his own warning signs,
+            offered as a starting point for noticing your own.
+          </p>
+          <p class="measure mt-4 text-body text-ink-muted">
+            I don't listen to what's happening in me until it's too late.
+            That's the pattern. So this can't be "notice when you feel X" — I
+            won't. It has to be more concrete than that.
+          </p>
+
+          <div class="mt-10 space-y-8">
+            {
+              tiers.map((tier) => (
+                <div
+                  class:list={[
+                    'rounded-lg p-6',
+                    tier.style === 'observed' && 'border-2 border-accent bg-paper-raised',
+                    tier.style === 'self-aware' && 'border border-hairline',
+                    tier.style === 'structural' && 'bg-ink text-paper',
+                  ]}
+                >
+                  <h3
+                    class:list={[
+                      'font-display text-lg font-medium',
+                      tier.style === 'structural' ? 'text-paper' : 'text-ink',
+                    ]}
+                  >
+                    {tier.title}
+                  </h3>
+                  <p
+                    class:list={[
+                      'mt-1 text-xs uppercase tracking-wide',
+                      tier.style === 'structural' ? 'text-accent' : 'text-ink-muted',
+                    ]}
+                  >
+                    {tier.subtitle}
+                  </p>
+                  <ul class="mt-5 space-y-3">
+                    {tier.items.map((item) => (
+                      <li class="flex gap-3 text-sm">
+                        {tier.style === 'structural' ? (
+                          <span class="mt-1 h-3.5 w-3.5 flex-none rounded-[3px] border border-paper" />
+                        ) : (
+                          <span
+                            class:list={[
+                              'mt-2 h-1.5 w-1.5 flex-none rounded-full',
+                              tier.style === 'observed' ? 'bg-accent' : 'border border-ink-muted',
+                            ]}
+                          />
+                        )}
+                        <span class:list={[tier.style === 'structural' ? 'text-paper' : 'text-ink-muted']}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section id="taking-on-too-much" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            On taking on too much
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            I say yes because I care. I absorb because I want to protect the
+            team. I take the meeting because I don't want to disappoint. Then
+            I am overwhelmed, and the people I was trying to protect get a
+            distracted, depleted version of me.
+          </p>
+          <p class="measure mt-6 font-display text-h3 leading-snug text-accent italic">
+            Saying yes to everything is not caring more. It's caring less
+            effectively.
+          </p>
+
+          <div class="mt-10 space-y-10">
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">The yes reflex</h3>
+              <p class="measure mt-2 text-body text-ink-muted">
+                When someone asks for my time, energy, or ownership, my
+                instinct is to say yes before I've thought about it. That
+                instinct is not going to go away. So the practice isn't
+                "learn to say no" — it's "learn to defer the yes."
+              </p>
+              <ul class="measure mt-4 space-y-3">
+                {
+                  yesReflex.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">The commitment inventory</h3>
+              <p class="measure mt-2 text-body text-ink-muted">
+                Once a month, list everything I'm currently on the hook for.
+                Not tasks — commitments. Projects, promises, standing
+                meetings, informal ownership. Look at the list honestly.
+              </p>
+              <ul class="measure mt-4 space-y-3">
+                {
+                  commitmentInventory.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">Disappointing people</h3>
+              <p class="measure mt-2 text-body text-ink-muted">
+                This is the hard one. I'd rather absorb than disappoint. But
+                the alternative to disappointing one person in the moment is
+                disappointing everyone slowly, by being spread too thin.
+              </p>
+              <ul class="measure mt-4 space-y-3">
+                {
+                  disappointingPeople.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="completion-problem" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            The completion problem
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            I love the discovery phase. The shaping, the sketching, the first
+            60% where possibility is high and constraint is low. Around 80%,
+            I lose interest. This is a pattern I have to name for what it is,
+            because in a leadership role it has costs I can't afford.
+          </p>
+
+          <div class="mt-10 grid gap-10 sm:grid-cols-2">
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">What it costs</h3>
+              <ul class="mt-4 space-y-3">
+                {
+                  completionCosts.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full border border-ink-muted" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">What to build</h3>
+              <ul class="mt-4 space-y-3">
+                {
+                  completionBuild.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+
+          <div class="measure mt-10 border-l-2 border-accent pl-6">
+            <h3 class="font-display text-lg font-medium text-ink">The reframe</h3>
+            <p class="mt-2 text-body text-ink-muted">
+              The discovery phase is a real skill. So is completion. They use
+              different muscles. Neither is more important, but for me, one
+              is a strength I don't need to build and one is a weakness I
+              have to structure around. That's not a moral failing — it's a
+              design constraint. Build for it.
+            </p>
+          </div>
+        </section>
+
+        <section id="loneliness" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            The loneliness chapter
+          </h2>
+          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
+            This is one leader's honest account of his own experience of the
+            role's loneliness, offered as something you can adapt to your own
+            situation.
+          </p>
+          <p class="measure mt-4 text-body text-ink-muted">
+            The direct reports can't be my peers. The peers don't see my
+            team. My manager has their own agenda. The people who care about
+            me most probably don't fully understand what I do all day. This
+            isn't a complaint — it's the structure of the role. But if I
+            don't build support outside the immediate org, the loneliness
+            compounds quietly and I mistake it for something else — usually
+            "I'm tired" or "this job is hard."
+          </p>
+
+          <div class="mt-10 grid gap-10 sm:grid-cols-2 sm:divide-x sm:divide-hairline">
+            <div>
+              <h3 class="font-display text-h3 font-medium text-ink">What actually helps</h3>
+              <ul class="mt-5 space-y-4">
+                {
+                  lonelinessHelps.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="sm:pl-8">
+              <h3 class="font-display text-h3 font-medium text-ink">What doesn't help (but I might try anyway)</h3>
+              <ul class="mt-5 space-y-4">
+                {
+                  lonelinessDoesntHelp.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full border border-ink-muted" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="rituals" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Rituals that survive a hard week
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            Any practice that only works when I'm feeling good isn't a
+            practice — it's a mood. The real question is: what's the version
+            I do anyway when it's bad? Written for the worst week, not the
+            best.
+          </p>
+
+          <div class="mt-8 rounded-lg border-2 border-accent bg-paper-raised p-6">
+            <p class="text-xs uppercase tracking-wide text-accent">The floor — non-negotiable</p>
+            <ul class="mt-5 space-y-3">
+              {
+                ritualFloor.map((item) => (
+                  <li class="flex gap-3 text-body text-ink-muted">
+                    <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <p class="measure mt-6 text-body text-ink-muted">
+            That's the floor. Everything above it — meditation, gym,
+            journaling, whatever else works — is bonus, not baseline.
+            Confusing the two is how I end up doing none of it when I need it
+            most.
+          </p>
+        </section>
+
+        <section id="permission-slips" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Permission slips
+          </h2>
+          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
+            This is one leader's honest account of the permission he needs to
+            give himself, offered as something you can borrow or rewrite for
+            yourself.
+          </p>
+          <p class="measure mt-4 text-body text-ink-muted">
+            Explicit, because I don't give myself these enough. Written down,
+            because in the moment I forget.
+          </p>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-2">
+            {
+              permissionSlips.map((slip) => (
+                <div class="rounded-lg border border-hairline bg-paper-raised p-6">
+                  <p class="font-display text-lg leading-snug text-ink italic">
+                    <span class="text-accent">&ldquo;</span>
+                    {slip}
+                    <span class="text-accent">&rdquo;</span>
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section id="the-body" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            The body, briefly
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            The base layer. Non-negotiable infrastructure, not optimization.
+          </p>
+
+          <div class="mt-8 space-y-5">
+            {
+              bodyItems.map((item) => (
+                <p class="measure text-body text-ink-muted">
+                  <strong class="text-ink">{item.lead}</strong> {item.body}
+                </p>
+              ))
+            }
+          </div>
+
+          <p class="measure mt-6 text-body text-ink-muted italic">
+            When I skip these, I don't just feel tired. I pay for it in the
+            parts of me I care about most — patience, warmth, judgment.
+          </p>
+        </section>
+
+        <section id="identity" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Identity outside the role
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            Who am I when I'm not at work? If the honest answer is "I don't
+            really know anymore," that's information. This job will absorb
+            everything I give it. What I don't defend outside it, it will
+            take.
+          </p>
+          <p class="measure mt-4 text-sm uppercase tracking-wide text-ink-muted">
+            Questions to sit with — not to answer once, but to keep asking:
+          </p>
+
+          <ul class="measure mt-6 space-y-5 border-l-2 border-hairline pl-6">
+            {
+              identityQuestions.map((q) => (
+                <li class="font-display text-lg leading-snug text-ink italic">{q}</li>
+              ))
+            }
+          </ul>
+
+          <p class="measure mt-6 text-body text-ink-muted">
+            The answers will change. The asking is what keeps me honest.
+          </p>
+        </section>
+      </article>
+    </div>
+  </div>
 </BaseLayout>

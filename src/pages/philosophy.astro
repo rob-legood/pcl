@@ -1,20 +1,452 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Toc from '../components/Toc.astro';
 
 const entry = await getEntry('philosophy', 'philosophy');
 if (!entry) throw new Error('Missing philosophy entry');
-const { Content } = await render(entry);
+
+const tocItems = [
+  { id: 'people-centric', label: 'People-centric, not people-pleasing' },
+  { id: 'what-i-believe', label: 'What I believe' },
+  { id: 'three-as', label: "The 3 A's" },
+  { id: 'radical-candor', label: 'Radical Candor' },
+  { id: 'the-contract', label: 'The contract' },
+  { id: 'non-negotiables', label: 'Non-negotiables' },
+  { id: 'where-tested', label: "Where I'll be tested" },
+];
+
+const doesMean = [
+  'I take the time to understand what each person on my team actually wants — from this job, from their career, from their week.',
+  'I assume good intent until I have strong evidence otherwise. Then I act on the evidence.',
+  "I treat my team's growth as a primary deliverable of my role, equal in weight to whatever we're shipping.",
+  'I notice when someone is struggling before they have to ask for help.',
+  'I hold a high bar, because lowering the bar is itself an act of disrespect.',
+];
+
+const doesNotMean = [
+  'Avoiding hard conversations because they will be uncomfortable.',
+  'Letting performance issues drift because the person is well-liked.',
+  'Mistaking my desire to be liked for my obligation to lead.',
+];
+
+const beliefs = [
+  {
+    lead: 'The work happens through people, or it doesn’t happen.',
+    body: 'Strategy, architecture, process — all of it gets executed by humans choosing to do their best work, or it dies on the page. My first job is the people. Everything else follows from that.',
+  },
+  {
+    lead: 'Trust is built in small moments, lost in large ones.',
+    body: "I'd rather build it slowly and keep it than perform it quickly and break it.",
+  },
+  {
+    lead: 'Clarity is kindness.',
+    body: 'Vague feedback, unclear expectations, and unspoken concerns are not kindness — they are the appearance of kindness, which is worse, because it deprives people of what they need to grow and succeed.',
+  },
+  {
+    lead: 'Teams should be the ones doing the work, including the thinking.',
+    body: 'If decisions all flow through me, I have built a bottleneck, not a team.',
+  },
+];
+
+const threeAs = [
+  {
+    n: '01',
+    title: 'Autonomy',
+    body: "People decide how to do the work. I tell them the what and the why, and I get out of the way on the how. If I find myself dictating implementation, I check whether I've actually failed to communicate the goal.",
+  },
+  {
+    n: '02',
+    title: 'Authority',
+    body: "People have the power to make and execute decisions in their domain without needing my permission. Authority that has to be re-confirmed every time isn't authority — it's the illusion of it. My job is to define the scope of authority clearly, then defend it when it's challenged from outside.",
+  },
+  {
+    n: '03',
+    title: 'Accountability',
+    body: 'People own the outcomes of their decisions — good and bad. When things go well, the credit goes to them publicly. When things go badly, we look at what happened together, and the lessons are theirs to own. Accountability without blame, but accountability all the same.',
+  },
+];
+
+const threeAsRequires = [
+  'Spending real time defining context, goals, and constraints — not just tasks.',
+  "Letting decisions I would have made differently stand, as long as they're inside the scope of authority and not catastrophic.",
+  'Resisting the urge to rescue people from the natural consequences of their choices. The lesson is worth more than the rescue.',
+  "Pushing back when the org tries to undermine the team's authority from above or beside.",
+];
+
+const threeAsNot = [
+  '"You decide" is not the same as "I\'m not paying attention." (Abdication)',
+  'Repeated failures of judgment in a domain mean we revisit fit, scope, or growth — honestly. (Not a free pass)',
+];
+
+const quadrants = [
+  {
+    key: 'radical-candor',
+    title: 'Radical Candor',
+    subtitle: 'Care personally + challenge directly',
+    body: 'Both, always. This is the aim.',
+    target: true,
+  },
+  {
+    key: 'ruinous-empathy',
+    title: 'Ruinous Empathy',
+    subtitle: 'Caring without challenging',
+    body: 'My most likely failure mode as a people-centric leader — softening a hard message until it disappears, delaying a difficult conversation because the relationship matters.',
+    target: false,
+  },
+  {
+    key: 'obnoxious-aggression',
+    title: 'Obnoxious Aggression',
+    subtitle: 'Challenging without caring',
+    body: "Sharp without warmth. I'd rather err toward empathy than land here, but neither is the goal.",
+    target: false,
+  },
+  {
+    key: 'manipulative-insincerity',
+    title: 'Manipulative Insincerity',
+    subtitle: 'Neither caring nor challenging',
+    body: "The worst quadrant. Saying what's easy in the moment because I don't care enough to do the harder thing.",
+    target: false,
+  },
+];
+
+const candorPractice = [
+  "I ask for feedback before I give it. I won't ask people to receive what I'm not willing to receive myself.",
+  'I praise specifically, often, and in public. Generic praise ("great job") is noise; specific praise ("the way you de-escalated that thread on Tuesday was leadership") is signal.',
+  "I deliver critical feedback in private, quickly, and specifically. I don't save it up for reviews. By review time, nothing should be a surprise.",
+  'I name the dynamic when it\'s happening. "I think I\'ve been too soft on this — let me be direct." Or: "That came out sharper than I meant. Let me try again."',
+  'I assume the other person can handle the truth. Pre-softening is its own form of disrespect.',
+];
+
+const expectFromMe = [
+  "I will spend the first weeks listening. I won't make big changes early. When I do start making changes, I'll explain why.",
+  'I will be in regular 1:1s with you, and they are your time. Your agenda comes first. If I have something I need to drive, I\'ll flag it ahead.',
+  'I will tell you what I think, including when I disagree. I will tell you quickly. I will tell you specifically. I will tell you in private when it\'s critical and in public when it\'s praise.',
+  "I will defend your authority when it's challenged from outside the team. If I disagree with a decision you made inside your scope, I'll bring it to you directly, not around you.",
+  'I will give credit publicly and take responsibility publicly when things go wrong. That is the deal.',
+  'I will make mistakes and name them when I do. I will not pretend to know things I don\'t, and I will not punish you for catching me on it.',
+  "I will protect your time and focus as if it were my own. Meetings I can absorb, I'll absorb. Context I can translate, I'll translate.",
+  "I will be honest about your performance and your growth. You will never learn from me at a review that you've been struggling for six months. That would be a failure of mine, not yours.",
+];
+
+const needFromYou = [
+  'Tell me what you actually think, especially when you disagree with me. Silence is the most expensive thing on a team.',
+  "Tell me early when something is going sideways. Surprises cost more than bad news.",
+  "Tell me what you want from your career, and update me when it changes. I can't help you get somewhere I don't know you want to go.",
+  "Push back when I'm encroaching on your authority. I will overstep sometimes. Name it.",
+  'Give me feedback. Specifically, frequently, and including the things you wish I did differently.',
+  "Assume I'm doing my best with imperfect information. I will extend the same to you.",
+];
+
+const nonNegotiables = [
+  'No public criticism of a team member, ever. Praise in public; criticize in private.',
+  "No blame for a decision made in good faith inside someone's scope of authority. We learn from it. We don't punish it.",
+  "No talking about people behind their backs in ways I wouldn't say to them. This applies to my team, my peers, and my manager.",
+  "No surprise in performance conversations. Anything I say at a review, the person has heard from me already.",
+  'No participation in dynamics that exclude, demean, or punish people for who they are. I will name it and address it, even when uncomfortable.',
+  'No pretending to know things I don\'t. I\'d rather say "I don\'t know — let me find out" a hundred times than be wrong with confidence once.',
+];
+
+const testedOn = [
+  {
+    title: 'Ruinous empathy',
+    body: 'I will sometimes soften feedback past the point where it lands. If you sense this happening, ask: "What\'s the version of this you didn\'t say?"',
+  },
+  {
+    title: 'Slow on personnel decisions',
+    body: 'I care about people, and that can translate into hoping a struggling team member will turn it around longer than is fair to them or to the rest of the team.',
+  },
+  {
+    title: 'Over-investing in consensus',
+    body: "Not every decision needs everyone to feel great about it. Some need to be made, communicated, and moved past.",
+  },
+  {
+    title: 'Hiding in 1:1s',
+    body: 'When the strategic work feels overwhelming, I will retreat into the people work because it\'s where I feel most confident. The team needs both from me.',
+  },
+  {
+    title: 'Absorbing too much',
+    body: 'Taking on context, meetings, and noise to "protect the team" until I am the bottleneck I was trying to prevent.',
+  },
+];
 ---
 
 <BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.description}>
-  <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
-    <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
-      {entry.data.title}
-    </h1>
-    <p class="measure mt-4 text-lead text-ink-muted">{entry.data.description}</p>
-    <div class="prose mt-12 text-body">
-      <Content />
+  <div class="mx-auto max-w-6xl px-6 py-section sm:px-8">
+    <header class="max-w-3xl">
+      <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
+        {entry.data.title}
+      </h1>
+      <p class="measure mt-6 text-lead text-ink-muted">
+        When I'm under pressure, tired, or new to a role, I will default to
+        whatever pattern is easiest in the moment. That pattern isn't always
+        the leader I want to be. This document is the version of me I'm
+        aiming at — the one I want to come back to when the noise is loud.
+      </p>
+      <p class="measure mt-4 text-body text-ink-muted">
+        It is also a contract. With my team, my peers, my manager, and
+        myself. Putting it in writing means I can be held to it.
+      </p>
+    </header>
+
+    <div class="mt-4 lg:grid lg:grid-cols-[1fr_240px] lg:gap-16">
+      <Toc items={tocItems} />
+
+      <article class="min-w-0 lg:col-start-1 lg:row-start-1">
+        <section id="people-centric" class="scroll-mt-8">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            People-centric, not people-pleasing
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            People-centric does not mean making everyone comfortable. It means:
+          </p>
+          <ul class="measure mt-6 space-y-3">
+            {
+              doesMean.map((item) => (
+                <li class="flex gap-3 text-body text-ink-muted">
+                  <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <p class="measure mt-8 text-sm font-medium uppercase tracking-wide text-ink-muted">
+            It does not mean:
+          </p>
+          <ul class="measure mt-4 space-y-3">
+            {
+              doesNotMean.map((item) => (
+                <li class="flex gap-3 text-body text-ink-muted">
+                  <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full border border-ink-muted" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section id="what-i-believe" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            What I believe
+          </h2>
+          <div class="mt-8 space-y-8">
+            {
+              beliefs.map((belief) => (
+                <p class="measure text-body text-ink-muted">
+                  <strong class="text-ink">{belief.lead}</strong> {belief.body}
+                </p>
+              ))
+            }
+          </div>
+        </section>
+
+        <section id="three-as" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            The 3 A's: Autonomy, Authority, Accountability
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            The teams I want to build operate under three commitments, and
+            they are inseparable. Each one only works in the presence of the
+            other two.
+          </p>
+
+          <div class="mt-10 grid gap-10 sm:grid-cols-3 sm:divide-x sm:divide-hairline">
+            {
+              threeAs.map((a, i) => (
+                <div class:list={[i > 0 && 'sm:pl-8']}>
+                  <span class="font-display text-sm text-accent">{a.n}</span>
+                  <h3 class="mt-2 font-display text-h3 font-medium text-ink">{a.title}</h3>
+                  <p class="mt-3 text-body text-ink-muted">{a.body}</p>
+                </div>
+              ))
+            }
+          </div>
+
+          <div class="mt-12 grid gap-8 sm:grid-cols-2">
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">What this requires from me</h3>
+              <ul class="mt-4 space-y-3">
+                {
+                  threeAsRequires.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-medium text-ink">What this is not</h3>
+              <ul class="mt-4 space-y-3">
+                {
+                  threeAsNot.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full border border-ink-muted" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="radical-candor" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Radical Candor as the connective tissue
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            The 3 A's only work if feedback flows freely in all directions.
+            That's where Radical Candor comes in. Care personally; challenge
+            directly. Both, always. I aim to be in that quadrant, and I name
+            the others honestly.
+          </p>
+
+          <div class="mt-10 grid gap-3 sm:grid-cols-2">
+            {
+              quadrants.map((q) => (
+                <div
+                  class:list={[
+                    'rounded-lg border p-6',
+                    q.target
+                      ? 'border-accent bg-paper-raised'
+                      : 'border-hairline',
+                  ]}
+                >
+                  <h3
+                    class:list={[
+                      'font-display text-lg font-medium',
+                      q.target ? 'text-accent' : 'text-ink',
+                    ]}
+                  >
+                    {q.title}
+                  </h3>
+                  <p class="mt-1 text-xs uppercase tracking-wide text-ink-muted">{q.subtitle}</p>
+                  <p class="mt-3 text-sm text-ink-muted">{q.body}</p>
+                </div>
+              ))
+            }
+          </div>
+          <p class="mt-4 flex justify-between text-xs uppercase tracking-wide text-ink-muted">
+            <span>&uarr; Care personally</span>
+            <span>Challenge directly &rarr;</span>
+          </p>
+
+          <h3 class="mt-12 font-display text-lg font-medium text-ink">How this shows up in practice</h3>
+          <ul class="measure mt-4 space-y-3">
+            {
+              candorPractice.map((item) => (
+                <li class="flex gap-3 text-body text-ink-muted">
+                  <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section id="the-contract" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            The contract
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">
+            This is the section I can share — and intend to share — with a
+            new team: what you can expect from me, and what I need from you
+            in return.
+          </p>
+
+          <div class="mt-10 grid gap-10 sm:grid-cols-2 sm:divide-x sm:divide-hairline">
+            <div>
+              <h3 class="font-display text-h3 font-medium text-ink">What to expect from me</h3>
+              <ul class="mt-5 space-y-4">
+                {
+                  expectFromMe.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="sm:pl-8">
+              <h3 class="font-display text-h3 font-medium text-ink">What I need from you</h3>
+              <ul class="mt-5 space-y-4">
+                {
+                  needFromYou.map((item) => (
+                    <li class="flex gap-3 text-body text-ink-muted">
+                      <span class="mt-2.5 h-1.5 w-1.5 flex-none rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="non-negotiables" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Non-negotiables
+          </h2>
+          <p class="measure mt-4 text-body text-ink-muted">The hard lines. These don't move.</p>
+
+          <ul class="mt-8 space-y-5 rounded-lg bg-ink p-8 text-paper">
+            {
+              nonNegotiables.map((item) => (
+                <li class="flex gap-4 text-body">
+                  <span class="flex-none font-display text-sm text-accent">NO</span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section id="where-tested" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+            Where I'll be tested
+          </h2>
+          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
+            This is one leader's honest account of his own likely failure
+            modes, offered as something you can adapt to name your own.
+          </p>
+          <p class="measure mt-4 text-body text-ink-muted">
+            The honest list of my likely failure modes, so I can spot them in
+            myself and so the people closest to me can call them out.
+          </p>
+
+          <div class="mt-8 space-y-6">
+            {
+              testedOn.map((mode) => (
+                <div class="measure border-l-2 border-hairline pl-6">
+                  <h3 class="font-display text-lg font-medium text-ink">{mode.title}</h3>
+                  <p class="mt-2 text-body text-ink-muted">{mode.body}</p>
+                </div>
+              ))
+            }
+          </div>
+
+          <p class="measure mt-8 text-body text-ink-muted">
+            The remedy for all of these is the same: people who know me well
+            enough to name it, and a habit of asking.
+          </p>
+        </section>
+
+        <section class="mt-16 border-t border-hairline pt-16">
+          <div class="measure border-l-2 border-accent pl-6">
+            <h2 class="font-display text-h3 font-medium tracking-tight text-ink">A living document</h2>
+            <p class="mt-4 text-body text-ink-muted">
+              I revisit this once a quarter. I update it when I learn
+              something. I share the relevant parts with new teams. If any of
+              the above ever stops being true of me, I owe it to the people I
+              work with to either change my behavior or change the document
+              — but not to leave the gap between them unspoken.
+            </p>
+          </div>
+        </section>
+      </article>
     </div>
-  </article>
+  </div>
 </BaseLayout>
