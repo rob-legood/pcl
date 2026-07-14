@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -11,20 +11,92 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+
+// Template bodies are authored as a single fenced ```markdown block so the
+// raw source (verbatim, including blank fill-in lines) can be lifted
+// straight out for copy/download without going through markdown rendering.
+const raw = entry.body ?? '';
+const fenceMatch = raw.match(/```(?:markdown)?\r?\n([\s\S]*?)\r?\n```\s*$/);
+const templateSource = fenceMatch ? fenceMatch[1] : raw.trim();
+const filename = `${entry.id}.md`;
 ---
 
 <BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.usageNote}>
   <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
-    <a href="/templates" class="text-xs uppercase tracking-wide text-ink-muted no-underline hover:text-accent">
+    <a
+      href="/templates"
+      class="no-print text-xs uppercase tracking-wide text-ink-muted no-underline hover:text-accent"
+    >
       &larr; All templates
     </a>
     <h1 class="mt-4 font-display text-h1 font-medium tracking-tight text-ink">
       {entry.data.title}
     </h1>
     <p class="measure mt-4 text-lead text-ink-muted">{entry.data.usageNote}</p>
-    <div class="prose mt-12 text-body">
-      <Content />
+
+    <div class="no-print mt-8 flex flex-wrap items-center gap-3">
+      <button
+        type="button"
+        data-copy-button
+        data-template-filename={filename}
+        class="rounded-md border border-hairline bg-paper-raised px-4 py-2 text-xs uppercase tracking-wide text-ink transition-colors hover:border-accent"
+      >
+        Copy
+      </button>
+      <button
+        type="button"
+        data-download-button
+        data-template-filename={filename}
+        class="rounded-md border border-hairline bg-paper-raised px-4 py-2 text-xs uppercase tracking-wide text-ink transition-colors hover:border-accent"
+      >
+        Download .md
+      </button>
+      <span data-copy-status role="status" class="text-xs text-ink-muted"></span>
     </div>
+
+    <pre
+      data-template-source
+      class="template-pre mt-6 overflow-x-auto rounded-lg border border-hairline bg-paper-raised p-6 text-sm leading-relaxed text-ink"><code>{templateSource}</code></pre>
   </article>
 </BaseLayout>
+
+<script>
+  const sourceEl = document.querySelector<HTMLElement>('[data-template-source] code');
+  const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-button]');
+  const downloadButton = document.querySelector<HTMLButtonElement>('[data-download-button]');
+  const statusEl = document.querySelector<HTMLElement>('[data-copy-status]');
+
+  const getSource = () => sourceEl?.textContent ?? '';
+
+  let statusTimeout: ReturnType<typeof setTimeout> | undefined;
+  const setStatus = (message: string) => {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    clearTimeout(statusTimeout);
+    statusTimeout = setTimeout(() => {
+      statusEl.textContent = '';
+    }, 2000);
+  };
+
+  copyButton?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(getSource());
+      setStatus('Copied!');
+    } catch {
+      setStatus('Could not copy — select and copy manually.');
+    }
+  });
+
+  downloadButton?.addEventListener('click', () => {
+    const filename = downloadButton.dataset.templateFilename ?? 'template.md';
+    const blob = new Blob([getSource()], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  });
+</script>

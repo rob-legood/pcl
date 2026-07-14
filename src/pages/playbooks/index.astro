@@ -5,6 +5,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const playbooks = (await getCollection('playbooks')).sort(
   (a, b) => a.data.order - b.data.order,
 );
+
+const tags = [...new Set(playbooks.flatMap((entry) => entry.data.tags))].sort();
 ---
 
 <BaseLayout
@@ -19,16 +21,66 @@ const playbooks = (await getCollection('playbooks')).sort(
       Read the relevant one before you need it, if you can.
     </p>
 
-    <ul class="mt-12 grid gap-6 sm:grid-cols-2">
+    <div class="mt-10 space-y-4">
+      <label class="block">
+        <span class="sr-only">Search playbooks</span>
+        <input
+          type="search"
+          data-search-input
+          placeholder="Search by title or summary…"
+          class="w-full rounded-lg border border-hairline bg-paper-raised px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-accent"
+        />
+      </label>
+
+      <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by tag">
+        {
+          tags.map((tag) => (
+            <button
+              type="button"
+              data-tag={tag}
+              aria-pressed="false"
+              class="rounded-full border border-hairline px-3 py-1 text-xs uppercase tracking-wide text-ink-muted transition-colors hover:border-accent hover:text-ink aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-paper"
+            >
+              {tag}
+            </button>
+          ))
+        }
+        <button
+          type="button"
+          data-clear-tags
+          hidden
+          class="text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
+        >
+          Clear tags
+        </button>
+      </div>
+    </div>
+
+    <p data-empty-state hidden class="mt-12 text-sm text-ink-muted">
+      No playbooks match your search.
+    </p>
+
+    <ul class="mt-8 grid gap-6 sm:grid-cols-2">
       {
         playbooks.map((entry) => (
-          <li>
+          <li
+            data-card
+            data-tags={entry.data.tags.join(',')}
+            data-text={`${entry.data.title} ${entry.data.summary}`.toLowerCase()}
+          >
             <a
               href={`/playbooks/${entry.data.slug}`}
               class="block h-full rounded-lg border border-hairline bg-paper-raised p-6 no-underline transition-colors hover:border-accent"
             >
               <h2 class="font-display text-h3 font-medium text-ink">{entry.data.title}</h2>
               <p class="mt-2 text-sm text-ink-muted">{entry.data.summary}</p>
+              <ul class="mt-4 flex flex-wrap gap-2">
+                {entry.data.tags.map((tag) => (
+                  <li class="rounded-full bg-paper px-2.5 py-0.5 text-xs uppercase tracking-wide text-ink-muted">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </a>
           </li>
         ))
@@ -36,3 +88,53 @@ const playbooks = (await getCollection('playbooks')).sort(
     </ul>
   </section>
 </BaseLayout>
+
+<script>
+  const searchInput = document.querySelector<HTMLInputElement>('[data-search-input]');
+  const tagButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-tag]'));
+  const clearTagsButton = document.querySelector<HTMLButtonElement>('[data-clear-tags]');
+  const cards = Array.from(document.querySelectorAll<HTMLLIElement>('[data-card]'));
+  const emptyState = document.querySelector<HTMLParagraphElement>('[data-empty-state]');
+
+  const selectedTags = new Set<string>();
+
+  const applyFilters = () => {
+    const query = (searchInput?.value ?? '').trim().toLowerCase();
+    let visibleCount = 0;
+
+    for (const card of cards) {
+      const cardTags = (card.dataset.tags ?? '').split(',');
+      const text = card.dataset.text ?? '';
+      const matchesTags = selectedTags.size === 0 || cardTags.some((tag) => selectedTags.has(tag));
+      const matchesQuery = query === '' || text.includes(query);
+      const visible = matchesTags && matchesQuery;
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    }
+
+    if (emptyState) emptyState.hidden = visibleCount !== 0;
+    if (clearTagsButton) clearTagsButton.hidden = selectedTags.size === 0;
+  };
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  for (const button of tagButtons) {
+    button.addEventListener('click', () => {
+      const tag = button.dataset.tag ?? '';
+      if (selectedTags.has(tag)) {
+        selectedTags.delete(tag);
+        button.setAttribute('aria-pressed', 'false');
+      } else {
+        selectedTags.add(tag);
+        button.setAttribute('aria-pressed', 'true');
+      }
+      applyFilters();
+    });
+  }
+
+  clearTagsButton?.addEventListener('click', () => {
+    selectedTags.clear();
+    for (const button of tagButtons) button.setAttribute('aria-pressed', 'false');
+    applyFilters();
+  });
+</script>

@@ -147,6 +147,40 @@
   }
 }
 
+/* Distinct pull-quote treatment for blockquotes on playbook pages — these
+   are "Sample language" entries, phrasings to borrow, so they're set off
+   from the surrounding prose rather than styled as a generic quotation. */
+@utility prose-pullquotes {
+  & blockquote {
+    position: relative;
+    margin-top: 1.5em;
+    border-left: none;
+    border-radius: 0.5em;
+    background-color: var(--color-paper-raised);
+    padding: 1.5em 1.75em 1.5em 3em;
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  & blockquote::before {
+    content: '\201C';
+    position: absolute;
+    left: 0.9rem;
+    top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 2em;
+    font-style: normal;
+    line-height: 1;
+    color: var(--color-accent);
+  }
+
+  & blockquote + blockquote {
+    margin-top: 1em;
+  }
+}
+
 /* One deliberate, restrained motion moment: a soft entrance for the hero
    on first load. Neutralized globally under prefers-reduced-motion above. */
 @utility animate-hero-in {
@@ -161,5 +195,28 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Template pages print as plain, high-contrast text — the point is a
+   page you can hand someone or file away, not a themed screenshot. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .template-pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: visible;
+    border-color: #000;
+    background: #fff;
+    color: #000;
+    box-shadow: none;
   }
 }

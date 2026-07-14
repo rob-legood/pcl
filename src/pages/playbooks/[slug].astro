@@ -12,6 +12,11 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const playbooks = (await getCollection('playbooks')).sort((a, b) => a.data.order - b.data.order);
+const currentIndex = playbooks.findIndex((item) => item.data.slug === entry.data.slug);
+const previous = currentIndex > 0 ? playbooks[currentIndex - 1] : undefined;
+const next = currentIndex < playbooks.length - 1 ? playbooks[currentIndex + 1] : undefined;
 ---
 
 <BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.summary}>
@@ -23,8 +28,33 @@ const { Content } = await render(entry);
       {entry.data.title}
     </h1>
     <p class="measure mt-4 text-lead text-ink-muted">{entry.data.summary}</p>
-    <div class="prose mt-12 text-body">
+    <div class="prose prose-pullquotes mt-12 text-body">
       <Content />
     </div>
+
+    <nav aria-label="Playbook navigation" class="mt-16 grid gap-4 border-t border-hairline pt-8 sm:grid-cols-2">
+      <div>
+        {previous && (
+          <a
+            href={`/playbooks/${previous.data.slug}`}
+            class="block rounded-lg border border-hairline bg-paper-raised p-5 no-underline transition-colors hover:border-accent"
+          >
+            <span class="text-xs uppercase tracking-wide text-ink-muted">&larr; Previous</span>
+            <span class="mt-1 block font-display text-lg font-medium text-ink">{previous.data.title}</span>
+          </a>
+        )}
+      </div>
+      <div class="sm:text-right">
+        {next && (
+          <a
+            href={`/playbooks/${next.data.slug}`}
+            class="block rounded-lg border border-hairline bg-paper-raised p-5 no-underline transition-colors hover:border-accent"
+          >
+            <span class="text-xs uppercase tracking-wide text-ink-muted">Next &rarr;</span>
+            <span class="mt-1 block font-display text-lg font-medium text-ink">{next.data.title}</span>
+          </a>
+        )}
+      </div>
+    </nav>
   </article>
 </BaseLayout>
