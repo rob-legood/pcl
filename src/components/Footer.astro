@@ -1,0 +1,41 @@
+---
+const year = new Date().getFullYear();
+
+const links = [
+  { label: 'Start Here', href: '/' },
+  { label: 'Philosophy', href: '/philosophy' },
+  { label: 'Playbooks', href: '/playbooks' },
+  { label: 'Templates', href: '/templates' },
+];
+---
+
+<footer class="border-t border-hairline">
+  <div class="mx-auto max-w-5xl px-6 py-10 sm:px-8">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+      <p class="measure text-sm text-ink-muted">
+        People Centric Leadership is a working reference, not a finished
+        one — written to be read, argued with, and rewritten in your own
+        voice as you go.
+      </p>
+
+      <nav aria-label="Footer">
+        <ul class="flex flex-wrap gap-x-5 gap-y-1 text-xs uppercase tracking-wide text-ink-muted sm:justify-end">
+          {
+            links.map((link) => (
+              <li>
+                <a href={link.href} class="no-underline hover:text-accent">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <p class="mt-8 text-xs text-ink-muted">
+      &copy; {year} People Centric Leadership. The work happens through
+      people, or it doesn't happen.
+    </p>
+  </div>
+</footer>

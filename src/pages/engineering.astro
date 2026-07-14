@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const entry = await getEntry('engineering', 'engineering');
+if (!entry) throw new Error('Missing engineering entry');
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.description}>
+  <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+    <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
+      {entry.data.title}
+    </h1>
+    <p class="measure mt-4 text-lead text-ink-muted">{entry.data.description}</p>
+    <div class="prose mt-12 text-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

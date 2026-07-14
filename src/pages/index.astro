@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const threeAs = [
+  {
+    n: '01',
+    title: 'Autonomy',
+    body: 'People decide how the work gets done. I set the what and the why, then get out of the way on the how.',
+  },
+  {
+    n: '02',
+    title: 'Authority',
+    body: "People act in their domain without asking permission first. Authority re-confirmed every time isn't authority.",
+  },
+  {
+    n: '03',
+    title: 'Accountability',
+    body: 'People own the outcome — credit and consequence alike. Accountability without blame, but accountability all the same.',
+  },
+];
+
+const routerCards = [
+  { prompt: 'Starting a new role', href: '/first-90-days', destination: 'First 90 Days' },
+  { prompt: 'Facing a hard moment', href: '/playbooks', destination: 'Playbooks' },
+  { prompt: 'Running on empty', href: '/sustaining-yourself', destination: 'Sustaining Yourself' },
+  { prompt: 'Building your foundations', href: '/philosophy', destination: 'Philosophy' },
+  { prompt: 'Not sure', href: '/reflection', destination: 'The Reflection' },
+];
+
+const pillars = [
+  {
+    title: 'Philosophy',
+    href: '/philosophy',
+    description: 'How I lead, what I believe, and what people can expect from me.',
+  },
+  {
+    title: 'First 90 Days',
+    href: '/first-90-days',
+    description: 'A phase-by-phase manual for stepping into a new leadership role.',
+  },
+  {
+    title: 'Playbooks',
+    href: '/playbooks',
+    description: 'Scenario guides for the specific moments that test a leader.',
+  },
+  {
+    title: 'Engineering',
+    href: '/engineering',
+    description: 'The technical side of leading a software engineering team.',
+  },
+  {
+    title: 'Templates',
+    href: '/templates',
+    description: 'Copy-paste documents for the recurring rituals of the job.',
+  },
+  {
+    title: 'Sustaining Yourself',
+    href: '/sustaining-yourself',
+    description: 'How to keep doing this without becoming someone you don’t recognize.',
+  },
+];
+---
+
+<BaseLayout>
+  <section class="mx-auto max-w-5xl px-6 py-section-lg sm:px-8">
+    <h1
+      class="animate-hero-in font-display text-hero font-medium tracking-tight text-ink"
+    >
+      People Centric Leadership
+    </h1>
+
+    <p
+      class="animate-hero-in mt-6 max-w-3xl font-display text-h2 leading-tight text-accent italic [animation-delay:120ms]"
+    >
+      The work happens through people, or it doesn't happen.
+    </p>
+
+    <p
+      class="animate-hero-in measure mt-10 text-body text-ink-muted [animation-delay:220ms]"
+    >
+      People Centric Leadership is a working reference for leading through
+      people rather than around them — a set of documents on philosophy,
+      practice, and the specific moments that test a leader. It's meant as a
+      reminder for a leader already in the seat, and as a guide for someone
+      still growing into one. Read it in order, or jump straight to the part
+      that matches where you are.
+    </p>
+  </section>
+
+  <section class="border-t border-hairline">
+    <div class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+      <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+        The 3 A's
+      </h2>
+      <p class="measure mt-4 text-body text-ink-muted">
+        Three commitments the teams I build operate under. They are
+        inseparable — each one only works in the presence of the other two.
+      </p>
+
+      <div class="mt-12 grid gap-10 sm:grid-cols-3 sm:divide-x sm:divide-hairline">
+        {
+          threeAs.map((a, i) => (
+            <div class:list={[i > 0 && 'sm:pl-8']}>
+              <span class="font-display text-sm text-accent">{a.n}</span>
+              <h3 class="mt-2 font-display text-h3 font-medium text-ink">{a.title}</h3>
+              <p class="mt-3 text-body text-ink-muted">{a.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="measure mt-10 text-body text-ink-muted italic">
+        Pull one out and the other two curdle into something else — control
+        without trust, or good intentions with no way to act on them.
+      </p>
+    </div>
+  </section>
+
+  <section id="where-are-you" class="border-t border-hairline scroll-mt-6">
+    <div class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+      <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+        Where are you right now?
+      </h2>
+      <p class="measure mt-4 text-body text-ink-muted">
+        Start from the moment you're in, not the table of contents.
+      </p>
+
+      <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          routerCards.map((card) => (
+            <li>
+              <a
+                href={card.href}
+                class="group flex h-full flex-col justify-between rounded-lg border border-hairline bg-paper-raised p-6 no-underline transition-colors hover:border-accent"
+              >
+                <span class="font-display text-lg font-medium text-ink">{card.prompt}</span>
+                <span class="mt-4 text-xs uppercase tracking-wide text-accent group-hover:text-accent-strong">
+                  {card.destination} &rarr;
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-hairline">
+    <div class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+      <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
+        The sections
+      </h2>
+
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          pillars.map((pillar) => (
+            <li>
+              <a
+                href={pillar.href}
+                class="block h-full rounded-lg border border-hairline p-6 no-underline transition-colors hover:border-accent hover:bg-paper-raised"
+              >
+                <h3 class="font-display text-h3 font-medium text-ink">{pillar.title}</h3>
+                <p class="mt-2 text-sm text-ink-muted">{pillar.description}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-hairline">
+    <div class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+      <div class="measure border-l-2 border-accent pl-6">
+        <h2 class="font-display text-h3 font-medium tracking-tight text-ink">
+          How to use this
+        </h2>
+        <p class="mt-4 text-body text-ink-muted">
+          Everything here is a living document, not a finished one. Take
+          what's useful, edit ruthlessly, and rewrite anything that doesn't
+          sound like you — these are meant to be adapted into your own voice,
+          not recited.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

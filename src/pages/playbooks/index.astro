@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const playbooks = (await getCollection('playbooks')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Playbooks — People Centric Leadership"
+  description="Scenario playbooks for the specific moments that test a leader — feedback, conflict, crisis, incidents."
+>
+  <section class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+    <h1 class="font-display text-h1 font-medium tracking-tight text-ink">Playbooks</h1>
+    <p class="measure mt-4 text-lead text-ink-muted">
+      Not philosophy — the specific moment. Each of these is written for when
+      you're already in it: a hard conversation, an incident, a resignation.
+      Read the relevant one before you need it, if you can.
+    </p>
+
+    <ul class="mt-12 grid gap-6 sm:grid-cols-2">
+      {
+        playbooks.map((entry) => (
+          <li>
+            <a
+              href={`/playbooks/${entry.data.slug}`}
+              class="block h-full rounded-lg border border-hairline bg-paper-raised p-6 no-underline transition-colors hover:border-accent"
+            >
+              <h2 class="font-display text-h3 font-medium text-ink">{entry.data.title}</h2>
+              <p class="mt-2 text-sm text-ink-muted">{entry.data.summary}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

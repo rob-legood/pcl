@@ -1,0 +1,130 @@
+---
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Start Here', href: '/' },
+  { label: 'The Reflection', href: '/reflection' },
+  { label: 'Philosophy', href: '/philosophy' },
+  { label: 'First 90 Days', href: '/first-90-days' },
+  { label: 'Playbooks', href: '/playbooks' },
+  { label: 'Engineering', href: '/engineering' },
+  { label: 'Templates', href: '/templates' },
+  { label: 'Sustaining Yourself', href: '/sustaining-yourself' },
+];
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+---
+
+<header class="relative border-b border-hairline">
+  <div
+    class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-6 sm:px-8"
+  >
+    <a
+      href="/"
+      class="font-display text-h3 font-medium tracking-tight text-ink no-underline hover:text-ink"
+    >
+      People Centric Leadership
+    </a>
+
+    <nav aria-label="Primary" class="hidden lg:block">
+      <ul class="flex flex-wrap items-center gap-x-6 gap-y-1">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                class:list={[
+                  'text-xs uppercase tracking-wide no-underline transition-colors',
+                  isCurrent(item.href)
+                    ? 'text-accent'
+                    : 'text-ink-muted hover:text-ink',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      id="nav-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
+    >
+      <span class="sr-only">Toggle menu</span>
+      <span
+        id="nav-toggle-bar-1"
+        class="h-px w-6 bg-ink transition-transform"
+      ></span>
+      <span id="nav-toggle-bar-2" class="h-px w-6 bg-ink transition-opacity"
+      ></span>
+      <span
+        id="nav-toggle-bar-3"
+        class="h-px w-6 bg-ink transition-transform"
+      ></span>
+    </button>
+  </div>
+
+  <nav
+    id="mobile-nav"
+    aria-label="Primary"
+    hidden
+    class="border-t border-hairline lg:hidden"
+  >
+    <ul class="mx-auto flex max-w-5xl flex-col divide-y divide-hairline px-6 sm:px-8">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+              class:list={[
+                'block py-4 text-sm uppercase tracking-wide no-underline',
+                isCurrent(item.href) ? 'text-accent' : 'text-ink-muted',
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  const bar1 = document.getElementById('nav-toggle-bar-1');
+  const bar2 = document.getElementById('nav-toggle-bar-2');
+  const bar3 = document.getElementById('nav-toggle-bar-3');
+
+  const setOpen = (open: boolean) => {
+    if (!toggle || !panel) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+    bar1?.classList.toggle('translate-y-[7px]', open);
+    bar1?.classList.toggle('rotate-45', open);
+    bar2?.classList.toggle('opacity-0', open);
+    bar3?.classList.toggle('-translate-y-[7px]', open);
+    bar3?.classList.toggle('-rotate-45', open);
+  };
+
+  toggle?.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+</script>

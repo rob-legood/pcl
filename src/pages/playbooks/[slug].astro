@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const playbooks = await getCollection('playbooks');
+  return playbooks.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.summary}>
+  <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
+    <a href="/playbooks" class="text-xs uppercase tracking-wide text-ink-muted no-underline hover:text-accent">
+      &larr; All playbooks
+    </a>
+    <h1 class="mt-4 font-display text-h1 font-medium tracking-tight text-ink">
+      {entry.data.title}
+    </h1>
+    <p class="measure mt-4 text-lead text-ink-muted">{entry.data.summary}</p>
+    <div class="prose mt-12 text-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
