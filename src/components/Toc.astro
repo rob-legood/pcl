@@ -11,7 +11,7 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<details class="toc-mobile group mb-12 rounded-lg border border-hairline bg-paper-raised lg:hidden">
+<details data-pagefind-ignore class="toc-mobile group mb-12 rounded-lg border border-hairline bg-paper-raised lg:hidden">
   <summary
     class="cursor-pointer list-none px-5 py-4 text-xs uppercase tracking-wide text-ink-muted [&::-webkit-details-marker]:hidden"
   >
@@ -34,7 +34,7 @@ const { items } = Astro.props;
   </ul>
 </details>
 
-<nav aria-label="On this page" class="toc-desktop hidden lg:col-start-2 lg:row-start-1 lg:block">
+<nav aria-label="On this page" data-pagefind-ignore class="toc-desktop hidden lg:col-start-2 lg:row-start-1 lg:block">
   <div class="sticky top-12">
     <p class="text-xs uppercase tracking-wide text-ink-muted">On this page</p>
     <ul class="mt-4 space-y-1">

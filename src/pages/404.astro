@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const destinations = [
+  { label: 'Start Here', href: '/', description: 'The front door — the 3 A\'s and where to jump in.' },
+  { label: 'First 90 Days', href: '/first-90-days', description: 'The phase-by-phase manual for stepping into a role.' },
+  { label: 'Playbooks', href: '/playbooks', description: 'Scenario guides for the moments that test a leader.' },
+  { label: 'The Reflection', href: '/reflection', description: 'A private self-check across six dimensions.' },
+];
+---
+
+<BaseLayout
+  title="Page not found — People Centric Leadership"
+  description="This page doesn't exist. Here's where the rest of the site actually is."
+>
+  <section class="mx-auto max-w-3xl px-6 py-section-lg sm:px-8">
+    <p class="font-display text-hero font-medium tracking-tight text-accent">404</p>
+    <h1 class="mt-4 font-display text-h1 font-medium tracking-tight text-ink">
+      That page doesn't exist.
+    </h1>
+    <p class="measure mt-6 text-lead text-ink-muted">
+      Either the link is stale or you typed something that never was — either
+      way, nothing's wrong on your end. Here's where the rest of the site
+      actually lives.
+    </p>
+
+    <ul class="mt-12 grid gap-4 sm:grid-cols-2">
+      {
+        destinations.map((dest) => (
+          <li>
+            <a
+              href={dest.href}
+              class="group flex h-full flex-col justify-between rounded-lg border border-hairline bg-paper-raised p-6 no-underline transition-colors hover:border-accent"
+            >
+              <span class="font-display text-lg font-medium text-ink">{dest.label}</span>
+              <span class="mt-3 text-sm text-ink-muted">{dest.description}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-12 border-t border-hairline pt-8 text-sm text-ink-muted">
+      <a href="/" class="text-accent hover:text-accent-strong">Back to the front page &rarr;</a>
+    </p>
+  </section>
+</BaseLayout>

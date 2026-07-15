@@ -9,22 +9,32 @@ people-centric leadership. It is a fully static [Astro](https://astro.build)
 build with no backend and no database — all interactivity is client-side —
 deployed to Cloudflare Pages.
 
-The project is currently at the **foundation stage**: the design system,
-base layout, and one placeholder home page exist. The real content pages
-have not been built yet, and the six source documents in `source-docs/` have
-not been migrated into the site.
+The project is content-complete and deploy-ready: all six source documents
+are migrated into content collections and rendered, navigation is real
+(no placeholder links), there's a sitewide search, an interactive
+first-90-days progress tracker, and full SEO/OG/sitemap coverage. See
+**[DEPLOY.md](DEPLOY.md)** for shipping it, and **[FUTURES.md](FUTURES.md)**
+for known rough edges and ideas intentionally deferred rather than built —
+check both before assuming something is missing or unfinished by accident.
 
 ## Commands
 
 ```bash
 npm install         # install dependencies
 npm run dev          # dev server at http://localhost:4321
-npm run build         # static build to dist/
+npm run build         # static build to dist/, then runs postbuild (see below)
 npm run preview        # serve the built dist/ locally
 npx astro check       # TypeScript / Astro type-checking (not wired to a package.json script)
 ```
 
-There is no lint or test setup in this repository yet — don't assume one.
+There is no lint or test setup in this repository yet — don't assume one
+(tracked in FUTURES.md).
+
+`npm run build`'s `postbuild` hook runs `pagefind --site dist`, which
+indexes the built HTML for sitewide search. That index only exists after a
+real build — under `npm run dev` the search modal loads lazily and shows a
+"not available in this preview" message instead of failing silently. To
+test search locally, run `npm run build && npm run preview`.
 
 **"Another astro dev server is already running" on Windows.** This means a
 previous `npm run dev` (often one started in the background for testing)
@@ -54,9 +64,11 @@ started for testing, verify the PID is actually gone (`Get-Process -Id
 ## Architecture
 
 **Rendering.** `output: 'static'` in `astro.config.mjs` — no server adapter,
-no Cloudflare Functions. The Cloudflare Pages build is just `npm run build`
-with `dist` as the output directory; see README.md for the exact dashboard
-settings.
+no Cloudflare Functions. `site` is set to `https://pcl.roblegood.ca` (used
+for canonical links, the sitemap, and Open Graph URLs — update this the
+moment the real domain differs). The Cloudflare Pages build is `npm run
+build` with `dist` as the output directory; see DEPLOY.md for both the
+Git-connected and direct-Wrangler-upload paths.
 
 **Design tokens live in one file: `src/styles/tokens.css`.** Colors, the
 type scale, and section spacing are all defined there as plain CSS custom
@@ -67,29 +79,64 @@ identity, edit this file rather than reaching for arbitrary Tailwind values
 in components. Colors use a raw-token indirection (`--paper`, `--ink`, ...)
 so that a single `prefers-color-scheme: dark` override block can swap every
 color at once — dark mode is system-preference-only, there is no JS toggle.
+All token pairs (text on paper, text on paper-raised, in both modes) have
+been checked against WCAG AA and clear it comfortably — recheck if you
+introduce a new color.
 
 **`src/styles/global.css`** imports Tailwind, `tokens.css`, and the
 self-hosted variable font files (`@fontsource-variable/fraunces` and
 `@fontsource-variable/inter` — no external font requests at runtime). It
-also holds base element styles (link/selection/focus colors) and the
-`prefers-reduced-motion` override, which zeroes out animation/transition
-duration globally. Custom utilities not covered by `@theme` (e.g. `.measure`
-for the 66ch reading-width cap, `.animate-hero-in` for the hero's load
-animation) are defined here via Tailwind's `@utility` directive.
+also holds base element styles (link/selection/focus colors), the
+`prefers-reduced-motion` override that zeroes out animation/transition
+duration globally, and the `@media print` rules (`.no-print` hides
+chrome like the header/footer/reset buttons; `.template-pre` forces
+templates to print as plain high-contrast text). Custom utilities not
+covered by `@theme` (e.g. `.measure` for the 66ch reading-width cap,
+`.animate-hero-in` for the hero's load animation, `.prose` /
+`.prose-pullquotes` for rendered Markdown) are defined here via Tailwind's
+`@utility` directive.
 
 **Layout composition.** `src/layouts/BaseLayout.astro` is the only layout.
-It imports `global.css`, sets up the `<html>` shell/meta tags, and wraps
-`Header`/`Footer` around a `<slot />`. `Header.astro`'s nav items are
-placeholder labels (not `<a>` tags) — they don't point anywhere yet because
-the pages they'd link to don't exist. Replace them with real links only
-once those routes exist, rather than wiring them to dead or `#` hrefs.
+It sets up the `<html>` shell, canonical link, full OG/Twitter meta tags
+(backed by a generated `public/og-image.png`), and wraps `Header`/`Footer`
+around a `<slot />`. `<main>` carries `data-pagefind-body`, which scopes
+Pagefind's indexing to page content only — if you ever add a second
+top-level content wrapper, tag it the same way or search results will
+start including header/footer/nav boilerplate on every page.
 
-**Content is not yet wired up.** `source-docs/` contains six markdown files
-that are the full source material for the site's content, written in a
-reflective, direct, first-person voice (leadership philosophy, a 90-day
-manual, an engineering management playbook, personal sustainability notes,
-scenario playbooks, and copy-paste templates). None of it has been migrated
-into `src/pages` or a content collection yet — `@astrojs/mdx` is installed
-and configured for when that migration starts, but there is no content
-collection schema defined yet. Read these files before making content or
-IA decisions; they define the site's voice and subject matter.
+**Content collections** are defined in `src/content.config.ts`. Four
+collections (`philosophy`, `first-90-days`, `engineering`, `sustainability`)
+hold a single long-form Markdown entry each, rendered by their matching
+`src/pages/*.astro` file. Two collections are multi-entry:
+`playbooks` (one file per scenario, schema includes `slug`, `order`,
+`summary`, `tags`) and `templates` (one file per template, schema includes
+`tier`, `order`, `usageNote`), each with an `index.astro` listing page and a
+`[slug].astro` detail page. `source-docs/` still holds the six original
+markdown source files the content was migrated from — treat them as
+historical reference for voice/subject matter, not as something still
+needing migration.
+
+**Interactive, localStorage-backed features** follow the same pattern in
+two places — reuse it rather than inventing a new one:
+- `src/pages/reflection.astro` — a multi-step self-assessment that scores
+  answers client-side and optionally saves a result history.
+- `src/pages/first-90-days.astro` — every checklist item is a real
+  checkbox with a stable id (`${phase.id}--${groupIndex}-${itemIndex}`,
+  derived from static array position), persisted to localStorage as a
+  `{ [itemId]: true }` map, driving both an overall and a per-phase
+  progress indicator. A "Reset progress" control clears it after a native
+  `confirm()`.
+
+Both wrap every `localStorage` read/write in `try/catch` so the feature
+still works (just without persistence) if storage is unavailable — keep
+that pattern for any future localStorage use.
+
+**Sitewide search** (`src/components/Search.astro`) is a native `<dialog>`
+(free focus containment, Escape-to-close, backdrop-click-to-close) that
+lazy-loads Pagefind's bundled UI (`/pagefind/pagefind-ui.js` +
+`.css`) only when opened, restyled via Pagefind's CSS custom properties to
+match the site's tokens rather than shipping its default look. It's wired
+into `Header.astro` next to the mobile nav toggle.
+
+**Navigation is real.** `Header.astro`'s nav items are actual `<a>` links
+to every top-level route; there is no placeholder-label state anymore.

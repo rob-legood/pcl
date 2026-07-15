@@ -4,8 +4,10 @@ A calm, editorial reference site teaching people-centric leadership. Built
 with [Astro](https://astro.build) as a fully static site — no backend, no
 database, everything client-side.
 
-This is the **foundation stage**: design system, base layout, and one
-placeholder home page. No real content pages yet — those come next.
+The design system, content (philosophy, the first-90-days manual, playbooks,
+engineering, templates, sustainability), sitewide search, and interactive
+tools (the first-90-days tracker, the reflection self-check) are all built.
+See [DEPLOY.md](DEPLOY.md) for shipping it to Cloudflare Pages.
 
 ## Running it locally
 
@@ -18,10 +20,11 @@ The dev server runs at `http://localhost:4321`. Astro rebuilds on save.
 
 Other commands:
 
-| Command           | What it does                              |
-| ------------------ | ------------------------------------------ |
-| `npm run build`   | Builds the static site into `dist/`        |
-| `npm run preview` | Serves the built `dist/` locally, to sanity-check the production build |
+| Command            | What it does                                                            |
+| ------------------ | ------------------------------------------------------------------------ |
+| `npm run build`    | Builds the static site into `dist/`, then indexes it for search (`postbuild` runs Pagefind) |
+| `npm run preview`  | Serves the built `dist/` locally, to sanity-check the production build (search only works here or on the deployed site — see below) |
+| `npx astro check`  | TypeScript / Astro type-checking (not wired to a package.json script)   |
 
 ## Where the design tokens live
 
@@ -56,50 +59,43 @@ who ask for it).
 ```
 src/
 ├── components/
-│   ├── Header.astro     # site title + nav placeholder
-│   └── Footer.astro
+│   ├── Header.astro     # site nav + mobile menu
+│   ├── Footer.astro
+│   ├── Search.astro     # sitewide search modal (lazy-loads Pagefind's UI)
+│   └── Toc.astro        # sticky/collapsible on-page table of contents
+├── content/              # one folder per collection — see src/content.config.ts
+│   ├── philosophy/, first-90-days/, engineering/, sustainability/  (single long-form entry each)
+│   ├── playbooks/        # one file per scenario
+│   └── templates/        # one file per copy-paste template
 ├── layouts/
-│   └── BaseLayout.astro # <html> shell, imports global.css, wraps Header/Footer around a slot
+│   └── BaseLayout.astro # <html> shell: meta/OG tags, imports global.css, wraps Header/Footer around a slot
 ├── pages/
-│   └── index.astro      # placeholder home page (hero + lorem paragraph)
+│   ├── index.astro, philosophy.astro, first-90-days.astro, engineering.astro, sustaining-yourself.astro, reflection.astro
+│   ├── playbooks/, templates/  # index + [slug] routes reading from the content collections
+│   └── 404.astro
 └── styles/
     ├── tokens.css        # design tokens — edit here
-    └── global.css        # font imports, base element styles, reduced-motion
+    └── global.css        # font imports, base element styles, reduced-motion, print rules
 ```
 
-MDX is installed and configured (`@astrojs/mdx`), so future content pages
-can be written as `.mdx` files under `src/pages/` or `src/content/` once real
-content migration starts.
+MDX is installed and configured (`@astrojs/mdx`) if any page needs richer
+embedded components later; all current content is plain Markdown.
 
-## How the Cloudflare Pages build works
+## Sitewide search
 
-The site is configured for fully static output (`output: 'static'` in
-`astro.config.mjs`) — there's no server adapter, no Cloudflare Functions,
-just prerendered HTML/CSS/JS.
+Search is powered by [Pagefind](https://pagefind.app), which indexes the
+built `dist/` output rather than the source content — that's why it's
+wired up as a `postbuild` script in `package.json` (`pagefind --site dist`)
+instead of an Astro integration. Its UI assets live at `/pagefind/*` in the
+built site and are only fetched when a visitor opens the search modal, so
+it costs nothing on a normal page load.
 
-To deploy on Cloudflare Pages:
+Because indexing needs a real build, search doesn't function under
+`npm run dev` — the modal shows a "not available in this preview" message
+instead of failing silently. Test it with `npm run preview` after a build,
+or on the deployed site.
 
-1. Connect the GitHub repo in the Cloudflare Pages dashboard.
-2. Build command: `npm run build`
-3. Build output directory: `dist`
-4. Framework preset: **Astro** (Cloudflare's preset sets the two settings
-   above automatically).
+## Deploying
 
-No environment variables or bindings are needed for this stage. If the site
-later needs a production `site:` URL for canonical links, set it in
-`astro.config.mjs` once the domain is live.
-
-## Next stage
-
-Not yet built — flagged here so it's clear what's still ahead:
-
-- Content collections for the six source docs (philosophy, manual,
-  engineering playbook, personal sustainability, scenario playbooks,
-  templates) and the real page/route structure for them.
-- Real navigation replacing the header placeholder.
-- A page/template for the templates doc's copy-pasteable blocks (likely
-  needs its own component for the code-block-style templates).
-- Reading-experience details: a table of contents for long pages, in-page
-  anchor links, "field notes" callout styling.
-- Any shared MDX components (pull quotes, callouts) content will need once
-  migration starts.
+See **[DEPLOY.md](DEPLOY.md)** for both supported paths: connecting the
+repo to Cloudflare Pages, or a direct `wrangler pages deploy`.

@@ -20,6 +20,11 @@ interface Phase {
   groups: ChecklistGroup[];
 }
 
+interface ChecklistItemRef {
+  itemId: string;
+  text: string;
+}
+
 const phases: Phase[] = [
   {
     id: 'phase-0',
@@ -182,6 +187,20 @@ const phases: Phase[] = [
   },
 ];
 
+// Stable per-item ids for the localStorage-backed progress tracker —
+// derived from position, since phase/group/item order is static content.
+const itemIdsByPhase: Record<string, ChecklistItemRef[]> = {};
+for (const phase of phases) {
+  const refs: ChecklistItemRef[] = [];
+  phase.groups.forEach((group, gi) => {
+    group.items.forEach((item, ii) => {
+      refs.push({ itemId: `${phase.id}--${gi}-${ii}`, text: item });
+    });
+  });
+  itemIdsByPhase[phase.id] = refs;
+}
+const totalItems = Object.values(itemIdsByPhase).reduce((sum, refs) => sum + refs.length, 0);
+
 const cadence = [
   {
     title: 'Weekly',
@@ -254,6 +273,28 @@ const tocItems = [
         week, reflect for five minutes at the end of each week, and revisit
         the whole manual after each transition to prune.
       </p>
+
+      <div class="measure mt-10 rounded-lg border border-hairline bg-paper-raised p-5">
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-xs uppercase tracking-wide text-ink-muted">
+            <span data-progress-count>0 / {totalItems}</span> milestones checked
+          </p>
+          <button
+            type="button"
+            data-action="reset-progress"
+            class="no-print text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
+          >
+            Reset progress
+          </button>
+        </div>
+        <div class="mt-3 h-1.5 w-full rounded-full bg-hairline">
+          <div data-progress-bar class="h-1.5 rounded-full bg-accent transition-[width]" style="width: 0%" />
+        </div>
+        <p class="no-print mt-3 text-xs text-ink-muted">
+          Checking a box saves your progress in this browser only — nothing
+          is sent anywhere. Clear your browser data and it resets.
+        </p>
+      </div>
     </header>
 
     <div class="mt-4 lg:grid lg:grid-cols-[1fr_240px] lg:gap-16">
@@ -267,25 +308,56 @@ const tocItems = [
                 <span class="absolute -left-[3.25rem] flex h-9 w-9 items-center justify-center rounded-full border border-hairline bg-paper font-display text-sm text-ink sm:-left-[3.75rem]">
                   {phase.n}
                 </span>
-                <p class="text-xs uppercase tracking-wide text-accent">{phase.range}</p>
+                <div class="flex items-baseline justify-between gap-4">
+                  <p class="text-xs uppercase tracking-wide text-accent">{phase.range}</p>
+                  <p data-phase-progress={phase.id} class="text-xs text-ink-muted">
+                    0 / {itemIdsByPhase[phase.id].length}
+                  </p>
+                </div>
                 <h2 class="mt-1 font-display text-h3 font-medium tracking-tight text-ink">{phase.title}</h2>
                 <p class="measure mt-3 text-body text-ink-muted">
                   <strong class="text-ink">Goal:</strong> {phase.goal}
                 </p>
 
                 <div class="mt-8 space-y-8">
-                  {phase.groups.map((group) => (
+                  {phase.groups.map((group, gi) => (
                     <div>
                       {group.heading && (
                         <h3 class="font-display text-base font-medium text-ink">{group.heading}</h3>
                       )}
                       <ul class:list={['space-y-3', group.heading && 'mt-3']}>
-                        {group.items.map((item) => (
-                          <li class="flex gap-3 text-body text-ink-muted">
-                            <span class="mt-1.5 h-3.5 w-3.5 flex-none rounded-[3px] border border-hairline" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
+                        {group.items.map((item, ii) => {
+                          const itemId = `${phase.id}--${gi}-${ii}`;
+                          return (
+                            <li class="flex text-body text-ink-muted">
+                              <label class="flex cursor-pointer gap-3">
+                                <input
+                                  type="checkbox"
+                                  id={itemId}
+                                  data-tracker-item
+                                  data-phase={phase.id}
+                                  class="peer sr-only"
+                                />
+                                <span
+                                  aria-hidden="true"
+                                  class="mt-1.5 flex h-3.5 w-3.5 flex-none items-center justify-center rounded-[3px] border border-hairline peer-checked:border-accent peer-checked:bg-accent"
+                                >
+                                  <svg viewBox="0 0 12 12" class="h-2.5 w-2.5 text-paper opacity-0 peer-checked:opacity-100">
+                                    <path
+                                      d="M2.25 6.25L4.75 8.75L9.5 3.5"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      stroke-width="1.5"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    />
+                                  </svg>
+                                </span>
+                                <span class="peer-checked:text-ink-muted/60 peer-checked:line-through">{item}</span>
+                              </label>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   ))}
@@ -338,3 +410,74 @@ const tocItems = [
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  const STORAGE_KEY = 'pcl:first-90-days:progress';
+
+  const checkboxes = Array.from(document.querySelectorAll<HTMLInputElement>('[data-tracker-item]'));
+  const overallCount = document.querySelector<HTMLElement>('[data-progress-count]');
+  const overallBar = document.querySelector<HTMLElement>('[data-progress-bar]');
+  const resetButton = document.querySelector<HTMLButtonElement>('[data-action="reset-progress"]');
+
+  function readState(): Record<string, boolean> {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function writeState(state: Record<string, boolean>) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch {
+      /* localStorage unavailable — checkboxes still work for this session */
+    }
+  }
+
+  function updateProgress() {
+    const total = checkboxes.length;
+    const done = checkboxes.filter((cb) => cb.checked).length;
+
+    if (overallCount) overallCount.textContent = `${done} / ${total}`;
+    if (overallBar) overallBar.style.width = `${total ? (done / total) * 100 : 0}%`;
+
+    const phaseGroups = new Map<string, HTMLInputElement[]>();
+    for (const cb of checkboxes) {
+      const phase = cb.dataset.phase ?? '';
+      const list = phaseGroups.get(phase) ?? [];
+      list.push(cb);
+      phaseGroups.set(phase, list);
+    }
+    for (const [phase, items] of phaseGroups) {
+      const badge = document.querySelector<HTMLElement>(`[data-phase-progress="${phase}"]`);
+      if (!badge) continue;
+      const phaseDone = items.filter((cb) => cb.checked).length;
+      badge.textContent = `${phaseDone} / ${items.length}`;
+    }
+  }
+
+  const state = readState();
+  for (const cb of checkboxes) {
+    if (state[cb.id]) cb.checked = true;
+  }
+  updateProgress();
+
+  for (const cb of checkboxes) {
+    cb.addEventListener('change', () => {
+      const next = readState();
+      if (cb.checked) next[cb.id] = true;
+      else delete next[cb.id];
+      writeState(next);
+      updateProgress();
+    });
+  }
+
+  resetButton?.addEventListener('click', () => {
+    if (!confirm('Reset all checked progress on this page? This can’t be undone.')) return;
+    writeState({});
+    for (const cb of checkboxes) cb.checked = false;
+    updateProgress();
+  });
+</script>

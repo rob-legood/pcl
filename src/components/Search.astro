@@ -1,0 +1,145 @@
+---
+// Sitewide search, powered by Pagefind. Pagefind indexes `dist/` in the
+// `postbuild` npm script (see package.json), so its assets only exist after
+// `npm run build` — under `astro dev` this loads lazily, fails softly, and
+// shows `search-unavailable` instead of throwing.
+---
+
+<button
+  type="button"
+  id="search-open"
+  aria-haspopup="dialog"
+  aria-controls="search-dialog"
+  class="flex h-9 w-9 flex-none items-center justify-center text-ink-muted transition-colors hover:text-ink"
+>
+  <span class="sr-only">Search</span>
+  <svg viewBox="0 0 20 20" fill="none" class="h-5 w-5" aria-hidden="true">
+    <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5" />
+    <path d="M17 17L13.4 13.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+  </svg>
+</button>
+
+<dialog
+  id="search-dialog"
+  aria-label="Search"
+  class="no-print m-auto w-full max-w-xl rounded-lg border border-hairline bg-paper p-6 shadow-lg backdrop:bg-ink/40"
+>
+  <div class="flex items-center justify-between">
+    <p class="text-xs uppercase tracking-wide text-ink-muted">Search</p>
+    <button
+      type="button"
+      id="search-close"
+      class="text-xs uppercase tracking-wide text-ink-muted transition-colors hover:text-ink"
+    >
+      Close &times;
+    </button>
+  </div>
+  <div id="search-container" class="pcl-search mt-4"></div>
+  <p id="search-unavailable" hidden class="mt-4 text-sm text-ink-muted">
+    Search isn't available in this preview — it's generated at build time
+    and works on the deployed site.
+  </p>
+</dialog>
+
+<style is:global>
+  /* Restyle Pagefind's default UI to match the site's design tokens
+     instead of shipping a visually distinct search widget. */
+  .pcl-search {
+    --pagefind-ui-primary: var(--color-ink);
+    --pagefind-ui-text: var(--color-ink-muted);
+    --pagefind-ui-background: var(--color-paper);
+    --pagefind-ui-border: var(--color-hairline);
+    --pagefind-ui-tag: var(--color-paper-raised);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.5rem;
+    --pagefind-ui-font: var(--font-body);
+  }
+
+  .pcl-search .pagefind-ui__form {
+    border: none;
+  }
+
+  .pcl-search .pagefind-ui__search-input {
+    font-size: var(--text-body);
+  }
+
+  .pcl-search .pagefind-ui__result-title {
+    font-family: var(--font-display);
+  }
+
+  .pcl-search mark {
+    background-color: color-mix(in srgb, var(--color-accent) 25%, transparent);
+    color: var(--color-ink);
+  }
+
+  #search-dialog {
+    max-height: 76vh;
+    overflow-y: auto;
+  }
+
+  #search-dialog::backdrop {
+    backdrop-filter: blur(2px);
+  }
+</style>
+
+<script>
+  const openButton = document.getElementById('search-open');
+  const closeButton = document.getElementById('search-close');
+  const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
+  const container = document.getElementById('search-container');
+  const unavailable = document.getElementById('search-unavailable');
+
+  let loaded = false;
+
+  function loadScript(src: string) {
+    return new Promise<void>((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load ${src}`));
+      document.head.appendChild(script);
+    });
+  }
+
+  function loadStylesheet(href: string) {
+    return new Promise<void>((resolve, reject) => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.onload = () => resolve();
+      link.onerror = () => reject(new Error(`Failed to load ${href}`));
+      document.head.appendChild(link);
+    });
+  }
+
+  async function ensureLoaded() {
+    if (loaded) return;
+    loaded = true;
+    try {
+      await Promise.all([
+        loadStylesheet('/pagefind/pagefind-ui.css'),
+        loadScript('/pagefind/pagefind-ui.js'),
+      ]);
+      // @ts-expect-error — PagefindUI is a global defined by the script above
+      new PagefindUI({ element: '#search-container', showSubResults: true, showImages: false });
+    } catch {
+      if (unavailable) unavailable.hidden = false;
+    }
+  }
+
+  openButton?.addEventListener('click', async () => {
+    dialog?.showModal();
+    await ensureLoaded();
+    requestAnimationFrame(() => {
+      container?.querySelector<HTMLInputElement>('input')?.focus();
+    });
+  });
+
+  closeButton?.addEventListener('click', () => dialog?.close());
+
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog?.addEventListener('close', () => openButton?.focus());
+</script>

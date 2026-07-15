@@ -1,4 +1,6 @@
 ---
+import Search from './Search.astro';
+
 interface NavItem {
   label: string;
   href: string;
@@ -54,25 +56,29 @@ const isCurrent = (href: string) =>
       </ul>
     </nav>
 
-    <button
-      type="button"
-      id="nav-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-nav"
-      class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
-    >
-      <span class="sr-only">Toggle menu</span>
-      <span
-        id="nav-toggle-bar-1"
-        class="h-px w-6 bg-ink transition-transform"
-      ></span>
-      <span id="nav-toggle-bar-2" class="h-px w-6 bg-ink transition-opacity"
-      ></span>
-      <span
-        id="nav-toggle-bar-3"
-        class="h-px w-6 bg-ink transition-transform"
-      ></span>
-    </button>
+    <div class="flex items-center gap-2">
+      <Search />
+
+      <button
+        type="button"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
+      >
+        <span class="sr-only">Toggle menu</span>
+        <span
+          id="nav-toggle-bar-1"
+          class="h-px w-6 bg-ink transition-transform"
+        ></span>
+        <span id="nav-toggle-bar-2" class="h-px w-6 bg-ink transition-opacity"
+        ></span>
+        <span
+          id="nav-toggle-bar-3"
+          class="h-px w-6 bg-ink transition-transform"
+        ></span>
+      </button>
+    </div>
   </div>
 
   <nav
