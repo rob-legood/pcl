@@ -26,6 +26,31 @@ npx astro check       # TypeScript / Astro type-checking (not wired to a package
 
 There is no lint or test setup in this repository yet — don't assume one.
 
+**"Another astro dev server is already running" on Windows.** This means a
+previous `npm run dev` (often one started in the background for testing)
+never actually died. On Windows, Git Bash's `pkill -f` frequently fails to
+kill `node.exe` processes it spawned via a detached background job — it
+matches against MSYS's view of the command line, which doesn't reliably
+line up with how Windows launched the process, so `pkill` can exit
+successfully while the process keeps running and holds the port. The error
+message gives you the real PID directly — use it:
+
+```powershell
+Stop-Process -Id <PID> -Force
+```
+
+If you don't have the PID, find whatever's bound to the port instead:
+
+```powershell
+Get-Process -Id (Get-NetTCPConnection -LocalPort 4321).OwningProcess
+Stop-Process -Id <that Id> -Force
+```
+
+`npx astro dev --force` also works — it replaces the existing instance
+instead of refusing to start. After killing a background dev server
+started for testing, verify the PID is actually gone (`Get-Process -Id
+<PID>`) rather than trusting `pkill`'s exit code.
+
 ## Architecture
 
 **Rendering.** `output: 'static'` in `astro.config.mjs` — no server adapter,

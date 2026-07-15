@@ -1,22 +1,476 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const scaleOptions = [
+  { value: 1, label: 'Rarely' },
+  { value: 2, label: 'Sometimes' },
+  { value: 3, label: 'Often' },
+  { value: 4, label: 'Almost always' },
+];
+
+interface Statement {
+  id: string;
+  text: string;
+  reverse?: boolean;
+}
+
+interface ResultLink {
+  label: string;
+  href: string;
+}
+
+interface Dimension {
+  key: string;
+  label: string;
+  blurb: string;
+  statements: Statement[];
+  links: ResultLink[];
+}
+
+const dimensions: Dimension[] = [
+  {
+    key: 'people-centric',
+    label: 'People-centric, not people-pleasing',
+    blurb: 'Being liked and being trusted are not the same thing.',
+    statements: [
+      { id: 's1', text: "When someone's work isn't meeting the bar, I address it directly and soon." },
+      { id: 's2', text: 'I soften a hard message until it barely resembles what I meant to say.', reverse: true },
+      { id: 's3', text: 'I hold the same bar for someone I like as for someone I don\'t.' },
+      { id: 's4', text: 'I let a performance problem drift because raising it would be uncomfortable.', reverse: true },
+    ],
+    links: [{ label: 'Philosophy', href: '/philosophy#people-centric' }],
+  },
+  {
+    key: 'autonomy-authority',
+    label: 'Autonomy & Authority',
+    blurb: 'The what and the why are mine to give. The how belongs to them.',
+    statements: [
+      { id: 's1', text: 'I give people the what and the why, and stay out of the how.' },
+      { id: 's2', text: "I find myself dictating implementation even after I've set a clear goal.", reverse: true },
+      { id: 's3', text: 'I let a decision stand even when I would have made it differently, as long as it\'s inside their scope.' },
+      { id: 's4', text: 'I push back when someone outside the team tries to override a decision that was theirs to make.' },
+    ],
+    links: [{ label: "Philosophy (the 3 A's)", href: '/philosophy#three-as' }],
+  },
+  {
+    key: 'accountability-candor',
+    label: 'Accountability & Candor',
+    blurb: 'Feedback that waits for the review meeting has already cost something.',
+    statements: [
+      { id: 's1', text: 'I give critical feedback quickly, specifically, and in private — not saved for a scheduled review.' },
+      { id: 's2', text: "Nothing I say in a performance conversation is news to the person hearing it." },
+      { id: 's3', text: 'I give credit in public and take responsibility in public when something goes wrong.' },
+      { id: 's4', text: "I've talked about a problem with someone's performance before I've raised it with them directly.", reverse: true },
+    ],
+    links: [
+      { label: 'Philosophy (Radical Candor)', href: '/philosophy#radical-candor' },
+      { label: 'Playbooks (The First Underperformer)', href: '/playbooks/first-underperformer' },
+    ],
+  },
+  {
+    key: 'operating-rhythms',
+    label: 'Operating rhythms',
+    blurb: 'The rituals that keep trust and context from decaying.',
+    statements: [
+      { id: 's1', text: "In 1:1s, my report's agenda comes first; mine is the exception." },
+      { id: 's2', text: "I know what each person on my team wants from their career, and I've checked recently that it's still true." },
+      { id: 's3', text: 'My 1:1s are the first thing to get moved or shortened when the calendar gets tight.', reverse: true },
+      { id: 's4', text: 'I keep some regular rhythm — a written update, a weekly review — that keeps the team oriented without me repeating myself.' },
+    ],
+    links: [
+      { label: 'First 90 Days', href: '/first-90-days#operating-system' },
+      { label: '1:1 template', href: '/templates/one-on-one-running-doc' },
+    ],
+  },
+  {
+    key: 'under-pressure',
+    label: 'Under pressure',
+    blurb: "Who you are when it's hard is who you actually are.",
+    statements: [
+      { id: 's1', text: 'In an incident, I make space for the people doing the work instead of stepping in to run it myself.' },
+      { id: 's2', text: 'When a strong performer suddenly goes quiet, I treat it as a signal worth investigating, not a problem to manage.' },
+      { id: 's3', text: 'Under pressure, I default to solving it myself instead of asking what people actually need from me.', reverse: true },
+      { id: 's4', text: 'I stay calm enough in a crisis that the people around me can stay calm too.' },
+    ],
+    links: [{ label: 'Playbooks', href: '/playbooks' }],
+  },
+  {
+    key: 'sustaining-yourself',
+    label: 'Sustaining yourself',
+    blurb: "You can't run this pattern on empty.",
+    statements: [
+      { id: 's1', text: "I say yes to a new commitment before I've had a chance to think it through.", reverse: true },
+      { id: 's2', text: "I finish what I start, or I hand it off on purpose rather than letting it quietly drop." },
+      { id: 's3', text: 'I have at least one person outside work who would tell me if I seemed off.' },
+      { id: 's4', text: "Lately I'm going through the motions of caring rather than actually feeling it.", reverse: true },
+    ],
+    links: [{ label: 'Sustaining Yourself', href: '/sustaining-yourself' }],
+  },
+];
 ---
 
 <BaseLayout
   title="The Reflection — People Centric Leadership"
-  description="A short, guided way to find your footing when you're not sure where to start. Coming in a later stage."
+  description="A private, browser-only self-check across the six dimensions of this framework — a mirror, not a scorecard."
 >
-  <section class="mx-auto max-w-5xl px-6 py-section-lg sm:px-8">
-    <h1 class="font-display text-h1 font-medium tracking-tight text-ink">The Reflection</h1>
-    <p class="measure mt-6 text-lead text-ink-muted">
-      This will be a short, guided set of questions to help you find your
-      footing when you're not sure where to start — pointing you toward the
-      part of the site that fits where you are right now.
-    </p>
-    <p class="measure mt-4 text-body text-ink-muted">
-      It isn't built yet. For now, use the{' '}
-      <a href="/#where-are-you" class="text-accent hover:text-accent-strong">where are you right now</a>{' '}
-      cards on the home page, or browse the sections directly from the nav above.
-    </p>
-  </section>
+  <div class="mx-auto max-w-3xl px-6 py-section sm:px-8">
+    <!-- Intro -->
+    <section data-step="intro">
+      <h1 class="font-display text-h1 font-medium tracking-tight text-ink">The Reflection</h1>
+      <p class="measure mt-6 text-lead text-ink-muted">
+        This is a mirror, not a scorecard. Twenty-four short statements
+        across the six dimensions this site is built on — rate how often
+        each one is true of you lately, and get a plain-language read on
+        where you're steady and where to focus next.
+      </p>
+      <p class="measure mt-4 text-body text-ink-muted">
+        Answer for how you actually behave, not how you'd like to. There's
+        no passing score, and no one else sees this.
+      </p>
+
+      <div class="mt-8 max-w-2xl border-l-2 border-accent pl-6">
+        <p class="text-body text-ink-muted">
+          <strong class="text-ink">Everything here stays in this browser tab.</strong>
+          {' '}Nothing is sent anywhere, tracked, or stored on a server. If you
+          choose to save a result, it's written to this browser's local
+          storage only — you can clear it any time.
+        </p>
+      </div>
+
+      <p class="mt-8 text-sm uppercase tracking-wide text-ink-muted">
+        6 dimensions · 24 statements · about 5 minutes
+      </p>
+
+      <button
+        type="button"
+        data-action="begin"
+        class="mt-8 rounded-lg bg-ink px-6 py-3 text-sm font-medium uppercase tracking-wide text-paper transition-colors hover:bg-accent-strong"
+      >
+        Begin &rarr;
+      </button>
+    </section>
+
+    <!-- Dimension steps -->
+    {
+      dimensions.map((dim, i) => (
+        <section data-step="dimension" data-dim-key={dim.key} hidden class="scroll-mt-8">
+          <p class="text-xs uppercase tracking-wide text-ink-muted">
+            Step {i + 1} of {dimensions.length}
+          </p>
+          <div class="mt-2 h-1 w-full rounded-full bg-hairline">
+            <div
+              class="h-1 rounded-full bg-accent"
+              style={`width: ${((i + 1) / dimensions.length) * 100}%`}
+            />
+          </div>
+
+          <h2 class="mt-8 font-display text-h2 font-medium tracking-tight text-ink">{dim.label}</h2>
+          <p class="mt-2 text-body italic text-ink-muted">{dim.blurb}</p>
+
+          <div class="mt-10 space-y-10">
+            {dim.statements.map((s) => (
+              <fieldset data-statement data-reverse={s.reverse ? '1' : '0'}>
+                <legend class="measure text-body text-ink">{s.text}</legend>
+                <div class="mt-4 flex flex-wrap gap-2" role="radiogroup">
+                  {scaleOptions.map((opt) => (
+                    <label class="cursor-pointer">
+                      <input
+                        type="radio"
+                        name={`${dim.key}--${s.id}`}
+                        value={opt.value}
+                        class="peer sr-only"
+                      />
+                      <span class="block rounded-full border border-hairline px-4 py-2 text-sm text-ink-muted transition-colors peer-checked:border-accent peer-checked:bg-accent peer-checked:text-paper peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-accent peer-focus-visible:outline-offset-2">
+                        {opt.label}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            ))}
+          </div>
+
+          <p data-incomplete-note hidden class="mt-8 text-sm text-ink-muted">
+            Rate each statement above to continue.
+          </p>
+
+          <div class="mt-10 flex items-center justify-between border-t border-hairline pt-6">
+            <button
+              type="button"
+              data-action="back"
+              class="text-xs uppercase tracking-wide text-ink-muted no-underline hover:text-ink"
+            >
+              &larr; Back
+            </button>
+            <button
+              type="button"
+              data-action="next"
+              data-final={i === dimensions.length - 1 ? '1' : '0'}
+              disabled
+              class="rounded-lg bg-ink px-6 py-3 text-sm font-medium uppercase tracking-wide text-paper transition-colors hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {i === dimensions.length - 1 ? 'See my results' : 'Next'} &rarr;
+            </button>
+          </div>
+        </section>
+      ))
+    }
+
+    <!-- Results -->
+    <section data-step="results" hidden>
+      <h2 class="font-display text-h1 font-medium tracking-tight text-ink">Your reflection</h2>
+      <p data-result-summary class="measure mt-6 text-lead text-ink-muted"></p>
+      <p class="measure mt-4 text-sm text-ink-muted">
+        This is a self-report on a single day — a starting point for
+        reflection, not a verdict. Retake it in a season and see what moved.
+      </p>
+
+      <div class="mt-12 space-y-10">
+        {
+          dimensions.map((dim) => (
+            <div data-result-dim={dim.key} class="border-t border-hairline pt-8">
+              <div class="flex items-baseline justify-between gap-4">
+                <h3 class="font-display text-lg font-medium text-ink">{dim.label}</h3>
+                <span data-result-percent class="flex-none text-sm text-ink-muted">—</span>
+              </div>
+              <div class="mt-3 h-2 w-full rounded-full bg-hairline">
+                <div data-result-bar class="h-2 rounded-full bg-accent" style="width: 0%" />
+              </div>
+              <p data-result-band class="mt-2 text-sm text-ink-muted"></p>
+              <p data-result-delta hidden class="mt-1 text-xs text-ink-muted"></p>
+              <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1">
+                {dim.links.map((link) => (
+                  <li>
+                    <a href={link.href} class="text-sm text-accent hover:text-accent-strong">
+                      {link.label} &rarr;
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="no-print mt-12 flex flex-wrap items-center gap-4 border-t border-hairline pt-8">
+        <button
+          type="button"
+          data-action="save"
+          class="rounded-lg bg-ink px-5 py-2.5 text-sm font-medium uppercase tracking-wide text-paper transition-colors hover:bg-accent-strong"
+        >
+          Save this result
+        </button>
+        <button
+          type="button"
+          data-action="print"
+          class="rounded-lg border border-hairline px-5 py-2.5 text-sm uppercase tracking-wide text-ink-muted transition-colors hover:border-accent hover:text-ink"
+        >
+          Print / save as PDF
+        </button>
+        <button
+          type="button"
+          data-action="restart"
+          class="text-xs uppercase tracking-wide text-ink-muted no-underline hover:text-ink"
+        >
+          Start over
+        </button>
+        <button
+          type="button"
+          data-action="clear-history"
+          hidden
+          class="ml-auto text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
+        >
+          Clear saved history
+        </button>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
+
+<script>
+  const HISTORY_KEY = 'pcl:reflection:history';
+
+  const introStep = document.querySelector<HTMLElement>('[data-step="intro"]');
+  const dimSteps = Array.from(document.querySelectorAll<HTMLElement>('[data-step="dimension"]'));
+  const resultsStep = document.querySelector<HTMLElement>('[data-step="results"]');
+  const allSteps = [introStep, ...dimSteps, resultsStep].filter((el): el is HTMLElement => el !== null);
+
+  const beginButton = document.querySelector<HTMLButtonElement>('[data-action="begin"]');
+  const saveButton = document.querySelector<HTMLButtonElement>('[data-action="save"]');
+  const printButton = document.querySelector<HTMLButtonElement>('[data-action="print"]');
+  const restartButton = document.querySelector<HTMLButtonElement>('[data-action="restart"]');
+  const clearHistoryButton = document.querySelector<HTMLButtonElement>('[data-action="clear-history"]');
+
+  let currentIndex = 0;
+  let currentScores: Record<string, number> = {};
+
+  function showStep(index: number) {
+    allSteps.forEach((el, i) => {
+      el.hidden = i !== index;
+    });
+    currentIndex = index;
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function getHistory(): { date: string; scores: Record<string, number> }[] {
+    try {
+      const raw = localStorage.getItem(HISTORY_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveHistory(history: { date: string; scores: Record<string, number> }[]) {
+    try {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-10)));
+    } catch {
+      /* localStorage unavailable — saving is best-effort */
+    }
+  }
+
+  function formatDate(iso: string): string {
+    return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function band(pct: number): string {
+    if (pct >= 85) return 'Coming through strong';
+    if (pct >= 65) return 'Fairly steady';
+    if (pct >= 40) return 'Still forming';
+    return 'Worth a closer look';
+  }
+
+  function updateNextState(step: HTMLElement) {
+    const fieldsets = Array.from(step.querySelectorAll<HTMLFieldSetElement>('[data-statement]'));
+    const complete = fieldsets.every((fs) => fs.querySelector('input[type="radio"]:checked'));
+    const nextButton = step.querySelector<HTMLButtonElement>('[data-action="next"]');
+    const note = step.querySelector<HTMLElement>('[data-incomplete-note]');
+    if (nextButton) nextButton.disabled = !complete;
+    if (note) note.hidden = complete;
+  }
+
+  function computeScores(): Record<string, number> {
+    const scores: Record<string, number> = {};
+    for (const step of dimSteps) {
+      const key = step.dataset.dimKey ?? '';
+      const fieldsets = Array.from(step.querySelectorAll<HTMLFieldSetElement>('[data-statement]'));
+      let total = 0;
+      for (const fs of fieldsets) {
+        const checked = fs.querySelector<HTMLInputElement>('input[type="radio"]:checked');
+        if (!checked) continue;
+        const raw = Number(checked.value);
+        total += fs.dataset.reverse === '1' ? 5 - raw : raw;
+      }
+      scores[key] = Math.round((total / (fieldsets.length * 4)) * 100);
+    }
+    return scores;
+  }
+
+  function renderResults(scores: Record<string, number>) {
+    if (!resultsStep) return;
+    const history = getHistory();
+    const previous = history[history.length - 1];
+
+    for (const row of Array.from(resultsStep.querySelectorAll<HTMLElement>('[data-result-dim]'))) {
+      const key = row.dataset.resultDim ?? '';
+      const pct = scores[key] ?? 0;
+
+      const percentEl = row.querySelector<HTMLElement>('[data-result-percent]');
+      if (percentEl) percentEl.textContent = `${pct}%`;
+
+      const barEl = row.querySelector<HTMLElement>('[data-result-bar]');
+      if (barEl) barEl.style.width = `${pct}%`;
+
+      const bandEl = row.querySelector<HTMLElement>('[data-result-band]');
+      if (bandEl) bandEl.textContent = band(pct);
+
+      const deltaEl = row.querySelector<HTMLElement>('[data-result-delta]');
+      if (deltaEl) {
+        const previousPct = previous?.scores?.[key];
+        if (previous && previousPct !== undefined) {
+          const diff = pct - previousPct;
+          const sign = diff > 0 ? '+' : '';
+          deltaEl.hidden = false;
+          deltaEl.textContent =
+            diff === 0
+              ? `Same as your saved result from ${formatDate(previous.date)}`
+              : `${sign}${diff} pts vs your saved result from ${formatDate(previous.date)}`;
+        } else {
+          deltaEl.hidden = true;
+        }
+      }
+    }
+
+    const entries = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+    const summaryEl = resultsStep.querySelector<HTMLElement>('[data-result-summary]');
+    if (summaryEl && entries.length > 0) {
+      const [strongestKey, strongestPct] = entries[0];
+      const [weakestKey, weakestPct] = entries[entries.length - 1];
+      const labelOf = (key: string) =>
+        resultsStep.querySelector(`[data-result-dim="${key}"] h3`)?.textContent ?? key;
+
+      summaryEl.textContent =
+        strongestKey === weakestKey
+          ? "Every dimension landed in about the same place this time."
+          : `Right now, ${labelOf(strongestKey)} is where you're most consistent (${strongestPct}%). ${labelOf(weakestKey)} looks like the place to focus next (${weakestPct}%).`;
+    }
+
+    if (clearHistoryButton) clearHistoryButton.hidden = history.length === 0;
+    if (saveButton) {
+      saveButton.disabled = false;
+      saveButton.textContent = 'Save this result';
+    }
+  }
+
+  beginButton?.addEventListener('click', () => showStep(1));
+
+  dimSteps.forEach((step, i) => {
+    updateNextState(step);
+
+    step.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((input) => {
+      input.addEventListener('change', () => updateNextState(step));
+    });
+
+    step.querySelector('[data-action="back"]')?.addEventListener('click', () => showStep(currentIndex - 1));
+
+    step.querySelector('[data-action="next"]')?.addEventListener('click', () => {
+      if (i === dimSteps.length - 1) {
+        currentScores = computeScores();
+        renderResults(currentScores);
+        showStep(allSteps.length - 1);
+      } else {
+        showStep(currentIndex + 1);
+      }
+    });
+  });
+
+  saveButton?.addEventListener('click', () => {
+    const history = getHistory();
+    history.push({ date: new Date().toISOString(), scores: currentScores });
+    saveHistory(history);
+    saveButton.disabled = true;
+    saveButton.textContent = 'Saved ✓';
+  });
+
+  printButton?.addEventListener('click', () => window.print());
+
+  clearHistoryButton?.addEventListener('click', () => {
+    try {
+      localStorage.removeItem(HISTORY_KEY);
+    } catch {
+      /* localStorage unavailable */
+    }
+    resultsStep?.querySelectorAll<HTMLElement>('[data-result-delta]').forEach((el) => {
+      el.hidden = true;
+    });
+    clearHistoryButton.hidden = true;
+  });
+
+  restartButton?.addEventListener('click', () => {
+    document.querySelectorAll<HTMLInputElement>('input[type="radio"]:checked').forEach((input) => {
+      input.checked = false;
+    });
+    dimSteps.forEach((step) => updateNextState(step));
+    showStep(0);
+  });
+</script>
