@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import './tokens.css';
 
-/* Self-hosted variable fonts — no external font requests. */
+/* Self-hosted variable fonts. No external font requests. */
 @import '@fontsource-variable/fraunces/standard.css';
 @import '@fontsource-variable/fraunces/standard-italic.css';
 @import '@fontsource-variable/inter';
@@ -67,7 +67,7 @@
 }
 
 /* Minimal editorial typesetting for rendered markdown/MDX content.
-   Deliberately not a full typography-plugin reset — just enough rhythm
+   Deliberately not a full typography-plugin reset, just enough rhythm
    for the long-form docs migrated from source-docs/. */
 @utility prose {
   max-width: var(--measure);
@@ -147,7 +147,7 @@
   }
 }
 
-/* Distinct pull-quote treatment for blockquotes on playbook pages — these
+/* Distinct pull-quote treatment for blockquotes on playbook pages: these
    are "Sample language" entries, phrasings to borrow, so they're set off
    from the surrounding prose rather than styled as a generic quotation. */
 @utility prose-pullquotes {
@@ -198,7 +198,7 @@
   }
 }
 
-/* Template pages print as plain, high-contrast text — the point is a
+/* Template pages print as plain, high-contrast text: the point is a
    page you can hand someone or file away, not a themed screenshot. */
 @media print {
   .no-print {

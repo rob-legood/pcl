@@ -2,11 +2,11 @@
 title: On-Call Handoff
 tier: engineering-rituals
 order: 3
-usageNote: 15-minute weekly ritual. Written down, always — verbal handoffs get lost. The outgoing engineer runs it. The incoming engineer asks questions.
+usageNote: 15-minute weekly ritual. Written down, always; verbal handoffs get lost. The outgoing engineer runs it. The incoming engineer asks questions.
 ---
 
 ```markdown
-# On-Call Handoff — Week of [Date]
+# On-Call Handoff: Week of [Date]
 
 **Outgoing:** [Name]
 **Incoming:** [Name]

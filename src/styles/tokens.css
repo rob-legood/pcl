@@ -1,15 +1,15 @@
 /*
-  Design tokens — People Centric Leadership
+  Design tokens for People Centric Leadership
   ==========================================
   This file is the single source of truth for color, type, and spacing.
   Tune values here; everything else (Tailwind utilities, components)
   reads from these custom properties.
 
   Structure:
-    1. Raw color values — light mode default, dark mode override via
+    1. Raw color values: light mode default, dark mode override via
        `prefers-color-scheme`. Kept as plain custom properties (not inside
        `@theme`) so the same token name can hold different values per mode.
-    2. Tailwind v4 `@theme` mapping — turns those raw values (plus the type
+    2. Tailwind v4 `@theme` mapping: turns those raw values (plus the type
        scale and spacing rhythm, which don't vary by mode) into utility
        classes: `bg-paper`, `text-ink`, `font-display`, `text-hero`, etc.
 */
@@ -20,7 +20,7 @@
   --paper-raised: #fbf8f2; /* cards, subtly lifted surfaces */
   --ink: #211e17; /* primary text */
   --ink-muted: #5c5645; /* secondary text, captions, meta */
-  --accent: #3d5a50; /* links, emphasis — one accent only */
+  --accent: #3d5a50; /* links, emphasis, one accent only */
   --accent-strong: #2c4038; /* hover/active state of the accent */
   --hairline: #e4dcc8; /* borders, dividers */
 
@@ -77,7 +77,7 @@
 
   /* ---- Semantic spacing -> p-section, py-section-lg ----
      Vertical rhythm between major sections. Fine-grained gaps still use
-     Tailwind's default numeric scale (p-4, gap-6, ...) — no need to
+     Tailwind's default numeric scale (p-4, gap-6, ...). No need to
      duplicate that here. */
   --spacing-section: 6rem;
   --spacing-section-lg: 8rem;

@@ -17,7 +17,7 @@ The first time a team member isn't meeting the bar, what I do sets the tone for 
 ## In the following days
 
 - Have a direct 1:1. Name what I'm seeing specifically. Ask what's going on.
-- Listen for context I don't have — workload, blockers, personal stuff, unclear expectations, a missing skill.
+- Listen for context I don't have: workload, blockers, personal stuff, unclear expectations, a missing skill.
 - Co-create what "good" looks like. Be explicit about timelines. Document it.
 - Increase 1:1 frequency briefly. Coach actively.
 

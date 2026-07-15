@@ -2,11 +2,11 @@
 title: Weekly Review
 tier: daily-weekly
 order: 2
-usageNote: Friday afternoon. 30 minutes maximum. The point is not comprehensive — the point is honest. If you skip a section, that's information.
+usageNote: Friday afternoon. 30 minutes maximum. The point is not comprehensive; the point is honest. If you skip a section, that's information.
 ---
 
 ```markdown
-# Weekly Review — [Date]
+# Weekly Review: [Date]
 
 ## What shipped or moved
 - 

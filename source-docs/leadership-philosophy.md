@@ -6,7 +6,7 @@ A statement of how I lead, what I believe, and what people can expect from me. W
 
 ## Why this exists
 
-When I'm under pressure, tired, or new to a role, I will default to whatever pattern is easiest in the moment. That pattern isn't always the leader I want to be. This document is the version of me I'm aiming at — the one I want to come back to when the noise is loud.
+When I'm under pressure, tired, or new to a role, I will default to whatever pattern is easiest in the moment. That pattern isn't always the leader I want to be. This document is the version of me I'm aiming at, the one I want to come back to when the noise is loud.
 
 It is also a contract. With my team, my peers, my manager, and myself. Putting it in writing means I can be held to it.
 
@@ -14,11 +14,11 @@ It is also a contract. With my team, my peers, my manager, and myself. Putting i
 
 ## What I believe
 
-**The work happens through people, or it doesn't happen.** Strategy, architecture, process — all of it gets executed by humans choosing to do their best work, or it dies on the page. My first job is the people. Everything else follows from that.
+**The work happens through people, or it doesn't happen.** Strategy, architecture, process: all of it gets executed by humans choosing to do their best work, or it dies on the page. My first job is the people. Everything else follows from that.
 
 **Trust is built in small moments, lost in large ones.** I'd rather build it slowly and keep it than perform it quickly and break it.
 
-**Clarity is kindness.** Vague feedback, unclear expectations, and unspoken concerns are not kindness — they are the appearance of kindness, which is worse, because it deprives people of what they need to grow and succeed.
+**Clarity is kindness.** Vague feedback, unclear expectations, and unspoken concerns are not kindness; they are the appearance of kindness, which is worse, because it deprives people of what they need to grow and succeed.
 
 **Teams should be the ones doing the work, including the thinking.** If decisions all flow through me, I have built a bottleneck, not a team.
 
@@ -30,7 +30,7 @@ It is also a contract. With my team, my peers, my manager, and myself. Putting i
 
 People-centric does not mean making everyone comfortable. It means:
 
-- I take the time to understand what each person on my team actually wants — from this job, from their career, from their week.
+- I take the time to understand what each person on my team actually wants: from this job, from their career, from their week.
 - I assume good intent until I have strong evidence otherwise. Then I act on the evidence.
 - I treat my team's growth as a primary deliverable of my role, equal in weight to whatever we're shipping.
 - I notice when someone is struggling before they have to ask for help.
@@ -48,13 +48,13 @@ The teams I want to build operate under three commitments, and they are insepara
 
 **Autonomy.** People decide *how* to do the work. I tell them the what and the why, and I get out of the way on the how. If I find myself dictating implementation, I check whether I've actually failed to communicate the goal.
 
-**Authority.** People have the power to make and execute decisions in their domain without needing my permission. Authority that has to be re-confirmed every time isn't authority — it's the illusion of it. My job is to define the scope of authority clearly, then defend it when it's challenged from outside.
+**Authority.** People have the power to make and execute decisions in their domain without needing my permission. Authority that has to be re-confirmed every time isn't authority; it's the illusion of it. My job is to define the scope of authority clearly, then defend it when it's challenged from outside.
 
-**Accountability.** People own the outcomes of their decisions — good and bad. When things go well, the credit goes to them publicly. When things go badly, we look at what happened together, and the lessons are theirs to own. Accountability without blame, but accountability all the same.
+**Accountability.** People own the outcomes of their decisions: good and bad. When things go well, the credit goes to them publicly. When things go badly, we look at what happened together, and the lessons are theirs to own. Accountability without blame, but accountability all the same.
 
 What this requires from me:
 
-- Spending real time defining context, goals, and constraints — not just tasks.
+- Spending real time defining context, goals, and constraints, not just tasks.
 - Letting decisions I would have made differently stand, as long as they're inside the scope of authority and not catastrophic.
 - Resisting the urge to rescue people from the natural consequences of their choices. The lesson is worth more than the rescue.
 - Pushing back when the org tries to undermine the team's authority from above or beside.
@@ -62,7 +62,7 @@ What this requires from me:
 What this is **not**:
 
 - Abdication. "You decide" is not the same as "I'm not paying attention."
-- A free pass. Accountability is real. Repeated failures of judgment in a domain mean we revisit fit, scope, or growth — honestly.
+- A free pass. Accountability is real. Repeated failures of judgment in a domain mean we revisit fit, scope, or growth, honestly.
 
 ### 3. Radical Candor as the connective tissue
 
@@ -79,14 +79,14 @@ How this shows up in practice:
 - I ask for feedback before I give it. I won't ask people to receive what I'm not willing to receive myself.
 - I praise specifically, often, and in public. Generic praise ("great job") is noise; specific praise ("the way you de-escalated that thread on Tuesday was leadership") is signal.
 - I deliver critical feedback in private, quickly, and specifically. I don't save it up for reviews. By review time, nothing should be a surprise.
-- I name the dynamic when it's happening. "I think I've been too soft on this — let me be direct." Or: "That came out sharper than I meant. Let me try again."
+- I name the dynamic when it's happening. "I think I've been too soft on this. Let me be direct." Or: "That came out sharper than I meant. Let me try again."
 - I assume the other person can handle the truth. Pre-softening is its own form of disrespect.
 
 ---
 
 ## What to expect from me
 
-This is the section I can share — and intend to share — with a new team.
+This is the section I can share (and intend to share) with a new team.
 
 - **I will spend the first weeks listening.** I won't make big changes early. When I do start making changes, I'll explain why.
 - **I will be in regular 1:1s with you, and they are your time.** Your agenda comes first. If I have something I need to drive, I'll flag it ahead.
@@ -133,13 +133,13 @@ The hard lines. These don't move.
 - **No talking about people behind their backs in ways I wouldn't say to them.** This applies to my team, my peers, and my manager.
 - **No surprise in performance conversations.** Anything I say at a review, the person has heard from me already.
 - **No participation in dynamics that exclude, demean, or punish people for who they are.** I will name it and address it, even when uncomfortable.
-- **No pretending to know things I don't.** I'd rather say "I don't know — let me find out" a hundred times than be wrong with confidence once.
+- **No pretending to know things I don't.** I'd rather say "I don't know, let me find out" a hundred times than be wrong with confidence once.
 
 ---
 
 ## A living document
 
-I revisit this once a quarter. I update it when I learn something. I share the relevant parts with new teams. If any of the above ever stops being true of me, I owe it to the people I work with to either change my behavior or change the document — but not to leave the gap between them unspoken.
+I revisit this once a quarter. I update it when I learn something. I share the relevant parts with new teams. If any of the above ever stops being true of me, I owe it to the people I work with to either change my behavior or change the document, but not to leave the gap between them unspoken.
 
 ---
 

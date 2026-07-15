@@ -2,7 +2,7 @@
 title: Peer Conflict or Cross-Team Political Tension
 slug: peer-conflict
 order: 7
-summary: A peer manager is undermining your team, blocking you, or working against shared goals — or you just disagree on something that matters.
+summary: A peer manager is undermining your team, blocking you, or working against shared goals, or you just disagree on something that matters.
 tags: [conflict]
 ---
 
@@ -17,9 +17,9 @@ A peer manager is undermining my team, blocking us, or working against shared go
 ## In the following days
 
 - Direct conversation, in private, with the peer. Bring observations, not accusations.
-- Look for the structural source. Often peer conflict is about misaligned incentives or unclear ownership — not about the person.
+- Look for the structural source. Often peer conflict is about misaligned incentives or unclear ownership, not about the person.
 - Identify a shared interest. Build from there.
-- If it can't be resolved between us, escalate transparently — with the peer's knowledge that I'm doing it.
+- If it can't be resolved between us, escalate transparently, with the peer's knowledge that I'm doing it.
 
 ## What to watch for in yourself
 

@@ -1,7 +1,7 @@
 ---
 // Sitewide search, powered by Pagefind. Pagefind indexes `dist/` in the
 // `postbuild` npm script (see package.json), so its assets only exist after
-// `npm run build` — under `astro dev` this loads lazily, fails softly, and
+// `npm run build`; under `astro dev` this loads lazily, fails softly, and
 // shows `search-unavailable` instead of throwing.
 ---
 
@@ -36,7 +36,7 @@
   </div>
   <div id="search-container" class="pcl-search mt-4"></div>
   <p id="search-unavailable" hidden class="mt-4 text-sm text-ink-muted">
-    Search isn't available in this preview — it's generated at build time
+    Search isn't available in this preview. It's generated at build time
     and works on the deployed site.
   </p>
 </dialog>
@@ -120,7 +120,7 @@
         loadStylesheet('/pagefind/pagefind-ui.css'),
         loadScript('/pagefind/pagefind-ui.js'),
       ]);
-      // @ts-expect-error — PagefindUI is a global defined by the script above
+      // @ts-expect-error: PagefindUI is a global defined by the script above
       new PagefindUI({ element: '#search-container', showSubResults: true, showImages: false });
     } catch {
       if (unavailable) unavailable.hidden = false;

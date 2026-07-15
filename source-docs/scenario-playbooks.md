@@ -6,15 +6,15 @@ A reference for the moments when leadership philosophy gets tested.
 
 ## How to use this
 
-These are not scripts. They are scaffolding — moves thought about ahead of time so I'm not improvising under stress. When something hard happens, the goal is to pull the relevant playbook off the shelf and re-read it before I act.
+These are not scripts. They are scaffolding: moves thought about ahead of time so I'm not improvising under stress. When something hard happens, the goal is to pull the relevant playbook off the shelf and re-read it before I act.
 
 Each scenario follows the same structure:
 
-- **In the moment** — what to do in the first hour or first conversation
-- **In the following days** — what to do over the next week
-- **What to watch for in yourself** — likely failure modes given my style
+- **In the moment**: what to do in the first hour or first conversation
+- **In the following days**: what to do over the next week
+- **What to watch for in yourself**: likely failure modes given my style
 - **Common traps**
-- **Sample language** — phrasings to borrow and adapt, not memorize
+- **Sample language**: phrasings to borrow and adapt, not memorize
 
 Personalize ruthlessly. Add scenarios as I encounter them. The Field Notes section at the bottom is for lessons after I've actually lived one of these.
 
@@ -31,7 +31,7 @@ The first time a team member isn't meeting the bar, what I do sets the tone for 
 
 ### In the following days
 - Have a direct 1:1. Name what I'm seeing specifically. Ask what's going on.
-- Listen for context I don't have — workload, blockers, personal stuff, unclear expectations, a missing skill.
+- Listen for context I don't have: workload, blockers, personal stuff, unclear expectations, a missing skill.
 - Co-create what "good" looks like. Be explicit about timelines. Document it.
 - Increase 1:1 frequency briefly. Coach actively.
 
@@ -79,7 +79,7 @@ One of the strongest people on the team has quietly checked out. Camera off. Sho
 - Hoping it resolves itself.
 
 ### Sample language
-> "I want to ask about something, and I might be reading it wrong. The last few weeks have felt different to me. How are you doing — really?"
+> "I want to ask about something, and I might be reading it wrong. The last few weeks have felt different to me. How are you doing, really?"
 
 > "Take your time. I'd rather you tell me what's actually going on, even if it takes a minute, than tell me you're fine."
 
@@ -87,7 +87,7 @@ One of the strongest people on the team has quietly checked out. Camera off. Sho
 
 ## 3. A Team Member in Personal Crisis
 
-Someone on the team is going through something — illness, loss, a family emergency, a divorce. They've told me, or I've found out.
+Someone on the team is going through something: illness, loss, a family emergency, a divorce. They've told me, or I've found out.
 
 ### In the moment
 - Lead with humanity, not logistics. The first thing out of my mouth is about them, not the work.
@@ -132,7 +132,7 @@ A team member tells me they're leaving. Maybe one I love. Maybe one I didn't see
 - Ask, with genuine curiosity, what led to the decision.
 
 ### In the following days
-- Have a real conversation about why — not to change their mind, but to learn. Look for what's about them (growth, opportunity) and what's about us (something we could have fixed).
+- Have a real conversation about why, not to change their mind, but to learn. Look for what's about them (growth, opportunity) and what's about us (something we could have fixed).
 - Plan the transition together. Be generous with their remaining time.
 - Tell the team thoughtfully. Let the person shape how the news lands when possible.
 - Honor them publicly on their way out. The team is watching how I treat departures.
@@ -160,7 +160,7 @@ A team member tells me they're leaving. Maybe one I love. Maybe one I didn't see
 Production is on fire. Customers are affected. The team is in the war room. People are scared.
 
 ### In the moment
-- Be present, be calm, be quiet. My job is not to fix it — it's to make sure the people fixing it have what they need.
+- Be present, be calm, be quiet. My job is not to fix it; it's to make sure the people fixing it have what they need.
 - Confirm there's an incident commander. If there isn't, name one (probably not me).
 - Ask "what do you need from me?" not "what happened?"
 - Handle upward communication so the team can focus on the system.
@@ -168,7 +168,7 @@ Production is on fire. Customers are affected. The team is in the war room. Peop
 
 ### In the following days
 - Run a blameless postmortem. Real one. Five whys, system view, action items with owners and dates.
-- Communicate externally if needed — with the team's input, with honesty, without performance.
+- Communicate externally if needed: with the team's input, with honesty, without performance.
 - Defend the engineer whose change triggered it. Publicly. The system allowed the failure, not just the human.
 - Follow through on the action items. A postmortem without follow-through is theater.
 
@@ -198,7 +198,7 @@ A project is canceled. A reorg is happening. Layoffs are coming. A leader is lea
 
 ### In the moment
 - Don't sit on it once I'm allowed to share. Delay erodes trust more than the news itself.
-- Tell them in person — or at least synchronously and live — if at all possible.
+- Tell them in person (or at least synchronously and live) if at all possible.
 - Don't bury the lede. Open with what's happening, then context.
 - Acknowledge the human impact before getting to logistics.
 - Be honest about what I don't know. "I don't know yet" is a real answer.
@@ -212,7 +212,7 @@ A project is canceled. A reorg is happening. Layoffs are coming. A leader is lea
 ### What to watch for in myself
 - Hiding behind corporate phrasing because it feels safer. The team can tell. Say what's happening in plain English.
 - Performing certainty I don't have.
-- Skipping the emotional acknowledgment to get to "what's next" — because what's next is more comfortable for me to talk about.
+- Skipping the emotional acknowledgment to get to "what's next", because what's next is more comfortable for me to talk about.
 
 ### Common traps
 - Letting the news leak before I tell them.
@@ -238,9 +238,9 @@ A peer manager is undermining my team, blocking us, or working against shared go
 
 ### In the following days
 - Direct conversation, in private, with the peer. Bring observations, not accusations.
-- Look for the structural source. Often peer conflict is about misaligned incentives or unclear ownership — not about the person.
+- Look for the structural source. Often peer conflict is about misaligned incentives or unclear ownership, not about the person.
 - Identify a shared interest. Build from there.
-- If it can't be resolved between us, escalate transparently — with the peer's knowledge that I'm doing it.
+- If it can't be resolved between us, escalate transparently, with the peer's knowledge that I'm doing it.
 
 ### What to watch for in myself
 - Triangulation. Complaining to my team or other peers instead of addressing it directly. Easy and corrosive.
@@ -262,7 +262,7 @@ A peer manager is undermining my team, blocking us, or working against shared go
 
 ## 8. Receiving Hard Feedback I Disagree With
 
-Someone — a report, a peer, my manager — gives me feedback that lands wrong. Maybe it's unfair. Maybe it's partially true. Maybe I just don't want to hear it.
+Someone (a report, a peer, my manager) gives me feedback that lands wrong. Maybe it's unfair. Maybe it's partially true. Maybe I just don't want to hear it.
 
 ### In the moment
 - Listen. All the way through.
@@ -273,7 +273,7 @@ Someone — a report, a peer, my manager — gives me feedback that lands wrong.
 ### In the following days
 - Sit with it. Actually sit with it. Twenty-four hours minimum before forming a response.
 - Look for the grain of truth. There is almost always one, even when most of the feedback feels wrong.
-- Talk to one trusted person — not to litigate it, but to test my read.
+- Talk to one trusted person, not to litigate it, but to test my read.
 - Come back to the person. Acknowledge what I think they're right about. Be honest about where I see it differently. Invite continued conversation.
 
 ### What to watch for in myself
@@ -298,18 +298,18 @@ After:
 
 ## 9. An Ethical Line Being Approached
 
-Someone is asking me — directly or implicitly — to do something I'm not sure I can do. Misrepresent a deadline. Hide a problem. Sign off on something I don't believe in. Move against a team member unfairly.
+Someone is asking me (directly or implicitly) to do something I'm not sure I can do. Misrepresent a deadline. Hide a problem. Sign off on something I don't believe in. Move against a team member unfairly.
 
 ### In the moment
 - Stop. Do not say yes. Do not say no yet either. Buy time.
-- Get clarity on what's actually being asked. Often the implicit ask is worse — or different — than the explicit one.
+- Get clarity on what's actually being asked. Often the implicit ask is worse (or different) than the explicit one.
 - Note the request, the context, the people involved. In writing. For myself.
 
 ### In the following days
 - Talk to a trusted person outside the situation. A mentor, a peer, sometimes legal or HR. Not my team.
 - Distinguish what makes me uncomfortable from what's genuinely wrong. Both matter, but they call for different responses.
 - Decide what I can and can't do. Communicate it directly, with reasons.
-- If the line is real and they insist, know what I'm willing to do about it — including leave.
+- If the line is real and they insist, know what I'm willing to do about it, including leave.
 
 ### What to watch for in myself
 - Rationalization. "It's not that bad." "Just this once." "Everyone does this." These sentences are the warning sign.
@@ -333,7 +333,7 @@ Someone is asking me — directly or implicitly — to do something I'm not sure
 
 ## Field Notes
 
-Lessons from scenarios I've actually lived. Dated entries — what happened, what I did, what I'd do differently.
+Lessons from scenarios I've actually lived. Dated entries: what happened, what I did, what I'd do differently.
 
 - _Add as you go._
 

@@ -2,16 +2,16 @@
 title: An Ethical Line Being Approached
 slug: ethical-line
 order: 9
-summary: Someone is asking you — directly or implicitly — to do something you're not sure you can do.
+summary: Someone is asking you, directly or implicitly, to do something you're not sure you can do.
 tags: [ethics]
 ---
 
-Someone is asking me — directly or implicitly — to do something I'm not sure I can do. Misrepresent a deadline. Hide a problem. Sign off on something I don't believe in. Move against a team member unfairly.
+Someone is asking me, directly or implicitly, to do something I'm not sure I can do. Misrepresent a deadline. Hide a problem. Sign off on something I don't believe in. Move against a team member unfairly.
 
 ## In the moment
 
 - Stop. Do not say yes. Do not say no yet either. Buy time.
-- Get clarity on what's actually being asked. Often the implicit ask is worse — or different — than the explicit one.
+- Get clarity on what's actually being asked. Often the implicit ask is worse, or different, than the explicit one.
 - Note the request, the context, the people involved. In writing. For myself.
 
 ## In the following days
@@ -19,7 +19,7 @@ Someone is asking me — directly or implicitly — to do something I'm not sure
 - Talk to a trusted person outside the situation. A mentor, a peer, sometimes legal or HR. Not my team.
 - Distinguish what makes me uncomfortable from what's genuinely wrong. Both matter, but they call for different responses.
 - Decide what I can and can't do. Communicate it directly, with reasons.
-- If the line is real and they insist, know what I'm willing to do about it — including leave.
+- If the line is real and they insist, know what I'm willing to do about it, including leave.
 
 ## What to watch for in yourself
 

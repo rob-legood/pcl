@@ -2,11 +2,11 @@
 title: Postmortem Template
 tier: engineering-rituals
 order: 2
-usageNote: Blameless. The system allowed the failure — that is the frame, always. Action items have owners and dates, or they are wishes. The lessons section is broader than the actions and often more valuable.
+usageNote: Blameless. The system allowed the failure; that is the frame, always. Action items have owners and dates, or they are wishes. The lessons section is broader than the actions and often more valuable.
 ---
 
 ```markdown
-# Postmortem — [Incident title]
+# Postmortem: [Incident title]
 
 **Date of incident:** [Date, time, duration]
 **Authors:** [Names]
@@ -22,9 +22,9 @@ usageNote: Blameless. The system allowed the failure — that is the frame, alwa
 - **Downstream effects:** 
 
 ## Timeline
-- **HH:MM** — [event]
-- **HH:MM** — [event]
-- **HH:MM** — [event]
+- **HH:MM**: [event]
+- **HH:MM**: [event]
+- **HH:MM**: [event]
 
 ## Root cause
 [What in the system allowed this to happen? Not "who." System-focused language: "The deployment pipeline did not X" not "engineer A forgot to Y." Multiple contributing factors are the norm, not the exception.]
@@ -41,7 +41,7 @@ usageNote: Blameless. The system allowed the failure — that is the frame, alwa
 - 
 - 
 
-*(Often the most important section — the near-misses that could have been much worse.)*
+*(Often the most important section: the near-misses that could have been much worse.)*
 
 ## Action items
 | # | Item | Owner | Due | Status |

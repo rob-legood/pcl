@@ -5,14 +5,14 @@ description: A personal playbook for stepping into a new director or software en
 
 ## How to Use This Manual
 
-This is a living document. Treat each section as a checklist of milestones and reminders, not a script. As you learn what works for you, edit ruthlessly — delete what doesn't apply, add what does, and capture lessons as you go so the next transition is easier than this one.
+This is a living document. Treat each section as a checklist of milestones and reminders, not a script. As you learn what works for you, edit ruthlessly: delete what doesn't apply, add what does, and capture lessons as you go so the next transition is easier than this one.
 
 Suggested rhythm:
 - Review the relevant phase at the **start** of each week.
 - Reflect at the **end** of each week (5 minutes, max).
 - Revisit the whole manual after each transition and prune.
 
-## Phase 0 — Before Day 1 (Pre-Start)
+## Phase 0: Before Day 1 (Pre-Start)
 
 **Goal:** Show up grounded, not anxious. You can't control much yet, so focus on what you can.
 
@@ -21,19 +21,19 @@ Suggested rhythm:
 - Identify (from LinkedIn + your recruiter) the names and rough backgrounds of: your manager, your direct reports, your peer managers, your skip-level.
 - Draft a one-page self-introduction: who you are, what you've done, what you care about, what to expect from you in the first few weeks. Keep it human, not a resume recap.
 - Block recurring time on your calendar *before* it gets eaten: deep work, 1:1s, reflection time, exercise.
-- Decide on a personal knowledge capture system before info starts flowing — Notion, Obsidian, a single doc, whatever. Don't trust memory.
+- Decide on a personal knowledge capture system before info starts flowing: Notion, Obsidian, a single doc, whatever. Don't trust memory.
 - Rest. Seriously. The first month will spend energy faster than you expect.
 
-## Phase 1 — Week 1: Land
+## Phase 1: Land (Week 1)
 
 **Goal:** Meet people, set up logistics, project calm curiosity. Resist the urge to have opinions.
 
 ### People
-- Meeting with your manager — clarify: what does success look like at 30/60/90 days? What's the one thing they wish their last person had done? How do they like to communicate?
+- Meeting with your manager: clarify what does success look like at 30/60/90 days? What's the one thing they wish their last person had done? How do they like to communicate?
 - First 1:1s with each direct report (30-45 min). Goal is listening, not directing.
 - Identify peer managers and request intro chats this week or next.
 - Identify your skip-level and ask your manager when an intro makes sense.
-- Deliver self-intro to the team (in person, on a call, or async via a written post — match the team's medium).
+- Deliver self-intro to the team (in person, on a call, or async via a written post; match the team's medium).
 
 ### Logistics
 - Access: all repos, CI/CD, monitoring, on-call rotation, docs sites, dashboards, communication channels.
@@ -43,16 +43,16 @@ Suggested rhythm:
 ### Posture
 - Default to questions, not answers.
 - Write down things you'd change. Do not act on them yet.
-- Notice what energizes and drains each team member in conversation — useful data later.
+- Notice what energizes and drains each team member in conversation; useful data later.
 
-## Phase 2 — Days 8-30: Listen
+## Phase 2: Listen (Days 8-30)
 
 **Goal:** Build a high-resolution map of the people, the work, the systems, and the politics. Earn trust by being curious and useful in small ways.
 
 ### Establish 1:1 cadence
 - Weekly 1:1s with each direct report, 30 min, recurring. Their agenda first, then yours.
 - Bi-weekly or monthly with key peers and skip-level.
-- A shared 1:1 doc per report — running notes, action items, topics for next time.
+- A shared 1:1 doc per report: running notes, action items, topics for next time.
 
 ### Listening tour
 Run a structured set of conversations across the team and adjacent teams. Suggested questions:
@@ -66,9 +66,9 @@ Run a structured set of conversations across the team and adjacent teams. Sugges
 Track responses in a single doc; themes will emerge by the end of week 3.
 
 ### Get dirty with the code and systems
-- Clone the main repos. Build them locally. Run the tests. Note where setup is painful — that's a signal.
+- Clone the main repos. Build them locally. Run the tests. Note where setup is painful: that's a signal.
 - Read the README and architecture docs; flag what's stale.
-- Pair with an engineer on a real task — not to ship, but to feel the developer experience.
+- Pair with an engineer on a real task, not to ship, but to feel the developer experience.
 - Shadow on-call for one rotation if feasible. Read recent incident reviews.
 - Inventory the major services / repos / domains. Sketch a one-page architecture diagram for yourself.
 
@@ -87,23 +87,23 @@ Track responses in a single doc; themes will emerge by the end of week 3.
 - List everyone whose work depends on yours or whose work you depend on. Categorize by influence and interest. Plan how often you'll engage each.
 
 ### Personal systems
-- Stand up a todo / work tracker (e.g., a daily list in a doc, Things, Linear, Todoist — pick one and commit for 90 days).
-- Weekly review ritual: 30 minutes Friday afternoon — what happened, what's next, what's blocked.
+- Stand up a todo / work tracker (e.g., a daily list in a doc, Things, Linear, Todoist; pick one and commit for 90 days).
+- Weekly review ritual: 30 minutes Friday afternoon; what happened, what's next, what's blocked.
 - Reading queue for things you want to come back to.
 - Decision log: when you make a non-trivial decision, write down the context, options, choice, and expected outcome. Revisit in 3 months.
 
-## Phase 3 — Days 31-60: Diagnose
+## Phase 3: Diagnose (Days 31-60)
 
 **Goal:** Synthesize what you've learned. Start forming a point of view. Begin small, visible improvements.
 
 - Write a private assessment doc for yourself: state of the team, top 5 risks, top 5 opportunities, what kind of leadership the moment calls for (turnaround? steady state? acceleration?).
 - Share a sanitized version with your manager and ask for pushback.
-- Identify 1-3 quick wins — visible improvements you can deliver in 2-4 weeks that don't require strategy buy-in. Examples: fix a hated meeting, clarify on-call expectations, kill a useless metric, improve a broken doc.
-- Begin defining your own metrics — what *you* want to track that isn't already tracked. Examples: % of 1:1s where the report drove the agenda, time-to-first-PR for new hires, weekly hours in meetings vs. deep work.
+- Identify 1-3 quick wins: visible improvements you can deliver in 2-4 weeks that don't require strategy buy-in. Examples: fix a hated meeting, clarify on-call expectations, kill a useless metric, improve a broken doc.
+- Begin defining your own metrics: what *you* want to track that isn't already tracked. Examples: % of 1:1s where the report drove the agenda, time-to-first-PR for new hires, weekly hours in meetings vs. deep work.
 - Identify any urgent personnel issues. Don't sit on them, but don't fire from the hip either.
 - Confirm or revise your understanding of the team's mandate with your manager.
 
-## Phase 4 — Days 61-90: Shape
+## Phase 4: Shape (Days 61-90)
 
 **Goal:** Move from observer to author. Commit to a direction. Communicate it clearly.
 

@@ -2,7 +2,7 @@
 title: The Day Someone Resigns
 slug: resignation
 order: 4
-summary: A team member tells you they're leaving — maybe one you love, maybe one you didn't see coming.
+summary: A team member tells you they're leaving; maybe one you love, maybe one you didn't see coming.
 tags: [transition]
 ---
 
@@ -17,7 +17,7 @@ A team member tells me they're leaving. Maybe one I love. Maybe one I didn't see
 
 ## In the following days
 
-- Have a real conversation about why — not to change their mind, but to learn. Look for what's about them (growth, opportunity) and what's about us (something we could have fixed).
+- Have a real conversation about why, not to change their mind, but to learn. Look for what's about them (growth, opportunity) and what's about us (something we could have fixed).
 - Plan the transition together. Be generous with their remaining time.
 - Tell the team thoughtfully. Let the person shape how the news lands when possible.
 - Honor them publicly on their way out. The team is watching how I treat departures.

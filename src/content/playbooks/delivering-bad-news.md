@@ -2,7 +2,7 @@
 title: Delivering Bad News to the Team
 slug: delivering-bad-news
 order: 6
-summary: A project is canceled, a reorg is happening, layoffs are coming — something the team will not want to hear.
+summary: A project is canceled, a reorg is happening, layoffs are coming; something the team will not want to hear.
 tags: [communication]
 ---
 
@@ -11,7 +11,7 @@ A project is canceled. A reorg is happening. Layoffs are coming. A leader is lea
 ## In the moment
 
 - Don't sit on it once I'm allowed to share. Delay erodes trust more than the news itself.
-- Tell them in person — or at least synchronously and live — if at all possible.
+- Tell them in person, or at least synchronously and live, if at all possible.
 - Don't bury the lede. Open with what's happening, then context.
 - Acknowledge the human impact before getting to logistics.
 - Be honest about what I don't know. "I don't know yet" is a real answer.
@@ -27,7 +27,7 @@ A project is canceled. A reorg is happening. Layoffs are coming. A leader is lea
 
 - Hiding behind corporate phrasing because it feels safer. The team can tell. Say what's happening in plain English.
 - Performing certainty I don't have.
-- Skipping the emotional acknowledgment to get to "what's next" — because what's next is more comfortable for me to talk about.
+- Skipping the emotional acknowledgment to get to "what's next," because what's next is more comfortable for me to talk about.
 
 ## Common traps
 

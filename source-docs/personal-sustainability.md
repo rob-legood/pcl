@@ -8,11 +8,11 @@ Or: how to keep doing this without becoming someone I don't recognize.
 
 I care about people. That is why I lead the way I lead. It is also what makes this work hard to do for a long time.
 
-The failure mode for people like me isn't burnout in the classic sense — the collapse, the "I hate my job," the dramatic exit. It's quieter than that. It's caring less than I used to. It's noticing that a report's problem lands as "not now" instead of "tell me more." It's cynicism I catch in my own voice and don't correct. It's being present in the room and gone somewhere else in my head.
+The failure mode for people like me isn't burnout in the classic sense: the collapse, the "I hate my job," the dramatic exit. It's quieter than that. It's caring less than I used to. It's noticing that a report's problem lands as "not now" instead of "tell me more." It's cynicism I catch in my own voice and don't correct. It's being present in the room and gone somewhere else in my head.
 
 When that happens, I've stopped being the leader I described in my philosophy doc. And the people I lead pay for it before I do.
 
-This document isn't about productivity or work-life balance. It's about maintaining the capacity to keep caring — which requires actually taking care of the person doing the caring.
+This document isn't about productivity or work-life balance. It's about maintaining the capacity to keep caring, which requires actually taking care of the person doing the caring.
 
 ---
 
@@ -22,7 +22,7 @@ I know myself: I love starting things and lose interest around the 80% mark. If 
 
 - **Read it whole once a quarter.** That is the minimum. If nothing else, I open it every three months and re-read.
 - **Add to Field Notes when something happens.** Not on a schedule. When there's a moment worth capturing.
-- **Trust the structural checks over the personal ones.** I am unreliable at noticing my own state. The structural checks — the trusted person, the calendar block, the specific question someone else asks me — are more durable than my self-awareness.
+- **Trust the structural checks over the personal ones.** I am unreliable at noticing my own state. The structural checks (the trusted person, the calendar block, the specific question someone else asks me) are more durable than my self-awareness.
 
 If I have gone a quarter without opening this, I have already drifted further than I realize. That in itself is a signal.
 
@@ -30,23 +30,23 @@ If I have gone a quarter without opening this, I have already drifted further th
 
 ## Four kinds of fatigue
 
-Time management is a losing game for managers — my calendar isn't fully mine. Energy management is the actual lever. And energy isn't one thing; it's four, and they deplete and recover differently.
+Time management is a losing game for managers; my calendar isn't fully mine. Energy management is the actual lever. And energy isn't one thing; it's four, and they deplete and recover differently.
 
-**Cognitive fatigue** — context switching, decisions, holding many threads. Recovers with focus, single-tasking, sleep.
+**Cognitive fatigue**: context switching, decisions, holding many threads. Recovers with focus, single-tasking, sleep.
 
-**Emotional fatigue** — holding others' feelings, hard conversations, absorbing team stress. This is my most likely form of fatigue and my least visible. It doesn't look like tiredness; it looks like reduced patience, dulled empathy, and a slow flattening of affect. Recovers with real disconnection from other people's inner lives — not more meetings with different people.
+**Emotional fatigue**: holding others' feelings, hard conversations, absorbing team stress. This is my most likely form of fatigue and my least visible. It doesn't look like tiredness; it looks like reduced patience, dulled empathy, and a slow flattening of affect. Recovers with real disconnection from other people's inner lives, not more meetings with different people.
 
-**Social fatigue** — being "on" with people, even people I like. This is its own thing, distinct from emotional fatigue. Recovers with solitude, not entertainment.
+**Social fatigue**: being "on" with people, even people I like. This is its own thing, distinct from emotional fatigue. Recovers with solitude, not entertainment.
 
-**Physical fatigue** — sleep, movement, food. The base layer. When this is broken, nothing else works.
+**Physical fatigue**: sleep, movement, food. The base layer. When this is broken, nothing else works.
 
-The trap: I treat all fatigue as cognitive or physical (the visible kinds) and miss that I'm emotionally or socially depleted. The signs of emotional fatigue look like character flaws — impatience, coldness, indifference — which is why I misdiagnose it as "I'm just being difficult this week" instead of "I've been holding too much for too long."
+The trap: I treat all fatigue as cognitive or physical (the visible kinds) and miss that I'm emotionally or socially depleted. The signs of emotional fatigue look like character flaws (impatience, coldness, indifference), which is why I misdiagnose it as "I'm just being difficult this week" instead of "I've been holding too much for too long."
 
 ---
 
-## Warning signs — and why I'll miss them
+## Warning signs, and why I'll miss them
 
-I don't listen to what's happening in me until it's too late. That's the pattern. So the warning signs section can't be "notice when you feel X" — I won't. It has to be more concrete than that.
+I don't listen to what's happening in me until it's too late. That's the pattern. So the warning signs section can't be "notice when you feel X"; I won't. It has to be more concrete than that.
 
 ### Signs that don't require me to notice
 Things others can see, or things I can measure without introspection:
@@ -62,7 +62,7 @@ Things others can see, or things I can measure without introspection:
 Softer, requiring some self-awareness, but worth checking:
 
 - Dread before 1:1s I used to look forward to.
-- Cynicism in how I describe my team or the company — even to myself, especially in my head on the commute.
+- Cynicism in how I describe my team or the company, even to myself, especially in my head on the commute.
 - Reduced patience at home. Home is usually the earliest warning system.
 - The thought that someone's problem is "too much right now."
 - Losing warmth. If I'm going through the motions of care without the feeling, that's the alarm. The care is the whole point.
@@ -83,14 +83,14 @@ I say yes because I care. I absorb because I want to protect the team. I take th
 The reframe I need: **saying yes to everything is not caring more. It's caring less effectively.**
 
 ### The yes reflex
-When someone asks for my time, energy, or ownership, my instinct is to say yes before I've thought about it. That instinct is not going to go away. So the practice isn't "learn to say no" — it's "learn to defer the yes."
+When someone asks for my time, energy, or ownership, my instinct is to say yes before I've thought about it. That instinct is not going to go away. So the practice isn't "learn to say no"; it's "learn to defer the yes."
 
 - "Let me check my week and get back to you today" is a complete response to almost any ask.
 - 24-hour rule for any non-urgent commitment. Sleep on it.
 - Ask: what would I have to say no to (implicitly) in order to say yes to this?
 
 ### The commitment inventory
-Once a month, list everything I'm currently on the hook for. Not tasks — commitments. Projects, promises, standing meetings, informal ownership. Look at the list honestly.
+Once a month, list everything I'm currently on the hook for. Not tasks: commitments. Projects, promises, standing meetings, informal ownership. Look at the list honestly.
 
 - What can I hand off?
 - What did I inherit that no one would notice if I dropped?
@@ -113,18 +113,18 @@ I love the discovery phase. The shaping, the sketching, the first 60% where poss
 
 ### What it costs
 - Unfinished commitments to people accumulate as invisible weight. The person waiting for the thing I said I'd do carries it even when I've forgotten.
-- The team learns whether I finish. If I don't, they stop trusting my starts. And starting things is one of my strengths — so this specifically undermines a strength.
+- The team learns whether I finish. If I don't, they stop trusting my starts. And starting things is one of my strengths, so this specifically undermines a strength.
 - I chase the discovery energy into more new things, which is a burnout accelerant. I never come to rest at completion.
 - I miss the particular satisfaction of finishing, which is different from the excitement of starting and which I need for the long haul.
 
 ### What to build
-- **Distinguish work I should finish from work I should hand off.** Not everything I start needs to end with me. But a transfer has to be deliberate — a real handoff, not a quiet abandonment.
+- **Distinguish work I should finish from work I should hand off.** Not everything I start needs to end with me. But a transfer has to be deliberate: a real handoff, not a quiet abandonment.
 - **Public commitments for the last 20%.** If I've told someone specific what "done" looks like and when, I finish more often. Accountability I chose, not accountability that shames me.
 - **A "finish something" ritual.** One thing per month I explicitly close out. Deleted, shipped, archived, handed off. Something.
 - **Notice the itch to start something new.** When it hits, ask: am I feeling this because there's a real opportunity, or because I'm avoiding the last 20% of something else?
 
 ### The reframe
-The discovery phase is a real skill. So is completion. They use different muscles. Neither is more important, but for me, one is a strength I don't need to build and one is a weakness I have to structure around. That's not a moral failing — it's a design constraint. Build for it.
+The discovery phase is a real skill. So is completion. They use different muscles. Neither is more important, but for me, one is a strength I don't need to build and one is a weakness I have to structure around. That's not a moral failing; it's a design constraint. Build for it.
 
 ---
 
@@ -132,13 +132,13 @@ The discovery phase is a real skill. So is completion. They use different muscle
 
 The direct reports can't be my peers. The peers don't see my team. My manager has their own agenda. The people who care about me most probably don't fully understand what I do all day.
 
-This isn't a complaint. It's the structure of the role. But if I don't build support outside the immediate org, the loneliness compounds quietly and I mistake it for something else — usually "I'm tired" or "this job is hard."
+This isn't a complaint. It's the structure of the role. But if I don't build support outside the immediate org, the loneliness compounds quietly and I mistake it for something else, usually "I'm tired" or "this job is hard."
 
 ### What actually helps
-- **A peer group of other managers**, ideally outside my company. People who know the specific weirdness. A monthly call, a text thread, a beer — whatever fits.
+- **A peer group of other managers**, ideally outside my company. People who know the specific weirdness. A monthly call, a text thread, a beer, whatever fits.
 - **A mentor or coach**, formal or informal. Someone who has been where I'm going.
 - **A friend who knew me before this title.** Someone who does not care what I'm shipping.
-- **A therapist, if I can afford it.** Or equivalent. Not because I'm broken — because talking to someone whose job is to listen is qualitatively different from any other conversation I have.
+- **A therapist, if I can afford it.** Or equivalent. Not because I'm broken, but because talking to someone whose job is to listen is qualitatively different from any other conversation I have.
 
 ### What doesn't help (but I might try anyway)
 - Making my direct reports my emotional support. They can't be. It's not fair to them and it corrodes the working relationship.
@@ -149,7 +149,7 @@ This isn't a complaint. It's the structure of the role. But if I don't build sup
 
 ## Rituals that survive a hard week
 
-Any practice that only works when I'm feeling good isn't a practice — it's a mood. The real question is: what's the version I do anyway when it's bad?
+Any practice that only works when I'm feeling good isn't a practice; it's a mood. The real question is: what's the version I do anyway when it's bad?
 
 Written for the worst week, not the best:
 
@@ -158,7 +158,7 @@ Written for the worst week, not the best:
 - **One real meal with people I love.** Even short.
 - **One thing I do that isn't work and isn't recovery from work.** Something I'd do for its own sake. Reading, playing, making something. A signal to myself that I still exist outside the role.
 
-That's the floor. Everything above it — meditation, gym, journaling, whatever else works — is bonus, not baseline. Confusing the two is how I end up doing none of it when I need it most.
+That's the floor. Everything above it (meditation, gym, journaling, whatever else works) is bonus, not baseline. Confusing the two is how I end up doing none of it when I need it most.
 
 ---
 
@@ -186,7 +186,7 @@ The base layer. Non-negotiable infrastructure, not optimization.
 - **Food** that isn't just fuel between meetings. Eat like the person eating actually matters.
 - **Time outside.** Real outside, not the commute.
 
-When I skip these, I don't just feel tired. I pay for it in the parts of me I care about most — patience, warmth, judgment.
+When I skip these, I don't just feel tired. I pay for it in the parts of me I care about most: patience, warmth, judgment.
 
 ---
 
@@ -196,7 +196,7 @@ Who am I when I'm not at work?
 
 If the honest answer is "I don't really know anymore," that's information. This job will absorb everything I give it. What I don't defend outside it, it will take.
 
-Questions to sit with — not to answer once, but to keep asking:
+Questions to sit with, not to answer once, but to keep asking:
 
 - What did I love before this job?
 - What am I curious about that has nothing to do with work?

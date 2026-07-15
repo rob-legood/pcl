@@ -2,11 +2,11 @@
 title: Listening Tour Question Set
 tier: onboarding-transitions
 order: 2
-usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the team and adjacent teams. Same core questions to each person — themes emerge by conversation 8 or 10. Track responses in a single running doc.
+usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the team and adjacent teams. Same core questions to each person; themes emerge by conversation 8 or 10. Track responses in a single running doc.
 ---
 
 ```markdown
-# Listening Tour — [Your Name], starting [Date]
+# Listening Tour: [Your Name], starting [Date]
 
 ## Core questions (ask each person)
 1. What's working well that we should protect?
@@ -26,7 +26,7 @@ usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the
 
 ## Conversations
 
-### [Date] — [Person, role]
+### [Date]: [Person, role]
 - Working well:
 - Broken:
 - What they'd do first:
@@ -35,7 +35,7 @@ usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the
 - Who else to talk to:
 - Notes:
 
-### [Date] — [Person, role]
+### [Date]: [Person, role]
 ...
 
 ---
@@ -47,5 +47,5 @@ usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the
 ## Follow-ups
 - [ ] 
 
-## Assessment doc — start drafting around conversation 15
+## Assessment doc: start drafting around conversation 15
 ```

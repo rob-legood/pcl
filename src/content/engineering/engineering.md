@@ -1,13 +1,13 @@
 ---
 title: Engineering Management Playbook
-description: A companion to the Leadership Manual — specific to running a software engineering team.
+description: A companion to the Leadership Manual, specific to running a software engineering team.
 ---
 
 The main manual is about the human and organizational work of leading. This one is about the *technical* work of leading engineers: how technical to stay, where to engage with the code and systems, how to think about on-call, how to influence architecture, and how to keep the engineering bar high without becoming a bottleneck.
 
 ## 1. Technical Credibility
 
-The honest framing: technical enough that engineers trust your judgment on the things you weigh in on; not so deep in the code that you do their jobs for them. Credibility is not measured in PRs shipped — it's measured in whether your engineers feel you understand the work.
+The honest framing: technical enough that engineers trust your judgment on the things you weigh in on; not so deep in the code that you do their jobs for them. Credibility is not measured in PRs shipped; it's measured in whether your engineers feel you understand the work.
 
 ### Anchoring principles
 
@@ -20,9 +20,9 @@ The honest framing: technical enough that engineers trust your judgment on the t
 - **Read PRs as a learner, not a reviewer.** Skim 5-10 per week from across the team. You're absorbing patterns and naming, not gatekeeping.
 - **Pair quarterly.** Sit with an engineer on a real task for an hour. You'll learn what the dev experience actually feels like.
 - **Run the system end-to-end once a quarter.** Build it locally, deploy a change to staging, follow it through. Painful steps tell you what to fix.
-- **Shadow on-call for a rotation each year.** Not to drive — to feel the load.
+- **Shadow on-call for a rotation each year.** Not to drive, but to feel the load.
 - **Attend design reviews and read the RFCs.** Even the ones you don't need to weigh in on.
-- **Subscribe to alerts and key dashboards.** Don't act on them — just notice the rhythm of the system.
+- **Subscribe to alerts and key dashboards.** Don't act on them; just notice the rhythm of the system.
 - **Keep one personal coding habit.** A side project, an Advent of Code, a small internal tool. Just enough to keep the muscle alive.
 
 ### What to avoid
@@ -33,7 +33,7 @@ The honest framing: technical enough that engineers trust your judgment on the t
 
 ## 2. Code Review Participation
 
-How much should a manager review code? It depends — but the wrong answers are obvious. Reviewing nothing tells the team you've left the work behind. Reviewing everything tells the team you don't trust them.
+How much should a manager review code? It depends, but the wrong answers are obvious. Reviewing nothing tells the team you've left the work behind. Reviewing everything tells the team you don't trust them.
 
 ### A working model
 
@@ -69,7 +69,7 @@ On-call is where engineering culture gets revealed. How a team responds to a 2 A
 - What's the page volume per engineer per week? (Aim: < 2 actionable pages per week per person, ideally lower.)
 - What % of pages are actionable vs. noise?
 - What's the MTTR trend?
-- How is on-call compensated — money, time off, neither?
+- How is on-call compensated: money, time off, neither?
 - Who's been carrying a disproportionate load? (There's always someone.)
 - Is there a runbook? Does it match reality?
 
@@ -88,12 +88,12 @@ On-call is where engineering culture gets revealed. How a team responds to a 2 A
 
 ## 4. Architecture & Technical Decisions
 
-You probably aren't the architect anymore. Your job is to make sure good architectural decisions get made — by the right people, with the right information, at the right time.
+You probably aren't the architect anymore. Your job is to make sure good architectural decisions get made: by the right people, with the right information, at the right time.
 
 ### Where to engage
 
 - **Cross-team or cross-system decisions.** These need someone with organizational context. That's often you.
-- **Decisions with long reversibility horizons.** Picking a database, a primary language, a vendor — these need rigor.
+- **Decisions with long reversibility horizons.** Picking a database, a primary language, a vendor: these need rigor.
 - **Decisions affecting hiring, headcount, or roadmap.** Architecture and people are coupled.
 
 ### Where to stay out
@@ -158,7 +158,7 @@ The senior individual contributors on your team are your technical peers, your f
 ### What you need from them
 
 - A clear read on the technical state of things. They see things you don't.
-- Mentorship of the rest of the team — explicit, not assumed.
+- Mentorship of the rest of the team: explicit, not assumed.
 - Early signal on architectural problems. Treat their concerns as data even when you push back.
 
 ### Common pitfalls
@@ -171,7 +171,7 @@ The senior individual contributors on your team are your technical peers, your f
 
 You don't set engineering culture by declaring it. You set it by what you reward, tolerate, and notice.
 
-- **Testing.** Be explicit about what you expect — what gets tests, what doesn't, what coverage means and doesn't mean.
+- **Testing.** Be explicit about what you expect: what gets tests, what doesn't, what coverage means and doesn't mean.
 - **Documentation.** Reward writing. Pair every "we should document this" with "and here is the hour to do it."
 - **Code quality.** Establish norms; let the team enforce them. You are a tiebreaker, not a hall monitor.
 - **Postmortems.** Blameless, written down, public, action items with owners. Make these the cultural artifact you protect most fiercely.

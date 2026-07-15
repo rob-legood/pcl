@@ -2,7 +2,7 @@
 title: A High Performer Who Suddenly Disengages
 slug: disengaged-high-performer
 order: 2
-summary: One of the strongest people on the team has quietly checked out — a leading indicator, not a lagging one.
+summary: One of the strongest people on the team has quietly checked out; a leading indicator, not a lagging one.
 tags: [performance, engagement]
 ---
 
@@ -35,6 +35,6 @@ One of the strongest people on the team has quietly checked out. Camera off. Sho
 
 ## Sample language
 
-> "I want to ask about something, and I might be reading it wrong. The last few weeks have felt different to me. How are you doing — really?"
+> "I want to ask about something, and I might be reading it wrong. The last few weeks have felt different to me. How are you doing, really?"
 
 > "Take your time. I'd rather you tell me what's actually going on, even if it takes a minute, than tell me you're fine."

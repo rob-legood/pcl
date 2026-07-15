@@ -2,11 +2,11 @@
 title: Receiving Hard Feedback I Disagree With
 slug: hard-feedback
 order: 8
-summary: Someone — a report, a peer, your manager — gives you feedback that lands wrong.
+summary: Someone (a report, a peer, your manager) gives you feedback that lands wrong.
 tags: [feedback]
 ---
 
-Someone — a report, a peer, my manager — gives me feedback that lands wrong. Maybe it's unfair. Maybe it's partially true. Maybe I just don't want to hear it.
+Someone (a report, a peer, my manager) gives me feedback that lands wrong. Maybe it's unfair. Maybe it's partially true. Maybe I just don't want to hear it.
 
 ## In the moment
 
@@ -19,7 +19,7 @@ Someone — a report, a peer, my manager — gives me feedback that lands wrong.
 
 - Sit with it. Actually sit with it. Twenty-four hours minimum before forming a response.
 - Look for the grain of truth. There is almost always one, even when most of the feedback feels wrong.
-- Talk to one trusted person — not to litigate it, but to test my read.
+- Talk to one trusted person, not to litigate it, but to test my read.
 - Come back to the person. Acknowledge what I think they're right about. Be honest about where I see it differently. Invite continued conversation.
 
 ## What to watch for in yourself

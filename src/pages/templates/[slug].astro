@@ -21,7 +21,7 @@ const templateSource = fenceMatch ? fenceMatch[1] : raw.trim();
 const filename = `${entry.id}.md`;
 ---
 
-<BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.usageNote}>
+<BaseLayout title={`${entry.data.title}: People Centric Leadership`} description={entry.data.usageNote}>
   <article class="mx-auto max-w-5xl px-6 py-section sm:px-8">
     <a
       href="/templates"
@@ -83,7 +83,7 @@ const filename = `${entry.id}.md`;
       await navigator.clipboard.writeText(getSource());
       setStatus('Copied!');
     } catch {
-      setStatus('Could not copy — select and copy manually.');
+      setStatus('Could not copy. Select and copy manually.');
     }
   });
 

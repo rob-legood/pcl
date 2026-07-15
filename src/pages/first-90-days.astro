@@ -40,7 +40,7 @@ const phases: Phase[] = [
           'Identify (from LinkedIn + your recruiter) the names and rough backgrounds of: your manager, your direct reports, your peer managers, your skip-level.',
           "Draft a one-page self-introduction: who you are, what you've done, what you care about, what to expect from you in the first few weeks. Keep it human, not a resume recap.",
           'Block recurring time on your calendar before it gets eaten: deep work, 1:1s, reflection time, exercise.',
-          "Decide on a personal knowledge capture system before info starts flowing — Notion, Obsidian, a single doc, whatever. Don't trust memory.",
+          "Decide on a personal knowledge capture system before info starts flowing: Notion, Obsidian, a single doc, whatever. Don't trust memory.",
           'Rest. Seriously. The first month will spend energy faster than you expect.',
         ],
       },
@@ -56,11 +56,11 @@ const phases: Phase[] = [
       {
         heading: 'People',
         items: [
-          "Meeting with your manager — clarify: what does success look like at 30/60/90 days? What's the one thing they wish their last person had done? How do they like to communicate?",
+          "Meeting with your manager, to clarify: what does success look like at 30/60/90 days? What's the one thing they wish their last person had done? How do they like to communicate?",
           'First 1:1s with each direct report (30-45 min). Goal is listening, not directing.',
           'Identify peer managers and request intro chats this week or next.',
           'Identify your skip-level and ask your manager when an intro makes sense.',
-          'Deliver self-intro to the team (in person, on a call, or async via a written post — match the team\'s medium).',
+          'Deliver self-intro to the team (in person, on a call, or async via a written post; match the team\'s medium).',
         ],
       },
       {
@@ -76,7 +76,7 @@ const phases: Phase[] = [
         items: [
           'Default to questions, not answers.',
           'Write down things you\'d change. Do not act on them yet.',
-          'Notice what energizes and drains each team member in conversation — useful data later.',
+          'Notice what energizes and drains each team member in conversation; useful data later.',
         ],
       },
     ],
@@ -93,7 +93,7 @@ const phases: Phase[] = [
         items: [
           'Weekly 1:1s with each direct report, 30 min, recurring. Their agenda first, then yours.',
           'Bi-weekly or monthly with key peers and skip-level.',
-          'A shared 1:1 doc per report — running notes, action items, topics for next time.',
+          'A shared 1:1 doc per report: running notes, action items, topics for next time.',
         ],
       },
       {
@@ -106,9 +106,9 @@ const phases: Phase[] = [
       {
         heading: 'Get dirty with the code and systems',
         items: [
-          "Clone the main repos. Build them locally. Run the tests. Note where setup is painful — that's a signal.",
+          "Clone the main repos. Build them locally. Run the tests. Note where setup is painful; that's a signal.",
           'Read the README and architecture docs; flag what\'s stale.',
-          'Pair with an engineer on a real task — not to ship, but to feel the developer experience.',
+          'Pair with an engineer on a real task, not to ship, but to feel the developer experience.',
           'Shadow on-call for one rotation if feasible. Read recent incident reviews.',
           'Inventory the major services / repos / domains. Sketch a one-page architecture diagram for yourself.',
         ],
@@ -139,8 +139,8 @@ const phases: Phase[] = [
       {
         heading: 'Personal systems',
         items: [
-          'Stand up a todo / work tracker (e.g., a daily list in a doc, Things, Linear, Todoist — pick one and commit for 90 days).',
-          "Weekly review ritual: 30 minutes Friday afternoon — what happened, what's next, what's blocked.",
+          'Stand up a todo / work tracker (e.g., a daily list in a doc, Things, Linear, Todoist; pick one and commit for 90 days).',
+          "Weekly review ritual: 30 minutes Friday afternoon; what happened, what's next, what's blocked.",
           'Reading queue for things you want to come back to.',
           'Decision log: when you make a non-trivial decision, write down the context, options, choice, and expected outcome. Revisit in 3 months.',
         ],
@@ -158,8 +158,8 @@ const phases: Phase[] = [
         items: [
           'Write a private assessment doc for yourself: state of the team, top 5 risks, top 5 opportunities, what kind of leadership the moment calls for (turnaround? steady state? acceleration?).',
           'Share a sanitized version with your manager and ask for pushback.',
-          "Identify 1-3 quick wins — visible improvements you can deliver in 2-4 weeks that don't require strategy buy-in. Examples: fix a hated meeting, clarify on-call expectations, kill a useless metric, improve a broken doc.",
-          "Begin defining your own metrics — what you want to track that isn't already tracked. Examples: % of 1:1s where the report drove the agenda, time-to-first-PR for new hires, weekly hours in meetings vs. deep work.",
+          "Identify 1-3 quick wins: visible improvements you can deliver in 2-4 weeks that don't require strategy buy-in. Examples: fix a hated meeting, clarify on-call expectations, kill a useless metric, improve a broken doc.",
+          "Begin defining your own metrics: what you want to track that isn't already tracked. Examples: % of 1:1s where the report drove the agenda, time-to-first-PR for new hires, weekly hours in meetings vs. deep work.",
           "Identify any urgent personnel issues. Don't sit on them, but don't fire from the hip either.",
           "Confirm or revise your understanding of the team's mandate with your manager.",
         ],
@@ -187,7 +187,7 @@ const phases: Phase[] = [
   },
 ];
 
-// Stable per-item ids for the localStorage-backed progress tracker —
+// Stable per-item ids for the localStorage-backed progress tracker,
 // derived from position, since phase/group/item order is static content.
 const itemIdsByPhase: Record<string, ChecklistItemRef[]> = {};
 for (const phase of phases) {
@@ -249,13 +249,13 @@ const watchOutFor = [
 ];
 
 const tocItems = [
-  ...phases.map((p) => ({ id: p.id, label: `Phase ${p.n} — ${p.title}` })),
+  ...phases.map((p) => ({ id: p.id, label: `Phase ${p.n}: ${p.title}` })),
   { id: 'operating-system', label: 'Ongoing operating system' },
   { id: 'watch-out-for', label: 'Things to watch out for' },
 ];
 ---
 
-<BaseLayout title={`${entry.data.title} — People Centric Leadership`} description={entry.data.description}>
+<BaseLayout title={`${entry.data.title}: People Centric Leadership`} description={entry.data.description}>
   <div class="mx-auto max-w-6xl px-6 py-section sm:px-8">
     <header class="max-w-3xl">
       <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
@@ -264,7 +264,7 @@ const tocItems = [
       <p class="measure mt-6 text-lead text-ink-muted">
         This is a living document. Treat each phase as a checklist of
         milestones and reminders, not a script. As you learn what works for
-        you, edit ruthlessly — delete what doesn't apply, add what does, and
+        you, edit ruthlessly: delete what doesn't apply, add what does, and
         capture lessons as you go so the next transition is easier than this
         one.
       </p>
@@ -291,7 +291,7 @@ const tocItems = [
           <div data-progress-bar class="h-1.5 rounded-full bg-accent transition-[width]" style="width: 0%" />
         </div>
         <p class="no-print mt-3 text-xs text-ink-muted">
-          Checking a box saves your progress in this browser only — nothing
+          Checking a box saves your progress in this browser only; nothing
           is sent anywhere. Clear your browser data and it resets.
         </p>
       </div>
@@ -432,7 +432,7 @@ const tocItems = [
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch {
-      /* localStorage unavailable — checkboxes still work for this session */
+      /* localStorage unavailable, checkboxes still work for this session */
     }
   }
 

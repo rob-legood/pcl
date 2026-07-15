@@ -6,7 +6,7 @@ usageNote: The public-facing version. Share with a new team in week one or two, 
 ---
 
 ```markdown
-# What to Expect from Me — [Your Name]
+# What to Expect from Me: [Your Name]
 
 **I will spend the first weeks listening.** No big changes early. When I do start making changes, I will explain why.
 

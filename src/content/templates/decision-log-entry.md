@@ -2,11 +2,11 @@
 title: Decision Log Entry
 tier: daily-weekly
 order: 3
-usageNote: One entry per non-trivial decision. Cheap to write, expensive not to have. The revisit date is what makes this actually valuable — without it, this is just journaling.
+usageNote: One entry per non-trivial decision. Cheap to write, expensive not to have. The revisit date is what makes this actually valuable; without it, this is just journaling.
 ---
 
 ```markdown
-## [Date] — [Short decision title]
+## [Date]: [Short decision title]
 
 **Decision:** [What was decided, in one sentence]
 

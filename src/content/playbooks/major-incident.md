@@ -10,7 +10,7 @@ Production is on fire. Customers are affected. The team is in the war room. Peop
 
 ## In the moment
 
-- Be present, be calm, be quiet. My job is not to fix it — it's to make sure the people fixing it have what they need.
+- Be present, be calm, be quiet. My job is not to fix it: it's to make sure the people fixing it have what they need.
 - Confirm there's an incident commander. If there isn't, name one (probably not me).
 - Ask "what do you need from me?" not "what happened?"
 - Handle upward communication so the team can focus on the system.
@@ -19,7 +19,7 @@ Production is on fire. Customers are affected. The team is in the war room. Peop
 ## In the following days
 
 - Run a blameless postmortem. Real one. Five whys, system view, action items with owners and dates.
-- Communicate externally if needed — with the team's input, with honesty, without performance.
+- Communicate externally if needed, with the team's input, with honesty, without performance.
 - Defend the engineer whose change triggered it. Publicly. The system allowed the failure, not just the human.
 - Follow through on the action items. A postmortem without follow-through is theater.
 

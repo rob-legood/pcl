@@ -2,11 +2,11 @@
 title: A Team Member in Personal Crisis
 slug: personal-crisis
 order: 3
-summary: Someone on the team is going through something — illness, loss, a family emergency, a divorce.
+summary: Someone on the team is going through something (illness, loss, a family emergency, a divorce).
 tags: [crisis]
 ---
 
-Someone on the team is going through something — illness, loss, a family emergency, a divorce. They've told me, or I've found out.
+Someone on the team is going through something: illness, loss, a family emergency, a divorce. They've told me, or I've found out.
 
 ## In the moment
 

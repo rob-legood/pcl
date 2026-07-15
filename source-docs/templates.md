@@ -1,18 +1,18 @@
 # Templates
 
-Copy-pasteable versions of the artifacts referenced across the other documents. Not the last word on any of these — starting points that encode a specific point of view. Rewrite in your voice on first use.
+Copy-pasteable versions of the artifacts referenced across the other documents. Not the last word on any of these: starting points that encode a specific point of view. Rewrite in your voice on first use.
 
 ---
 
 ## How to use this file
 
-Each template has a short usage note in italics, then the template itself in a code block. Copy the code block out into your tool of choice — a shared doc, a note app, a wiki, whatever. Adjust as you learn.
+Each template has a short usage note in italics, then the template itself in a code block. Copy the code block out into your tool of choice: a shared doc, a note app, a wiki, whatever. Adjust as you learn.
 
 The templates are grouped by how often you'll reach for them:
 
-1. **Daily and weekly** — the highest-use ones, kept short so they don't become homework.
-2. **Onboarding and transitions** — used once per role or once per team, with more scaffolding because the stakes justify it.
-3. **Engineering rituals** — team-level artifacts, used on a recurring cadence.
+1. **Daily and weekly**: the highest-use ones, kept short so they don't become homework.
+2. **Onboarding and transitions**: used once per role or once per team, with more scaffolding because the stakes justify it.
+3. **Engineering rituals**: team-level artifacts, used on a recurring cadence.
 
 Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, "what we're stopping" in the operating plan, blameless language in postmortems), that's deliberate. Change it if you disagree, but change it consciously.
 
@@ -22,10 +22,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## 1:1 Running Doc
 
-*One shared doc per direct report, appended over time — not a fresh doc each week. Their agenda first. Growth conversation once a quarter as a distinct pass. If you're doing more than 60% of the talking, you're doing it wrong.*
+*One shared doc per direct report, appended over time, not a fresh doc each week. Their agenda first. Growth conversation once a quarter as a distinct pass. If you're doing more than 60% of the talking, you're doing it wrong.*
 
 ```markdown
-# 1:1 — [Their Name] & [Your Name]
+# 1:1 with [Their Name] & [Your Name]
 
 ## Standing sections
 - **Their growth focus this quarter:** [what they're working on]
@@ -50,7 +50,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - 
 
 **Action items:**
-- [ ] Owner — item — by when
+- [ ] Owner; item; by when
 
 ---
 
@@ -60,10 +60,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Weekly Review
 
-*Friday afternoon. 30 minutes maximum. The point is not comprehensive — the point is honest. If you skip a section, that's information.*
+*Friday afternoon. 30 minutes maximum. The point is not comprehensive; the point is honest. If you skip a section, that's information.*
 
 ```markdown
-# Weekly Review — [Date]
+# Weekly Review: [Date]
 
 ## What shipped or moved
 - 
@@ -91,10 +91,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Decision Log Entry
 
-*One entry per non-trivial decision. Cheap to write, expensive not to have. The revisit date is what makes this actually valuable — without it, this is just journaling.*
+*One entry per non-trivial decision. Cheap to write, expensive not to have. The revisit date is what makes this actually valuable; without it, this is just journaling.*
 
 ```markdown
-## [Date] — [Short decision title]
+## [Date]: [Short decision title]
 
 **Decision:** [What was decided, in one sentence]
 
@@ -129,7 +129,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Self-Introduction One-Pager
 
-*For sharing with a new team in your first week. Written to be read, not presented. Human details matter — they signal you're a person before you're a title. Skip the resume recap; frame your experience by what you learned, not what you shipped.*
+*For sharing with a new team in your first week. Written to be read, not presented. Human details matter; they signal you're a person before you're a title. Skip the resume recap; frame your experience by what you learned, not what you shipped.*
 
 ```markdown
 # Hi, I'm [Name]
@@ -160,17 +160,17 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - Feedback, quickly and specifically.
 
 ## How I work
-- **Communication:** [preferences — Slack vs email, response time expectations, when you're offline]
+- **Communication:** [preferences: Slack vs email, response time expectations, when you're offline]
 - **Meetings:** [how you like them run, what to bring]
 - **Feedback:** [how you like to give and receive it]
 ```
 
 ## Listening Tour Question Set
 
-*Use during Phase 2 (Days 8-30). 30-45 minute conversations across the team and adjacent teams. Same core questions to each person — themes emerge by conversation 8 or 10. Track responses in a single running doc.*
+*Use during Phase 2 (Days 8-30). 30-45 minute conversations across the team and adjacent teams. Same core questions to each person; themes emerge by conversation 8 or 10. Track responses in a single running doc.*
 
 ```markdown
-# Listening Tour — [Your Name], starting [Date]
+# Listening Tour: [Your Name], starting [Date]
 
 ## Core questions (ask each person)
 1. What's working well that we should protect?
@@ -190,7 +190,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Conversations
 
-### [Date] — [Person, role]
+### [Date]: [Person, role]
 - Working well:
 - Broken:
 - What they'd do first:
@@ -199,7 +199,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - Who else to talk to:
 - Notes:
 
-### [Date] — [Person, role]
+### [Date]: [Person, role]
 ...
 
 ---
@@ -211,7 +211,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 ## Follow-ups
 - [ ] 
 
-## Assessment doc — start drafting around conversation 15
+## Assessment doc: start drafting around conversation 15
 ```
 
 ## What to Expect from Me (Shareable)
@@ -219,7 +219,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 *The public-facing version. Share with a new team in week one or two, either in a doc or as part of your intro. Every commitment here should be one you actually keep. Cut any you can't defend.*
 
 ```markdown
-# What to Expect from Me — [Your Name]
+# What to Expect from Me: [Your Name]
 
 **I will spend the first weeks listening.** No big changes early. When I do start making changes, I will explain why.
 
@@ -250,10 +250,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Team Operating Plan
 
-*Written during Phase 4 (Days 61-90). Socialized with peers and manager before announcing to the team. Kept to two pages. The "what we're stopping" section is not optional — it forces prioritization to be honest.*
+*Written during Phase 4 (Days 61-90). Socialized with peers and manager before announcing to the team. Kept to two pages. The "what we're stopping" section is not optional; it forces prioritization to be honest.*
 
 ```markdown
-# [Team Name] Operating Plan — [Quarter or half]
+# [Team Name] Operating Plan: [Quarter or half]
 
 ## Mission
 [One sentence. Why this team exists. What breaks if we don't do our job. If you can't say it without corporate language, you don't understand it yet.]
@@ -262,9 +262,9 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 [One or two sentences: how this team's work connects to company priorities. Cite the specific goal.]
 
 ## Priorities this period
-1. **[Priority 1]** — Why: [context]. Success: [what we'll see]. Owner: [name].
-2. **[Priority 2]** — Why: [context]. Success: [what we'll see]. Owner: [name].
-3. **[Priority 3]** — Why: [context]. Success: [what we'll see]. Owner: [name].
+1. **[Priority 1].** Why: [context]. Success: [what we'll see]. Owner: [name].
+2. **[Priority 2].** Why: [context]. Success: [what we'll see]. Owner: [name].
+3. **[Priority 3].** Why: [context]. Success: [what we'll see]. Owner: [name].
 
 *(Three is a soft cap. Four means you haven't decided.)*
 
@@ -273,7 +273,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - 
 - 
 
-*(If this list is empty, you haven't actually prioritized — you've just added.)*
+*(If this list is empty, you haven't actually prioritized; you've just added.)*
 
 ## How we work
 - **Meeting cadence:** [standups, planning, retros, all-hands]
@@ -298,10 +298,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## RFC / Design Doc Template
 
-*For non-trivial technical decisions — anything cross-team, anything hard to reverse, anything you'll want to remember why you did in a year. Async review. Time-boxed. The alternatives section is required because "we chose X" is only useful if we can see what X beat.*
+*For non-trivial technical decisions: anything cross-team, anything hard to reverse, anything you'll want to remember why you did in a year. Async review. Time-boxed. The alternatives section is required because "we chose X" is only useful if we can see what X beat.*
 
 ```markdown
-# [Title] — RFC
+# [Title]: RFC
 
 **Author:** [Name]
 **Status:** Draft | In Review | Accepted | Rejected | Superseded
@@ -316,8 +316,8 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 [What are we proposing to do? Concrete enough that someone could argue with it.]
 
 ## Alternatives considered
-- **Option A:** [description] — [why not]
-- **Option B:** [description] — [why not]
+- **Option A:** [description]; [why not]
+- **Option B:** [description]; [why not]
 - **Do nothing:** [what happens if we don't do this]
 
 ## Trade-offs
@@ -341,10 +341,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Postmortem Template
 
-*Blameless. The system allowed the failure — that is the frame, always. Action items have owners and dates, or they are wishes. The lessons section is broader than the actions and often more valuable.*
+*Blameless. The system allowed the failure: that is the frame, always. Action items have owners and dates, or they are wishes. The lessons section is broader than the actions and often more valuable.*
 
 ```markdown
-# Postmortem — [Incident title]
+# Postmortem: [Incident title]
 
 **Date of incident:** [Date, time, duration]
 **Authors:** [Names]
@@ -360,9 +360,9 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - **Downstream effects:** 
 
 ## Timeline
-- **HH:MM** — [event]
-- **HH:MM** — [event]
-- **HH:MM** — [event]
+- **HH:MM**: [event]
+- **HH:MM**: [event]
+- **HH:MM**: [event]
 
 ## Root cause
 [What in the system allowed this to happen? Not "who." System-focused language: "The deployment pipeline did not X" not "engineer A forgot to Y." Multiple contributing factors are the norm, not the exception.]
@@ -379,7 +379,7 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 - 
 - 
 
-*(Often the most important section — the near-misses that could have been much worse.)*
+*(Often the most important section: the near-misses that could have been much worse.)*
 
 ## Action items
 | # | Item | Owner | Due | Status |
@@ -393,10 +393,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## On-Call Handoff
 
-*15-minute weekly ritual. Written down, always — verbal handoffs get lost. The outgoing engineer runs it. The incoming engineer asks questions.*
+*15-minute weekly ritual. Written down, always; verbal handoffs get lost. The outgoing engineer runs it. The incoming engineer asks questions.*
 
 ```markdown
-# On-Call Handoff — Week of [Date]
+# On-Call Handoff: Week of [Date]
 
 **Outgoing:** [Name]
 **Incoming:** [Name]
@@ -429,10 +429,10 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 ## Tech Radar
 
-*A living doc, not a template you fill once. Categorizes technologies by our stance on them so we're not re-litigating solved decisions. Reviewed quarterly. When you add an entry, add the date — otherwise you can't tell six months from now whether "adopt Postgres" was decided last week or three years ago.*
+*A living doc, not a template you fill once. Categorizes technologies by our stance on them so we're not re-litigating solved decisions. Reviewed quarterly. When you add an entry, add the date; otherwise you can't tell six months from now whether "adopt Postgres" was decided last week or three years ago.*
 
 ```markdown
-# Tech Radar — Last updated [Date]
+# Tech Radar: Last updated [Date]
 
 ## Adopt
 *We use these. New work should default to them.*
@@ -467,6 +467,6 @@ Where a template encodes a specific stance (e.g., "their agenda first" in 1:1s, 
 
 # Field Notes
 
-Lessons about the templates themselves — what worked, what didn't, what you rewrote. Dated entries.
+Lessons about the templates themselves: what worked, what didn't, what you rewrote. Dated entries.
 
 - _Add as you go._

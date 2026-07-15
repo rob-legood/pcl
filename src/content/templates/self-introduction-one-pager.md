@@ -2,7 +2,7 @@
 title: Self-Introduction One-Pager
 tier: onboarding-transitions
 order: 1
-usageNote: For sharing with a new team in your first week. Written to be read, not presented. Human details matter — they signal you're a person before you're a title. Skip the resume recap; frame your experience by what you learned, not what you shipped.
+usageNote: For sharing with a new team in your first week. Written to be read, not presented. Human details matter; they signal you're a person before you're a title. Skip the resume recap; frame your experience by what you learned, not what you shipped.
 ---
 
 ```markdown
@@ -34,7 +34,7 @@ usageNote: For sharing with a new team in your first week. Written to be read, n
 - Feedback, quickly and specifically.
 
 ## How I work
-- **Communication:** [preferences — Slack vs email, response time expectations, when you're offline]
+- **Communication:** [preferences: Slack vs email, response time expectations, when you're offline]
 - **Meetings:** [how you like them run, what to bring]
 - **Feedback:** [how you like to give and receive it]
 ```
