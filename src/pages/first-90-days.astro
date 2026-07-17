@@ -201,6 +201,21 @@ for (const phase of phases) {
 }
 const totalItems = Object.values(itemIdsByPhase).reduce((sum, refs) => sum + refs.length, 0);
 
+// Serialized for the client-side "Save as Markdown" export, so it stays in
+// sync with the checklist content without re-scraping rendered DOM text.
+const exportData = {
+  title: entry.data.title,
+  phases: phases.map((phase) => ({
+    range: phase.range,
+    title: phase.title,
+    goal: phase.goal,
+    groups: phase.groups.map((group, gi) => ({
+      heading: group.heading ?? null,
+      items: group.items.map((text, ii) => ({ itemId: `${phase.id}--${gi}-${ii}`, text })),
+    })),
+  })),
+};
+
 const cadence = [
   {
     title: 'Weekly',
@@ -262,11 +277,10 @@ const tocItems = [
         {entry.data.title}
       </h1>
       <p class="measure mt-6 text-lead text-ink-muted">
-        This is a living document. Treat each phase as a checklist of
-        milestones and reminders, not a script. As you learn what works for
-        you, edit ruthlessly: delete what doesn't apply, add what does, and
-        capture lessons as you go so the next transition is easier than this
-        one.
+        This is the manual I use when I step into a new role. I wrote it for myself — 
+        the sequence I want to follow when I'm new, overwhelmed, and tempted to have 
+        opinions before I've earned them. If you're stepping into something similar, 
+        it's yours to use.
       </p>
       <p class="measure mt-4 text-body text-ink-muted">
         Suggested rhythm: review the relevant phase at the start of each
@@ -279,13 +293,22 @@ const tocItems = [
           <p class="text-xs uppercase tracking-wide text-ink-muted">
             <span data-progress-count>0 / {totalItems}</span> milestones checked
           </p>
-          <button
-            type="button"
-            data-action="reset-progress"
-            class="no-print text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
-          >
-            Reset progress
-          </button>
+          <div class="no-print flex items-center gap-4">
+            <button
+              type="button"
+              data-action="export-markdown"
+              class="text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
+            >
+              Save as Markdown
+            </button>
+            <button
+              type="button"
+              data-action="reset-progress"
+              class="text-xs uppercase tracking-wide text-ink-muted underline decoration-dotted hover:text-accent"
+            >
+              Reset progress
+            </button>
+          </div>
         </div>
         <div class="mt-3 h-1.5 w-full rounded-full bg-hairline">
           <div data-progress-bar class="h-1.5 rounded-full bg-accent transition-[width]" style="width: 0%" />
@@ -409,6 +432,8 @@ const tocItems = [
       </article>
     </div>
   </div>
+
+  <script type="application/json" id="checklist-export-data" is:inline set:html={JSON.stringify(exportData)} />
 </BaseLayout>
 
 <script>
@@ -418,6 +443,7 @@ const tocItems = [
   const overallCount = document.querySelector<HTMLElement>('[data-progress-count]');
   const overallBar = document.querySelector<HTMLElement>('[data-progress-bar]');
   const resetButton = document.querySelector<HTMLButtonElement>('[data-action="reset-progress"]');
+  const exportButton = document.querySelector<HTMLButtonElement>('[data-action="export-markdown"]');
 
   function readState(): Record<string, boolean> {
     try {
@@ -479,5 +505,63 @@ const tocItems = [
     writeState({});
     for (const cb of checkboxes) cb.checked = false;
     updateProgress();
+  });
+
+  interface ExportItem {
+    itemId: string;
+    text: string;
+  }
+  interface ExportGroup {
+    heading: string | null;
+    items: ExportItem[];
+  }
+  interface ExportPhase {
+    range: string;
+    title: string;
+    goal: string;
+    groups: ExportGroup[];
+  }
+  interface ExportData {
+    title: string;
+    phases: ExportPhase[];
+  }
+
+  exportButton?.addEventListener('click', () => {
+    const dataEl = document.getElementById('checklist-export-data');
+    if (!dataEl?.textContent) return;
+    const exportData: ExportData = JSON.parse(dataEl.textContent);
+    const state = readState();
+
+    const total = checkboxes.length;
+    const done = checkboxes.filter((cb) => cb.checked).length;
+
+    const lines: string[] = [
+      `# ${exportData.title}`,
+      '',
+      `Progress: ${done} / ${total} milestones checked`,
+      `Exported: ${new Date().toLocaleDateString()}`,
+      '',
+    ];
+
+    for (const phase of exportData.phases) {
+      lines.push(`## ${phase.title} (${phase.range})`, '', `**Goal:** ${phase.goal}`, '');
+      for (const group of phase.groups) {
+        if (group.heading) lines.push(`### ${group.heading}`, '');
+        for (const item of group.items) {
+          lines.push(`- [${state[item.itemId] ? 'x' : ' '}] ${item.text}`);
+        }
+        lines.push('');
+      }
+    }
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'first-90-days-checklist.md';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   });
 </script>
