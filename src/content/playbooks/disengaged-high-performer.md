@@ -6,7 +6,7 @@ summary: One of the strongest people on the team has quietly checked out; a lead
 tags: [performance, engagement]
 ---
 
-One of the strongest people on the team has quietly checked out. Camera off. Shorter messages. Skipping things they used to drive.
+Signs that indication this? Camera off. Shorter messages. Skipping things they used to drive.
 
 ## In the moment
 
@@ -20,7 +20,7 @@ One of the strongest people on the team has quietly checked out. Camera off. Sho
 - If they share something, thank them, take it seriously, and don't try to fix it on the spot.
 - Reduce load if it's burnout. Re-align work if it's purpose. Address it directly if it's something I did.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - Wanting to "re-engage them with a new project" when the issue is something else entirely.
 - Taking it personally before I know what it is.

@@ -2,6 +2,7 @@
 title: Team Operating Plan
 tier: onboarding-transitions
 order: 4
+summary: Two pages. The "what we're stopping" section is not optional.
 usageNote: Written during Phase 4 (Days 61-90). Socialized with peers and manager before announcing to the team. Kept to two pages. The "what we're stopping" section is not optional; it forces prioritization to be honest.
 ---
 

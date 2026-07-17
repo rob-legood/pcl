@@ -6,8 +6,6 @@ summary: Someone on the team is going through something (illness, loss, a family
 tags: [crisis]
 ---
 
-Someone on the team is going through something: illness, loss, a family emergency, a divorce. They've told me, or I've found out.
-
 ## In the moment
 
 - Lead with humanity, not logistics. The first thing out of my mouth is about them, not the work.
@@ -22,7 +20,7 @@ Someone on the team is going through something: illness, loss, a family emergenc
 - Don't volunteer them as the brave face. They don't owe anyone an update.
 - Protect their privacy fiercely. Share only what they've asked me to share, with whom they've asked.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - Wanting to fix it. I cannot fix it. My job is to make their work life easier so they have capacity for the rest of life.
 - Performing concern publicly rather than providing space privately.

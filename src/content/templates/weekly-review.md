@@ -2,6 +2,7 @@
 title: Weekly Review
 tier: daily-weekly
 order: 2
+summary: Friday, 30 minutes. Not comprehensive, honest.
 usageNote: Friday afternoon. 30 minutes maximum. The point is not comprehensive; the point is honest. If you skip a section, that's information.
 ---
 

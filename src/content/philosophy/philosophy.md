@@ -1,6 +1,6 @@
 ---
 title: Leadership Philosophy
-description: A statement of how I lead, what I believe, and what people can expect from me.
+description: How I lead, what I believe, and what people can expect from me.
 ---
 
 ## Why this exists

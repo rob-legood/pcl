@@ -1,5 +1,5 @@
 ---
-title: Engineering Management Playbook
+title: Engineering Leadership
 description: A companion to the Leadership Manual, specific to running a software engineering team.
 ---
 

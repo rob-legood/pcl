@@ -1,6 +1,6 @@
 ---
 title: "First 90 Days and Beyond"
-description: A personal playbook for stepping into a new director or software engineering manager role.
+description: A personal playbook for stepping into a new role.
 ---
 
 ## How to Use This Manual

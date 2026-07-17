@@ -2,6 +2,7 @@
 title: On-Call Handoff
 tier: engineering-rituals
 order: 3
+summary: 15 minutes, weekly, written down. Verbal handoffs get lost.
 usageNote: 15-minute weekly ritual. Written down, always; verbal handoffs get lost. The outgoing engineer runs it. The incoming engineer asks questions.
 ---
 

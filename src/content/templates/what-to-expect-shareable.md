@@ -2,6 +2,7 @@
 title: What to Expect from Me (Shareable)
 tier: onboarding-transitions
 order: 3
+summary: The shareable version. Every commitment should be one you actually keep.
 usageNote: The public-facing version. Share with a new team in week one or two, either in a doc or as part of your intro. Every commitment here should be one you actually keep. Cut any you can't defend.
 ---
 

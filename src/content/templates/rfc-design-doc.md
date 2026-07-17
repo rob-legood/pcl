@@ -2,6 +2,7 @@
 title: RFC / Design Doc Template
 tier: engineering-rituals
 order: 1
+summary: For decisions that are hard to reverse. The alternatives section is required.
 usageNote: For non-trivial technical decisions (anything cross-team, anything hard to reverse, anything you'll want to remember why you did in a year). Async review. Time-boxed. The alternatives section is required because "we chose X" is only useful if we can see what X beat.
 ---
 

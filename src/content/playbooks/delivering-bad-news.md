@@ -6,8 +6,6 @@ summary: A project is canceled, a reorg is happening, layoffs are coming; someth
 tags: [communication]
 ---
 
-A project is canceled. A reorg is happening. Layoffs are coming. A leader is leaving. Something the team will not want to hear.
-
 ## In the moment
 
 - Don't sit on it once I'm allowed to share. Delay erodes trust more than the news itself.
@@ -23,7 +21,7 @@ A project is canceled. A reorg is happening. Layoffs are coming. A leader is lea
 - Field questions individually. Some people will not raise theirs in the room.
 - Don't over-promise about what comes next.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - Hiding behind corporate phrasing because it feels safer. The team can tell. Say what's happening in plain English.
 - Performing certainty I don't have.

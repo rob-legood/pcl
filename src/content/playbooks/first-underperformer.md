@@ -2,11 +2,9 @@
 title: The First Underperformer
 slug: first-underperformer
 order: 1
-summary: The first time a team member isn't meeting the bar, what you do sets the tone for everything that follows.
+summary: The first time a team member isn't meeting the bar. The team is watching. So is the person.
 tags: [performance]
 ---
-
-The first time a team member isn't meeting the bar, what I do sets the tone for everything that follows. The team is watching. So is the person.
 
 ## In the moment
 
@@ -21,7 +19,7 @@ The first time a team member isn't meeting the bar, what I do sets the tone for 
 - Co-create what "good" looks like. Be explicit about timelines. Document it.
 - Increase 1:1 frequency briefly. Coach actively.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - **Ruinous empathy.** The single biggest risk. I will be tempted to soften the message until it disappears. If I leave the conversation and the person doesn't know there's a problem, I failed them.
 - Cataloging grievances silently for weeks before saying anything.

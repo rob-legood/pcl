@@ -2,6 +2,7 @@
 title: Tech Radar
 tier: engineering-rituals
 order: 4
+summary: Where we stand on each technology, dated. Stops re-litigating solved questions.
 usageNote: A living doc, not a template you fill once. Categorizes technologies by our stance on them so we're not re-litigating solved decisions. Reviewed quarterly. When you add an entry, add the date; otherwise you can't tell six months from now whether "adopt Postgres" was decided last week or three years ago.
 ---
 

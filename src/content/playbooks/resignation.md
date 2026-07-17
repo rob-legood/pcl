@@ -2,11 +2,11 @@
 title: The Day Someone Resigns
 slug: resignation
 order: 4
-summary: A team member tells you they're leaving; maybe one you love, maybe one you didn't see coming.
+summary: A team member gives notice. How people leave is part of how the team feels about staying.
 tags: [transition]
 ---
 
-A team member tells me they're leaving. Maybe one I love. Maybe one I didn't see coming.
+A team member tells me they're leaving. Maybe one I love. Maybe one the team loves. Maybe one I didn't see coming.
 
 ## In the moment
 
@@ -22,7 +22,7 @@ A team member tells me they're leaving. Maybe one I love. Maybe one I didn't see
 - Tell the team thoughtfully. Let the person shape how the news lands when possible.
 - Honor them publicly on their way out. The team is watching how I treat departures.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - Taking it personally. Most resignations are not about me, even when some of them are.
 - Counter-offer as ego rescue. If they need to leave to grow, the right thing is to let them grow.

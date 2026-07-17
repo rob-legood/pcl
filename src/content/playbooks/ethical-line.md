@@ -1,8 +1,8 @@
 ---
-title: An Ethical Line Being Approached
+title: Being Asked to Cross a Line
 slug: ethical-line
 order: 9
-summary: Someone is asking you, directly or implicitly, to do something you're not sure you can do.
+summary: A request to misrepresent, hide, or look the other way. The implicit ask is often worse than the explicit one.
 tags: [ethics]
 ---
 
@@ -21,7 +21,7 @@ Someone is asking me, directly or implicitly, to do something I'm not sure I can
 - Decide what I can and can't do. Communicate it directly, with reasons.
 - If the line is real and they insist, know what I'm willing to do about it, including leave.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - Rationalization. "It's not that bad." "Just this once." "Everyone does this." These sentences are the warning sign.
 - Sunk cost. Staying in a wrong because I've invested in the situation.

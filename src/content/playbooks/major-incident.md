@@ -6,8 +6,6 @@ summary: Production is on fire, customers are affected, and the team is in the w
 tags: [incident, crisis]
 ---
 
-Production is on fire. Customers are affected. The team is in the war room. People are scared.
-
 ## In the moment
 
 - Be present, be calm, be quiet. My job is not to fix it: it's to make sure the people fixing it have what they need.
@@ -23,7 +21,7 @@ Production is on fire. Customers are affected. The team is in the war room. Peop
 - Defend the engineer whose change triggered it. Publicly. The system allowed the failure, not just the human.
 - Follow through on the action items. A postmortem without follow-through is theater.
 
-## What to watch for in yourself
+## What to watch for in myself
 
 - The hero reflex. Taking over because I'm anxious. Trust the people doing the work.
 - Asking "why" in a tone that lands as blame, even when I don't mean it.

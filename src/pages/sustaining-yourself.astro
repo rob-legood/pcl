@@ -7,14 +7,13 @@ const entry = await getEntry('sustainability', 'sustainability');
 if (!entry) throw new Error('Missing sustainability entry');
 
 const tocItems = [
-  { id: 'four-fatigues', label: 'Four kinds of fatigue' },
-  { id: 'warning-signs', label: 'Warning signs' },
+  { id: 'three-fatigues', label: 'Three kinds of fatigue' },
+  { id: 'warning-signs', label: 'Warning signs, and why I\'ll miss them' },
   { id: 'taking-on-too-much', label: 'Taking on too much' },
   { id: 'completion-problem', label: 'The completion problem' },
-  { id: 'loneliness', label: 'The loneliness chapter' },
-  { id: 'rituals', label: 'Rituals for a hard week' },
+  { id: 'who-talk', label: 'Who I can actually talk to' },
+  { id: 'rituals', label: 'Rituals that survive a hard week' },
   { id: 'permission-slips', label: 'Permission slips' },
-  { id: 'the-body', label: 'The body' },
   { id: 'identity', label: 'Identity outside the role' },
 ];
 
@@ -33,11 +32,6 @@ const fatigues = [
     title: 'Social fatigue',
     body: 'Being "on" with people, even people I like. Its own thing, distinct from emotional fatigue.',
     recovers: 'Solitude, not entertainment.',
-  },
-  {
-    title: 'Physical fatigue',
-    body: 'Sleep, movement, food. The base layer. When this is broken, nothing else works.',
-    recovers: 'Rest, movement, food: the basics, actually done.',
   },
 ];
 
@@ -80,7 +74,7 @@ const tiers: Tier[] = [
     style: 'structural',
     items: [
       'One person outside work who has explicit permission to say "you\'re doing the thing." Renew that permission out loud once a year.',
-      'A quarterly calendar block called something honest ("How am I actually doing"). One hour. Re-read this document. Write one paragraph in field notes.',
+      'A quarterly calendar block called something honest ("How am I actually doing"). One hour. Re-read this document.',
       'A trusted peer manager I check in with monthly, and who I\'ve told: "If you notice me drifting, tell me."',
     ],
   },
@@ -173,6 +167,10 @@ const identityQuestions = [
       <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
         {entry.data.title}
       </h1>
+      <p
+        class="animate-hero-in mt-6 max-w-3xl font-display text-lead leading-tight text-accent italic [animation-delay:120ms]">
+        {entry.data.description}
+      </p>
       <p class="measure mt-6 text-lead text-ink-muted">
         I care about people. That is why I lead the way I lead. It is also
         what makes this work hard to do for a long time. This document isn't
@@ -193,10 +191,11 @@ const identityQuestions = [
       <h2 class="font-display text-h3 font-medium tracking-tight text-ink">How to use this</h2>
       <p class="mt-3 text-body text-ink-muted">
         I love starting things and lose interest around the 80% mark, so this
-        is built to survive me: read it whole once a quarter, add to field
-        notes when something happens rather than on a schedule, and trust the
+        is built to survive me: read it whole once a quarter, document and update when 
+        something happens rather than on a schedule, and trust the
         structural checks over the personal ones; I am unreliable at
-        noticing my own state.
+        noticing my own state. If I have gone a quarter without opening this, I have 
+        already drifted further than I realize. That in itself is a signal.
       </p>
     </div>
 
@@ -204,14 +203,14 @@ const identityQuestions = [
       <Toc items={tocItems} />
 
       <article class="min-w-0 lg:col-start-1 lg:row-start-1">
-        <section id="four-fatigues" class="scroll-mt-8">
+        <section id="three-fatigues" class="scroll-mt-8">
           <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
-            Four kinds of fatigue
+            Three kinds of fatigue
           </h2>
           <p class="measure mt-4 text-body text-ink-muted">
             Time management is a losing game for managers; my calendar isn't
             fully mine. Energy management is the actual lever. And energy
-            isn't one thing; it's four, and they deplete and recover
+            isn't one thing; it's three, and they deplete and recover
             differently.
           </p>
 
@@ -230,9 +229,9 @@ const identityQuestions = [
           </div>
 
           <p class="measure mt-8 text-body text-ink-muted italic">
-            The trap: I treat all fatigue as cognitive or physical (the
-            visible kinds) and miss that I'm emotionally or socially
-            depleted. The signs of emotional fatigue look like character
+            The trap: I treat fatigue as cognitive — the visible kind, the kind that 
+            looks like tiredness — and miss that I'm emotionally or socially depleted. 
+            The signs of emotional fatigue look like character
             flaws (impatience, coldness, indifference), which is why I
             misdiagnose it as "I'm just being difficult this week" instead of
             "I've been holding too much for too long."
@@ -243,10 +242,6 @@ const identityQuestions = [
           <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
             Warning signs, and why I'll miss them
           </h2>
-          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
-            This is one leader's honest account of his own warning signs,
-            offered as a starting point for noticing your own.
-          </p>
           <p class="measure mt-4 text-body text-ink-muted">
             I don't listen to what's happening in me until it's too late.
             That's the pattern. So this can't be "notice when you feel X"; I
@@ -433,23 +428,17 @@ const identityQuestions = [
           </div>
         </section>
 
-        <section id="loneliness" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
+        <section id="who-talk" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
           <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
-            The loneliness chapter
+            Who I can actually talk to
           </h2>
-          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
-            This is one leader's honest account of his own experience of the
-            role's loneliness, offered as something you can adapt to your own
-            situation.
-          </p>
           <p class="measure mt-4 text-body text-ink-muted">
-            The direct reports can't be my peers. The peers don't see my
-            team. My manager has their own agenda. The people who care about
-            me most probably don't fully understand what I do all day. This
-            isn't a complaint: it's the structure of the role. But if I
-            don't build support outside the immediate org, the loneliness
-            compounds quietly and I mistake it for something else, usually
-            "I'm tired" or "this job is hard."
+            I can build something real with the people who report to me — I have. But 
+            I can't bring them my doubt. They can't hold it, because their next role 
+            depends on my judgment, and handing them that isn't confiding, it's a 
+            transfer. The peers don't see my team. My manager has their own agenda. 
+            The people who care about me most probably don't fully understand what I do 
+            all day. This isn't a complaint: it's the structure of the role...
           </p>
 
           <div class="mt-10 grid gap-10 sm:grid-cols-2 sm:divide-x sm:divide-hairline">
@@ -492,7 +481,6 @@ const identityQuestions = [
             I do anyway when it's bad? Written for the worst week, not the
             best.
           </p>
-
           <div class="mt-8 rounded-lg border-2 border-accent bg-paper-raised p-6">
             <p class="text-xs uppercase tracking-wide text-accent">The floor: non-negotiable</p>
             <ul class="mt-5 space-y-3">
@@ -506,12 +494,15 @@ const identityQuestions = [
               }
             </ul>
           </div>
-
           <p class="measure mt-6 text-body text-ink-muted">
             That's the floor. Everything above it (meditation, gym,
             journaling, whatever else works) is bonus, not baseline.
             Confusing the two is how I end up doing none of it when I need it
             most.
+          </p>
+          <p class="measure mt-6 text-body text-ink-muted italic">
+            When I skip these, I don't just feel tired. I pay for it in the
+            parts of me I care about most: patience, warmth, judgment.
           </p>
         </section>
 
@@ -519,53 +510,21 @@ const identityQuestions = [
           <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
             Permission slips
           </h2>
-          <p class="measure mt-4 border-l-2 border-hairline pl-4 text-sm italic text-ink-muted">
-            This is one leader's honest account of the permission he needs to
-            give himself, offered as something you can borrow or rewrite for
-            yourself.
-          </p>
           <p class="measure mt-4 text-body text-ink-muted">
-            Explicit, because I don't give myself these enough. Written down,
-            because in the moment I forget.
+            Explicit, because I don't give myself these enough. Written down, because 
+            in the moment I forget.
           </p>
-
           <div class="mt-10 grid gap-4 sm:grid-cols-2">
             {
               permissionSlips.map((slip) => (
                 <div class="rounded-lg border border-hairline bg-paper-raised p-6">
                   <p class="font-display text-lg leading-snug text-ink italic">
-                    <span class="text-accent">&ldquo;</span>
                     {slip}
-                    <span class="text-accent">&rdquo;</span>
                   </p>
                 </div>
               ))
             }
           </div>
-        </section>
-
-        <section id="the-body" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">
-          <h2 class="font-display text-h2 font-medium tracking-tight text-ink">
-            The body, briefly
-          </h2>
-          <p class="measure mt-4 text-body text-ink-muted">
-            The base layer. Non-negotiable infrastructure, not optimization.
-          </p>
-
-          <div class="mt-8 space-y-5">
-            {
-              bodyItems.map((item) => (
-                <p class="measure text-body text-ink-muted">
-                  <strong class="text-ink">{item.lead}</strong> {item.body}
-                </p>
-              ))
-            }
-          </div>
-
-          <p class="measure mt-6 text-body text-ink-muted italic">
-            When I skip these, I don't just feel tired. I pay for it in the
-            parts of me I care about most: patience, warmth, judgment.
-          </p>
         </section>
 
         <section id="identity" class="mt-16 scroll-mt-8 border-t border-hairline pt-16">

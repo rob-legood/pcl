@@ -1,5 +1,5 @@
 ---
-title: Personal Sustainability
+title: Sustaining Yourself
 description: "Or: how to keep doing this without becoming someone I don't recognize."
 ---
 

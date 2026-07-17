@@ -47,6 +47,7 @@ const templates = defineCollection({
     title: z.string(),
     tier: z.enum(['daily-weekly', 'onboarding-transitions', 'engineering-rituals']),
     order: z.number(),
+    summary: z.string(),
     usageNote: z.string(),
   }),
 });

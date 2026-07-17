@@ -2,6 +2,7 @@
 title: Decision Log Entry
 tier: daily-weekly
 order: 3
+summary: Cheap to write, expensive not to have. The revisit date is the point.
 usageNote: One entry per non-trivial decision. Cheap to write, expensive not to have. The revisit date is what makes this actually valuable; without it, this is just journaling.
 ---
 

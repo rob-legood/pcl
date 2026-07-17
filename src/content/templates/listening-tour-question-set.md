@@ -2,6 +2,7 @@
 title: Listening Tour Question Set
 tier: onboarding-transitions
 order: 2
+summary: The same questions to everyone. Themes emerge by conversation eight.
 usageNote: Use during Phase 2 (Days 8-30). 30-45 minute conversations across the team and adjacent teams. Same core questions to each person; themes emerge by conversation 8 or 10. Track responses in a single running doc.
 ---
 

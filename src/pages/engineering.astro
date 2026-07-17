@@ -34,38 +34,38 @@ const topics: Topic[] = [
     n: '1',
     title: 'Technical Credibility',
     intro: [
-      "The honest framing: technical enough that engineers trust your judgment on the things you weigh in on; not so deep in the code that you do their jobs for them. Credibility is not measured in PRs shipped; it's measured in whether your engineers feel you understand the work.",
+      "Here's the honest framing I hold myself to: technical enough that my engineers trust my judgment on the things I weigh in on; not so deep in the code that I do their jobs for them. I don't measure my credibility in PRs shipped. I measure it in whether my engineers feel I understand the work.",
     ],
     sections: [
       {
         heading: 'Anchoring principles',
         tone: 'default',
         items: [
-          "You don't need to be the best engineer in the room. You need to be the person who can ask the question that unsticks the room.",
-          'Depth beats breadth, here. Pick one or two areas of the system you commit to understanding deeply. Be honest about the rest.',
-          'Decay is real. Six months out of hands-on work and your instincts will lie to you. Build deliberate routines to stay current.',
+          "I don't need to be the best engineer in the room. I need to be the person who can ask the question that unsticks the room.",
+          "Depth beats breadth here. I pick one or two areas of the system I commit to understanding deeply, and I'm honest about the rest.",
+          'Decay is real. Six months out of hands-on work and my instincts start to lie to me, so I build deliberate routines to stay current.',
         ],
       },
       {
         heading: 'Tactics',
         tone: 'checklist',
         items: [
-          "Read PRs as a learner, not a reviewer. Skim 5-10 per week from across the team. You're absorbing patterns and naming, not gatekeeping.",
-          "Pair quarterly. Sit with an engineer on a real task for an hour. You'll learn what the dev experience actually feels like.",
-          'Run the system end-to-end once a quarter. Build it locally, deploy a change to staging, follow it through. Painful steps tell you what to fix.',
-          'Shadow on-call for a rotation each year. Not to drive, but to feel the load.',
-          "Attend design reviews and read the RFCs. Even the ones you don't need to weigh in on.",
-          "Subscribe to alerts and key dashboards. Don't act on them; just notice the rhythm of the system.",
-          'Keep one personal coding habit. A side project, an Advent of Code, a small internal tool. Just enough to keep the muscle alive.',
+          "I read PRs as a learner, not a reviewer. I skim 5-10 a week from across the team — I'm absorbing patterns and naming, not gatekeeping.",
+          "I pair quarterly. I sit with an engineer on a real task for an hour, so I learn what the dev experience actually feels like.",
+          'I run the system end-to-end once a quarter: build it locally, deploy a change to staging, follow it through. The painful steps tell me what to fix.',
+          'I shadow on-call for a rotation each year. Not to drive, but to feel the load.',
+          "I attend design reviews and read the RFCs, even the ones I don't need to weigh in on.",
+          "I subscribe to alerts and key dashboards. I don't act on them; I just notice the rhythm of the system.",
+          'I keep one personal coding habit: a side project, an Advent of Code, a small internal tool. Just enough to keep the muscle alive.',
         ],
       },
       {
-        heading: 'What to avoid',
+        heading: 'What I avoid',
         tone: 'avoid',
         items: [
-          'Reviewing PRs to prove you still can. Engineers can tell.',
-          "Architectural opinions formed from skimming. If you don't have time to engage seriously, defer with grace.",
-          'Hiding from a topic because it\'s outside your background. Ask. Engineers respect a manager who says "explain this to me" far more than one who fakes it.',
+          'Reviewing PRs to prove I still can. Engineers can tell.',
+          "Forming architectural opinions from skimming. If I don't have time to engage seriously, I defer with grace.",
+          'Hiding from a topic because it\'s outside my background. I\'d rather ask. Engineers respect a manager who says "explain this to me" far more than one who fakes it.',
         ],
       },
     ],
@@ -75,35 +75,35 @@ const topics: Topic[] = [
     n: '2',
     title: 'Code Review Participation',
     intro: [
-      "How much should a manager review code? It depends, but the wrong answers are obvious. Reviewing nothing tells the team you've left the work behind. Reviewing everything tells the team you don't trust them.",
+      "How much should I review code? It depends, but the wrong answers are obvious to me. Reviewing nothing tells my team I've left the work behind. Reviewing everything tells them I don't trust them.",
     ],
     sections: [
       {
         heading: 'A working model',
         tone: 'default',
         items: [
-          "Default: don't be on the required reviewer list. Your reviews shouldn't be load-bearing.",
-          'Do review: changes to things you uniquely know about (auth, infra you built, customer-facing copy), high-risk changes flagged for extra eyes, PRs from new hires in their first month.',
-          "Do skim, don't block: broader patterns, naming, what people are working on. This is signal-gathering, not gatekeeping.",
-          "Time-bound: if your review is taking more than ~15 minutes, you're probably the wrong reviewer.",
+          "Default: I stay off the required reviewer list. My reviews shouldn't be load-bearing.",
+          'I do review: changes to things I uniquely know about (auth, infra I built, customer-facing copy), high-risk changes flagged for extra eyes, and PRs from new hires in their first month.',
+          "I skim, but don't block: broader patterns, naming, what people are working on. This is signal-gathering, not gatekeeping.",
+          "Time-bound: if my review is taking more than about 15 minutes, I'm probably the wrong reviewer.",
         ],
       },
       {
-        heading: 'Conventions worth setting',
+        heading: 'Conventions I set',
         tone: 'default',
         items: [
-          'Distinguish blocking comments from suggestions from questions in writing. Use prefixes like nit:, q:, blocking: if your team doesn\'t already.',
-          "Don't drop a review and disappear. If you're going to be the bottleneck, hand it off.",
-          'Praise good code in writing. Reviews are one of the few public artifacts of the work.',
+          "I distinguish blocking comments from suggestions from questions, in writing. I use prefixes like nit:, q:, blocking: if the team doesn't already have a convention.",
+          "I don't drop a review and disappear. If I'm going to be the bottleneck, I hand it off.",
+          'I praise good code in writing. Reviews are one of the few public artifacts of the work.',
         ],
       },
       {
-        heading: 'Anti-patterns',
+        heading: 'Anti-patterns I watch for in myself',
         tone: 'avoid',
         items: [
-          'Skipping the review and then second-guessing the decision in 1:1s.',
-          '"Drive-by" stylistic comments that derail substantive review.',
-          "Asking for changes you're not willing to defend on a call.",
+          'Skipping the review, then second-guessing the decision in a 1:1.',
+          'Leaving "drive-by" stylistic comments that derail substantive review.',
+          "Asking for changes I'm not willing to defend on a call.",
         ],
       },
     ],
@@ -113,47 +113,47 @@ const topics: Topic[] = [
     n: '3',
     title: 'On-Call Philosophy',
     intro: [
-      'On-call is where engineering culture gets revealed. How a team responds to a 2 AM page tells you more than any survey.',
+      'On-call is where engineering culture gets revealed to me. How my team responds to a 2 AM page tells me more than any survey could.',
     ],
     sections: [
       {
-        heading: 'Your role as a manager',
+        heading: 'My role as a manager',
         tone: 'default',
         items: [
-          "You are responsible for the load, not the rotation. If on-call is brutal, that's your problem to fix even if you're not on the rotation.",
-          'Be on the escalation path, not the front line. The team should never have to think about whether to wake you for a serious incident.',
-          'Attend incident reviews. Quietly. Your presence signals importance; your silence signals trust.',
+          "I'm responsible for the load, not the rotation. If on-call is brutal, that's my problem to fix, even if I'm not on the rotation.",
+          'I stay on the escalation path, not the front line. My team should never have to think about whether to wake me for a serious incident.',
+          'I attend incident reviews. Quietly. My presence signals importance; my silence signals trust.',
         ],
       },
       {
-        heading: 'Questions to answer in your first 60 days',
+        heading: 'Questions I answer in my first 60 days',
         tone: 'default',
         items: [
-          "What's the page volume per engineer per week? (Aim: fewer than 2 actionable pages per week per person, ideally lower.)",
-          'What % of pages are actionable vs. noise?',
-          "What's the MTTR trend?",
+          "What's the page volume per engineer per week? I aim for fewer than 2 actionable pages per person per week, ideally lower.",
+          'What percentage of pages are actionable versus noise?',
+          "What's the trend on MTTR?",
           'How is on-call compensated: money, time off, neither?',
-          "Who's been carrying a disproportionate load? (There's always someone.)",
+          "Who's been carrying a disproportionate load? There's always someone.",
           'Is there a runbook? Does it match reality?',
         ],
       },
       {
-        heading: 'Investments that pay back',
+        heading: 'Investments I make',
         tone: 'default',
         items: [
-          "Reduce paging noise aggressively. Every false page erodes the team's willingness to respond to real ones.",
-          'Make the on-call handoff a real ritual. 15-minute weekly meeting; document what\'s outstanding.',
-          'Track on-call as work. Engineers on-call should not be expected to ship features that week.',
-          'Run a quarterly on-call retro. What pages came up? What did we fix? What didn\'t we?',
-          'Blameless postmortems, real action items, owners. Action items without owners are wishes.',
+          "I reduce paging noise aggressively. Every false page erodes my team's willingness to respond to the real ones.",
+          "I make the on-call handoff a real ritual: a 15-minute weekly meeting, documenting what's outstanding.",
+          "I track on-call as work. Engineers on-call shouldn't be expected to ship features that week.",
+          "I run a quarterly on-call retro: what pages came up, what we fixed, what we didn't.",
+          'I insist on blameless postmortems, real action items, and owners. Action items without owners are just wishes.',
         ],
       },
       {
-        heading: 'Things to push back on',
+        heading: 'Things I push back on',
         tone: 'avoid',
         items: [
-          'Heroics. The engineer who stays up all night fixing things needs rest and process improvement, not another bonus.',
-          '"We can\'t change the rotation right now." If the rotation is unsustainable, that is the priority.',
+          'Heroics. When an engineer stays up all night fixing things, I see someone who needs rest and a process fix, not another bonus.',
+          '"We can\'t change the rotation right now." If the rotation is unsustainable, I make it the priority.',
         ],
       },
     ],
@@ -163,43 +163,43 @@ const topics: Topic[] = [
     n: '4',
     title: 'Architecture & Technical Decisions',
     intro: [
-      "You probably aren't the architect anymore. Your job is to make sure good architectural decisions get made: by the right people, with the right information, at the right time.",
+      "I'm not the architect anymore. My job is to make sure good architectural decisions get made by the right people, with the right information, at the right time.",
     ],
     sections: [
       {
-        heading: 'Where to engage',
+        heading: 'Where I engage',
         tone: 'default',
         items: [
-          'Cross-team or cross-system decisions. These need someone with organizational context. That\'s often you.',
-          'Decisions with long reversibility horizons. Picking a database, a primary language, a vendor: these need rigor.',
-          'Decisions affecting hiring, headcount, or roadmap. Architecture and people are coupled.',
+          "Cross-team or cross-system decisions. These need someone with organizational context, and that's often me.",
+          'Decisions with long reversibility horizons — picking a database, a primary language, a vendor — need rigor, and I make sure they get it.',
+          'Decisions affecting hiring, headcount, or roadmap, because architecture and people are coupled.',
         ],
       },
       {
-        heading: 'Where to stay out',
+        heading: 'Where I stay out',
         tone: 'avoid',
         items: [
           "Internal implementation choices within a team's scope.",
-          'Style and naming. (Have an opinion in writing once; then leave it to the team.)',
+          'Style and naming. I give my opinion in writing once, then leave it to the team.',
           'Anything reversible in a week.',
         ],
       },
       {
-        heading: 'Rituals worth establishing or protecting',
+        heading: 'Rituals I establish or protect',
         tone: 'default',
         items: [
-          "RFC / design doc process. Lightweight template, async review, decision recorded. If you don't have one, set one up.",
-          'Architecture review forum. Weekly or biweekly, optional attendance, used for designs that touch multiple teams or systems. Keep it small. Kill it if it becomes theater.',
-          'Tech radar or "we use X for Y" document. Reduces re-litigation of solved questions.',
-          'Decision log. Every non-trivial architectural decision: context, options, choice, who decided, when to revisit.',
+          "An RFC / design doc process: lightweight template, async review, decision recorded. If a team doesn't have one, I set one up.",
+          'An architecture review forum: weekly or biweekly, optional attendance, reserved for designs that touch multiple teams or systems. I keep it small, and I kill it if it becomes theater.',
+          'A tech radar or "we use X for Y" document, to reduce re-litigation of solved questions.',
+          'A decision log for every non-trivial architectural decision: context, options, choice, who decided, and when to revisit it.',
         ],
       },
       {
-        heading: 'Your tells that something is going wrong',
+        heading: 'My tells that something is going wrong',
         tone: 'avoid',
         items: [
           'The same architectural debate happens three times in three months.',
-          'A major decision was made and you only heard about it after.',
+          'A major decision gets made and I only hear about it after.',
           "Engineers are afraid to push back on a senior IC's preference.",
           'Designs ship without being written down.',
         ],
@@ -211,27 +211,27 @@ const topics: Topic[] = [
     n: '5',
     title: 'Tech Debt and Migrations',
     intro: [
-      'You will inherit some, you will create some, and you will lead at least one migration that takes longer than anyone expected.',
+      "I'll inherit some, I'll create some, and I'll lead at least one migration that takes longer than anyone expected.",
     ],
     sections: [
       {
         heading: 'Tech debt',
         tone: 'default',
         items: [
-          'Make it visible. Untracked debt is invisible debt is unfunded debt. Get it into the same backlog as features.',
-          'Allocate explicitly. Some fraction of every cycle goes to debt. "When we have time" means never.',
-          'Distinguish the kinds: deliberate-and-temporary (fine), deliberate-and-permanent (rare but real), accidental (the dangerous one).',
-          'Sometimes the answer is "live with it." Not all debt should be paid. Be honest about which.',
+          'I make it visible. Untracked debt is invisible debt is unfunded debt, so I get it into the same backlog as features.',
+          'I allocate explicitly. Some fraction of every cycle goes to debt, because "when we have time" means never.',
+          'I distinguish the kinds: deliberate-and-temporary (fine), deliberate-and-permanent (rare but real), accidental (the dangerous one).',
+          'Sometimes the answer is "live with it." Not all debt should be paid, and I try to be honest about which is which.',
         ],
       },
       {
         heading: 'Migrations',
         tone: 'default',
         items: [
-          'Never start one without an end date and a kill criterion. "We\'ll migrate everything to X eventually" is how organizations end up running three databases.',
-          'Resource it like a project. Owner, plan, milestones, regular check-ins.',
-          "Count down, not up. Dashboards should show what's left, not what's done.",
-          'Celebrate the deletion. The win is removing the old thing, not standing up the new one.',
+          'I never start one without an end date and a kill criterion. "We\'ll migrate everything to X eventually" is how organizations end up running three databases.',
+          'I resource it like a project: an owner, a plan, milestones, regular check-ins.',
+          "I count down, not up. My dashboards show what's left, not what's done.",
+          'I celebrate the deletion. The win is removing the old thing, not standing up the new one.',
         ],
       },
     ],
@@ -240,16 +240,16 @@ const topics: Topic[] = [
     id: 'hiring',
     n: '6',
     title: 'Hiring Engineers',
-    intro: ["What's specifically engineering-flavored about hiring:"],
+    intro: ["What's specifically engineering-flavored about how I hire:"],
     sections: [
       {
         tone: 'default',
         items: [
-          "You set the technical bar. Be specific about it in writing, calibrate with your team, and don't let urgency lower it.",
-          'Interview design is your job. Audit your loop in your first 60 days. Are you measuring what you actually care about? Does it bias against anyone you\'d want?',
-          'Stay on the loop. Even when busy. The signal you get from interviewing is irreplaceable.',
-          'Debrief discipline. Decisions in writing, with evidence, before anyone shares their lean. Otherwise the loudest voice wins.',
-          'Be honest in offers. Sell the role and the team, but not by misrepresenting them. The cost shows up in month four.',
+          "I set the technical bar. I'm specific about it in writing, I calibrate with my team, and I don't let urgency lower it.",
+          "Interview design is my job. I audit the loop in my first 60 days: am I measuring what I actually care about? Does it bias against anyone I'd want?",
+          "I stay on the loop, even when busy. The signal I get from interviewing is irreplaceable.",
+          'Debrief discipline: decisions in writing, with evidence, before anyone shares their lean. Otherwise the loudest voice wins.',
+          "I'm honest in offers. I sell the role and the team, but not by misrepresenting them — the cost shows up in month four.",
         ],
       },
     ],
@@ -259,35 +259,35 @@ const topics: Topic[] = [
     n: '7',
     title: 'Working With Staff+ Engineers',
     intro: [
-      'The senior individual contributors on your team are your technical peers, your force multipliers, and often your hardest people to manage well.',
+      'The senior individual contributors on my team are my technical peers, my force multipliers, and often the hardest people for me to manage well.',
     ],
     sections: [
       {
-        heading: 'What they need from you',
+        heading: 'What they need from me',
         tone: 'default',
         items: [
           'Real problems. Staff engineers atrophy on small work.',
-          "Air cover. They'll have unpopular opinions sometimes; your job is to make sure those opinions get heard.",
+          "Air cover. They'll have unpopular opinions sometimes; my job is to make sure those opinions get heard.",
           'Honest feedback. They get less of it than anyone, because they\'re "too senior." This is wrong.',
-          "Visibility. They often do work that's invisible until it isn't (a migration enabled, an incident prevented). Surface it.",
+          "Visibility. They often do work that's invisible until it isn't — a migration enabled, an incident prevented. I surface it.",
         ],
       },
       {
-        heading: 'What you need from them',
+        heading: 'What I need from them',
         tone: 'default',
         items: [
-          "A clear read on the technical state of things. They see things you don't.",
+          "A clear read on the technical state of things. They see things I don't.",
           'Mentorship of the rest of the team: explicit, not assumed.',
-          'Early signal on architectural problems. Treat their concerns as data even when you push back.',
+          'Early signal on architectural problems. I treat their concerns as data, even when I push back.',
         ],
       },
       {
-        heading: 'Common pitfalls',
+        heading: 'Pitfalls I try to avoid',
         tone: 'avoid',
         items: [
           "Treating them as junior managers. They're not.",
           "Avoiding hard conversations because they're senior. They want them.",
-          'Letting them become single points of failure. Diversify the knowledge.',
+          'Letting them become single points of failure. I work to diversify the knowledge.',
         ],
       },
     ],
@@ -297,15 +297,15 @@ const topics: Topic[] = [
     n: '8',
     title: 'Engineering Quality & Culture',
     intro: [
-      "You don't set engineering culture by declaring it. You set it by what you reward, tolerate, and notice.",
+      "I don't set engineering culture by declaring it. I set it by what I reward, tolerate, and notice.",
     ],
     sections: [],
     leadBody: [
-      { lead: 'Testing.', body: 'Be explicit about what you expect: what gets tests, what doesn\'t, what coverage means and doesn\'t mean.' },
-      { lead: 'Documentation.', body: 'Reward writing. Pair every "we should document this" with "and here is the hour to do it."' },
-      { lead: 'Code quality.', body: 'Establish norms; let the team enforce them. You are a tiebreaker, not a hall monitor.' },
-      { lead: 'Postmortems.', body: 'Blameless, written down, public, action items with owners. Make these the cultural artifact you protect most fiercely.' },
-      { lead: 'Production ownership.', body: '"You build it, you run it" is a value statement, not just an org structure. Make sure the team feels the consequences of what they ship.' },
+      { lead: 'Testing.', body: "I'm explicit about what I expect: what gets tests, what doesn't, what coverage means and doesn't mean." },
+      { lead: 'Documentation.', body: 'I reward writing. I pair every "we should document this" with "and here\'s the hour to do it."' },
+      { lead: 'Code quality.', body: "I establish norms and let the team enforce them. I'm a tiebreaker, not a hall monitor." },
+      { lead: 'Postmortems.', body: 'Blameless, written down, public, action items with owners. This is the cultural artifact I protect most fiercely.' },
+      { lead: 'Production ownership.', body: '"You build it, you run it" is a value statement to me, not just an org structure. I make sure the team feels the consequences of what they ship.' },
     ],
   },
   {
@@ -313,25 +313,25 @@ const topics: Topic[] = [
     n: '9',
     title: 'The IC → Manager Identity Question',
     intro: [
-      'If you came from engineering, expect grief. The work you were great at is no longer the work you do. Symptoms:',
+      "I came from engineering, and I know the grief. The work I was great at is no longer the work I do.",
     ],
     sections: [
       {
         tone: 'avoid',
         items: [
-          'Sneaking back into the code at night because it feels like "real work."',
-          'Feeling like you accomplished nothing on a day full of meetings.',
-          'Defining your value by what you produced rather than what your team produced.',
+          'Catching myself sneaking back into the code at night because it feels like "real work."',
+          'Feeling like I accomplished nothing on a day full of meetings.',
+          'Defining my value by what I produced rather than what my team produced.',
         ],
       },
       {
         heading: 'What helps',
         tone: 'default',
         items: [
-          "Redefine the unit of work. Your output is the team's output. Internalize this even when it feels uncomfortable.",
-          'Keep a "what I enabled" log. Friday afternoons, write down what happened this week that wouldn\'t have without you. Some weeks it\'ll be short. That\'s fine.',
-          'Find a peer group. Other managers, inside or outside the company. They are the only people who will understand the specific weirdness of the job.',
-          'Have a coach or mentor. Even informal. Even occasional.',
+          "Redefining the unit of work. My output is my team's output. I internalize this even when it feels uncomfortable.",
+          'Keeping a "what I enabled" log. Friday afternoons, I write down what happened this week that wouldn\'t have without me. Some weeks it\'s short. That\'s fine.',
+          "Finding a peer group: other managers, inside or outside the company. They're the only people who understand the specific weirdness of the job.",
+          'Having a coach or mentor. Even informal. Even occasional.',
         ],
       },
     ],
@@ -347,17 +347,17 @@ const tocItems = topics.map((t) => ({ id: t.id, label: `${t.n}. ${t.title}` }));
       <h1 class="font-display text-h1 font-medium tracking-tight text-ink">
         {entry.data.title}
       </h1>
-      <p class="measure mt-6 text-lead text-ink-muted">
-        A companion to the Leadership Manual, specific to running a software
-        engineering team.
+      <p class="measure mt-4 text-lead text-ink-muted">
+        My <a href="philosophy">philosophy</a> is about the human and organizational work of
+        leading. This one is about the technical work of leading engineers:
+        how technical I stay, where I engage with the code and systems, how
+        I think about on-call, how I influence architecture, and how I keep
+        the engineering bar high without becoming a bottleneck myself.
       </p>
       <p class="measure mt-4 text-body text-ink-muted">
-        The main manual is about the human and organizational work of
-        leading. This one is about the technical work of leading engineers:
-        how technical to stay, where to engage with the code and systems, how
-        to think about on-call, how to influence architecture, and how to
-        keep the engineering bar high without becoming a bottleneck.
-      </p>
+        Everything below is the 3 A's applied to engineering. If my team doesn't have the 
+        autonomy, authority, and accountability to do the work, that's my failure, not theirs.
+      </p>      
     </header>
 
     <div class="mt-4 lg:grid lg:grid-cols-[1fr_240px] lg:gap-16">

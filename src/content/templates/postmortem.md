@@ -2,6 +2,7 @@
 title: Postmortem Template
 tier: engineering-rituals
 order: 2
+summary: Blameless. The system allowed the failure; that's the frame, always.
 usageNote: Blameless. The system allowed the failure; that is the frame, always. Action items have owners and dates, or they are wishes. The lessons section is broader than the actions and often more valuable.
 ---
 

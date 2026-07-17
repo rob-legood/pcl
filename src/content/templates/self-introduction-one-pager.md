@@ -2,6 +2,7 @@
 title: Self-Introduction One-Pager
 tier: onboarding-transitions
 order: 1
+summary: For a new team in week one. Written to be read, not presented.
 usageNote: For sharing with a new team in your first week. Written to be read, not presented. Human details matter; they signal you're a person before you're a title. Skip the resume recap; frame your experience by what you learned, not what you shipped.
 ---
 
