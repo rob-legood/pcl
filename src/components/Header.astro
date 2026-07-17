@@ -7,14 +7,13 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Start Here', href: '/' },
-  { label: 'The Reflection', href: '/reflection' },
   { label: 'Philosophy', href: '/philosophy' },
   { label: 'First 90 Days', href: '/first-90-days' },
   { label: 'Playbooks', href: '/playbooks' },
   { label: 'Engineering', href: '/engineering' },
   { label: 'Templates', href: '/templates' },
   { label: 'Sustaining Yourself', href: '/sustaining-yourself' },
+  { label: 'Reflection', href: '/reflection' },
 ];
 
 const path = Astro.url.pathname;
@@ -34,7 +33,7 @@ const isCurrent = (href: string) =>
     </a>
 
     <nav aria-label="Primary" class="hidden lg:block">
-      <ul class="flex flex-wrap items-center gap-x-6 gap-y-1">
+      <ul class="flex flex-wrap items-left gap-x-6 gap-y-1">
         {
           navItems.map((item) => (
             <li>
@@ -42,9 +41,9 @@ const isCurrent = (href: string) =>
                 href={item.href}
                 aria-current={isCurrent(item.href) ? 'page' : undefined}
                 class:list={[
-                  'text-xs uppercase tracking-wide no-underline transition-colors',
+                  'text-sm uppercase tracking-wide no-underline transition-colors',
                   isCurrent(item.href)
-                    ? 'text-accent'
+                    ? 'font-bold text-accent-strong'
                     : 'text-ink-muted hover:text-ink',
                 ]}
               >
@@ -96,7 +95,7 @@ const isCurrent = (href: string) =>
               aria-current={isCurrent(item.href) ? 'page' : undefined}
               class:list={[
                 'block py-4 text-sm uppercase tracking-wide no-underline',
-                isCurrent(item.href) ? 'text-accent' : 'text-ink-muted',
+                isCurrent(item.href) ? 'font-medium text-accent-strong' : 'text-ink-muted',
               ]}
             >
               {item.label}
