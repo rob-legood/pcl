@@ -1,0 +1,38 @@
+<button
+  type="button"
+  id="back-to-top"
+  aria-label="Back to top"
+  hidden
+  class="no-print fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-hairline bg-paper-raised text-ink-muted shadow-sm transition-colors hover:text-ink"
+>
+  <svg viewBox="0 0 20 20" fill="none" class="h-5 w-5" aria-hidden="true">
+    <path
+      d="M10 15V5M10 5L5 10M10 5l5 5"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+</button>
+
+<script>
+  const button = document.getElementById('back-to-top');
+  const homeLink = document.querySelector<HTMLAnchorElement>('header a[href="/"]');
+
+  const SHOW_AFTER_PX = 400;
+
+  const updateVisibility = () => {
+    if (!button) return;
+    button.hidden = window.scrollY < SHOW_AFTER_PX;
+  };
+
+  updateVisibility();
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+
+  button?.addEventListener('click', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    homeLink?.focus({ preventScroll: true });
+  });
+</script>

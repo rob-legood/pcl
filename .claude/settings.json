@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\logo-preview.png' --window-size=1100,2000 http://localhost:4321/logo-preview-scratch)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\logo-preview-wide.png' --window-size=1440,2000 http://localhost:4321/logo-preview-scratch)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\logo1-context.png' --window-size=1440,1400 http://localhost:4321/logo-preview-scratch)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\footer-check.png' --window-size=1280,900 http://localhost:4321/philosophy)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\footer-check.png' --window-size=1280,6000 http://localhost:4321/philosophy)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\footer-check2.png' --window-size=1280,2500 http://localhost:4321/philosophy)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\btt-top.png' --window-size=1280,900 http://localhost:4321/philosophy)",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu --virtual-time-budget=3000 '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\btt-scrolled2.png' --window-size=1280,900 'http://localhost:4321/philosophy#where-tested')",
+      "Bash('/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe' --headless --disable-gpu --run-all-compositor-stages-before-draw --virtual-time-budget=5000 '--screenshot=C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad\\\\btt-scrolled3.png' --window-size=1280,900 'http://localhost:4321/philosophy#where-tested')",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless --disable-gpu --remote-debugging-port=9333 --user-data-dir=\"C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\edge-profile-test\" \"http://localhost:4321/philosophy\")",
+      "Bash(curl -s http://localhost:9333/json/version)",
+      "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-shot.mjs' http://localhost:4321/philosophy 600 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-scrolled.png')",
+      "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-shot.mjs' http://localhost:4321/philosophy 0 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-top.png')",
+      "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-click.mjs' http://localhost:4321/philosophy 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-after-click.png')",
+      "Bash(taskkill //F //IM msedge.exe)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Rob\\AppData\\Local\\Temp\\claude\\edge-profile-test"
+    ]
+  }
+}

@@ -27,13 +27,16 @@ const isCurrent = (href: string) =>
   >
     <a
       href="/"
-      class="font-display text-h3 font-medium tracking-tight text-ink no-underline hover:text-ink"
+      aria-label="People Centric Leadership — home"
+      class="inline-flex items-baseline font-display text-4xl italic text-accent no-underline hover:text-accent-strong"
     >
-      People Centric Leadership
+      <span aria-hidden="true">P</span>
+      <span aria-hidden="true" class="translate-y-1.5">C</span>
+      <span aria-hidden="true" class="translate-y-3">L</span>
     </a>
 
-    <nav aria-label="Primary" class="hidden lg:block">
-      <ul class="flex flex-wrap items-left gap-x-6 gap-y-1">
+    <nav aria-label="Primary" class="hidden xl:block">
+      <ul class="flex flex-nowrap items-center gap-x-5 whitespace-nowrap">
         {
           navItems.map((item) => (
             <li>
@@ -63,7 +66,7 @@ const isCurrent = (href: string) =>
         id="nav-toggle"
         aria-expanded="false"
         aria-controls="mobile-nav"
-        class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 lg:hidden"
+        class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 xl:hidden"
       >
         <span class="sr-only">Toggle menu</span>
         <span
@@ -84,7 +87,7 @@ const isCurrent = (href: string) =>
     id="mobile-nav"
     aria-label="Primary"
     hidden
-    class="border-t border-hairline lg:hidden"
+    class="border-t border-hairline xl:hidden"
   >
     <ul class="mx-auto flex max-w-5xl flex-col divide-y divide-hairline px-6 sm:px-8">
       {
