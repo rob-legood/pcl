@@ -24,7 +24,10 @@ const tags = [...new Set(playbooks.flatMap((entry) => entry.data.tags))].sort();
       so I'm not improvising under stress. When something hard happens, I want to pull the 
       relevant one off the shelf and re-read it before I act.
     </p>
-
+    <p class="measure mt-4 text-lead text-ink-muted">
+      Reading a playbook cold isn't the same as having run it, though. So each one comes with a prompt you can paste into an AI to rehearse — the hard version, where the other person doesn't make it easy. Better to fumble the conversation with a machine than with the person it's actually about.
+    </p>
+    <!--
     <div class="mt-10 space-y-4">
       <label class="block">
         <span class="sr-only">Search playbooks</span>
@@ -59,10 +62,10 @@ const tags = [...new Set(playbooks.flatMap((entry) => entry.data.tags))].sort();
         </button>
       </div>
     </div>
-
     <p data-empty-state hidden class="mt-12 text-sm text-ink-muted">
       No playbooks match your search.
     </p>
+ -->
 
     <ul class="mt-8 grid gap-6 sm:grid-cols-2">
       {
