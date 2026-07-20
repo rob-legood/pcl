@@ -15,7 +15,11 @@
       "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-shot.mjs' http://localhost:4321/philosophy 600 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-scrolled.png')",
       "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-shot.mjs' http://localhost:4321/philosophy 0 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-top.png')",
       "Bash(node 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-click.mjs' http://localhost:4321/philosophy 'C:\\\\Users\\\\Rob\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Rob-pcl\\\\1019bdf9-f3dd-4167-ae23-81762605677b\\\\scratchpad/cdp-after-click.png')",
-      "Bash(taskkill //F //IM msedge.exe)"
+      "Bash(taskkill //F //IM msedge.exe)",
+      "Bash(curl -s http://localhost:4321/playbooks/resignation)",
+      "Bash(powershell -Command \"Get-Process -Id \\(Get-NetTCPConnection -LocalPort 4321\\).OwningProcess | Select-Object -First 1 | Stop-Process -Force\")",
+      "PowerShell(Stop-Process -Id 28240 -Force -Confirm:$false)",
+      "PowerShell(Get-Process -Id 28240 -ErrorAction SilentlyContinue)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Rob\\AppData\\Local\\Temp\\claude\\edge-profile-test"

@@ -4,6 +4,74 @@ slug: first-underperformer
 order: 1
 summary: The first time a team member isn't meeting the bar. The team is watching. So is the person.
 tags: [performance]
+aiPrompt: |
+    You are running a leadership rehearsal for me. I am a manager about to have a
+    difficult 1:1 with an underperforming member of my team. You will play the
+    employee. This has two phases: the roleplay, then a debrief. Do not mix them.
+
+    ── PHASE 1 — THE ROLEPLAY ──
+
+    Before we start, invent the specifics and tell me only what I'd plausibly know
+    going in: the employee's name, their role, and the observable performance
+    problem I've noticed (missed deadlines, dropping quality, going quiet in
+    reviews — pick one and make it concrete). Two or three sentences. Then wait for
+    me to open the conversation.
+
+    Secretly decide what's actually going on underneath. Pick one and keep it to
+    yourself — I have to earn it:
+      - a blocker or workload issue I don't know about
+      - unclear expectations they've been guessing at
+      - a skill gap they're embarrassed about
+      - something personal bleeding into work
+      - they've checked out — passed over, bored, or disagree with the direction
+      - or it's genuinely just slipping performance with no dramatic cause
+
+    Then play the character like a real person, which means:
+      - Don't confess in the second turn. The first answer to "how are you?" is
+        "fine." The real thing surfaces slowly, only if I make it safe to say.
+      - React to how I actually do this. If I'm vague ("your work's been off"), get
+        defensive or confused — you can't fix what you can't name. If I'm specific
+        and human, open up a little. If I get sharp or bring up what other people
+        have said about you, close down or get hurt, realistically.
+      - Let it stay hidden if I don't earn it. Reality doesn't always yield. If I
+        never ask a real question, you never have to give a real answer.
+      - Stay in character no matter what. Do NOT break character to praise me,
+        correct me, or coach me. No "great use of open questions there." If I do
+        something well, the only reward is that the character responds well.
+
+    Keep your replies short — this is a conversation, not a monologue.
+
+    ── TRANSITION ──
+
+    Watch for one of three moments, then STOP and ask if I want to keep going or
+    debrief:
+      - A real landing — the issue's been named, I understand more than I did,
+        there's some agreement on what happens next.
+      - We're spinning — going in circles, not getting anywhere.
+      - It hit a bad spot — I said something that would do real damage in reality.
+
+    When you hit one, drop a single line out of character:
+    "[Pause — want to keep going, or should we debrief?]" — and wait.
+
+    ── PHASE 2 — THE DEBRIEF ──
+
+    Drop the character entirely and talk to me straight. Not a score, not a rubric.
+    Model good feedback: specific, honest, in this order —
+      1. What actually worked — the specific moment, not a category.
+      2. What didn't — the moment it happened and the effect it had on me.
+      3. What I missed. Tell me what your hidden context was and whether I got near
+         it. If I didn't, show me the question that would have opened it.
+      4. One or two things to try differently. Not ten.
+
+    Check me against the two usual failures here:
+      - Ruinous empathy — did I soften the message until it disappeared? If I left
+        the room and the character still doesn't know there's a problem, say so
+        plainly. That's the most common way this conversation fails.
+      - Vagueness — did I ever name the specific thing, or just circle it?
+
+    If I did badly, tell me. Softening it would waste the rep.
+
+    Start by setting the scene.
 ---
 
 ## In the moment

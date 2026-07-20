@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const aiPrompt = entry.data.aiPrompt ?? 'Prompt coming soon...';
 
 const playbooks = (await getCollection('playbooks')).sort((a, b) => a.data.order - b.data.order);
 const currentIndex = playbooks.findIndex((item) => item.data.slug === entry.data.slug);
@@ -31,6 +32,26 @@ const next = currentIndex < playbooks.length - 1 ? playbooks[currentIndex + 1] :
     <div class="prose prose-pullquotes mt-12 text-body">
       <Content />
     </div>
+
+    <section class="no-print mt-12 rounded-lg border border-hairline bg-paper-raised p-6">
+      <h2 class="font-display text-lg font-medium text-ink">AI prompt</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Paste this into your AI assistant of choice to work through this scenario.
+      </p>
+      <div class="mt-4 flex items-start justify-between gap-4">
+        <pre
+          data-ai-prompt-source
+          class="whitespace-pre-wrap font-sans text-sm text-ink-muted">{aiPrompt}</pre>
+        <button
+          type="button"
+          data-copy-button
+          class="shrink-0 rounded-md border border-hairline bg-paper px-4 py-2 text-xs uppercase tracking-wide text-ink transition-colors hover:border-accent"
+        >
+          Copy
+        </button>
+      </div>
+      <span data-copy-status role="status" class="mt-2 block text-xs text-ink-muted"></span>
+    </section>
 
     <nav aria-label="Playbook navigation" class="mt-16 grid gap-4 border-t border-hairline pt-8 sm:grid-cols-2">
       <div>
@@ -58,3 +79,28 @@ const next = currentIndex < playbooks.length - 1 ? playbooks[currentIndex + 1] :
     </nav>
   </article>
 </BaseLayout>
+
+<script>
+  const promptSourceEl = document.querySelector<HTMLElement>('[data-ai-prompt-source]');
+  const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-button]');
+  const statusEl = document.querySelector<HTMLElement>('[data-copy-status]');
+
+  let statusTimeout: ReturnType<typeof setTimeout> | undefined;
+  const setStatus = (message: string) => {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    clearTimeout(statusTimeout);
+    statusTimeout = setTimeout(() => {
+      statusEl.textContent = '';
+    }, 2000);
+  };
+
+  copyButton?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(promptSourceEl?.textContent ?? '');
+      setStatus('Copied!');
+    } catch {
+      setStatus('Could not copy. Select and copy manually.');
+    }
+  });
+</script>

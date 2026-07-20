@@ -37,6 +37,7 @@ const playbooks = defineCollection({
     order: z.number(),
     summary: z.string(),
     tags: z.array(z.string()),
+    aiPrompt: z.string().optional(),
   }),
 });
 
